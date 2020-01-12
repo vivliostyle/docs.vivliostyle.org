@@ -1,6 +1,6 @@
 module.exports = {
   title: "Vivliostyle",
-  tagline: "Vivliostyle-documentation",
+  tagline: "CSS Typesetting",
   url: "https://docs.vivliostyle.org",
   baseUrl: "/",
   favicon: "img/favicon.ico",
@@ -10,8 +10,8 @@ module.exports = {
     navbar: {
       title: "Vivliostyle",
       logo: {
-        alt: "My Site Logo",
-        src: "img/logo.svg"
+        alt: "Vivliostyle Logo",
+        src: "img/logo.png"
       },
       links: [
         { to: "docs/user-guide", label: "User Guide", position: "left" },

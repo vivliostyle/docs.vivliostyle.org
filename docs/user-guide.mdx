@@ -1,92 +1,41 @@
 ---
-title: Vivliostyle User Guide
-sidebar_label: Getting started
+title: User Guide
 ---
 
-import Toggle from "react-toggle";
-import { State, Observe } from "mdx-observable";
-import Switch from "react-input-switch";
-
-export const AdaptiveLink = ({ path }) => (
-  <Observe>
-    {({ isLocal }) => {
-      const host = isLocal
-        ? "http://localhost:8080"
-        : "https://vivliostyle.org";
-      return (
-        <a href={`${host}/${path}`}>
-          {host}/{path}
-        </a>
-      );
-    }}
-  </Observe>
-);
-
-export default ({ children }) => {
-  return (
-    <State initialState={{ isLocal: false }}>
-      <div
-        style={{
-          border: "1px solid #aaa",
-          borderRadius: "4px",
-          padding: "20px",
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center"
-        }}
-      >
-        <div style={{ marginRight: "10px" }}>Local Server Mode</div>
-        <Observe>
-          {({ setState, isLocal }) => (
-            <Switch
-              value={isLocal}
-              onChange={checked => setState({ isLocal: checked })}
-            />
-          )}
-        </Observe>
-      </div>
-      {children}
-    </State>
-  );
-};
+import { Layout, AdaptiveLink } from "@theme/AdaptivePage";
+import Samples from "@theme/Samples";
+export default Layout;
 
 ## Introduction
 
 Vivliostyle Viewer is a web application displaying and typesetting
 HTML+CSS documents.
 
-## How to use
+## Vivliostyle Viewer
 
 To use the Vivliostyle Viewer in a local environment, start a web
 server by following the instructions described in the
-[`README.md` (read online)](https://github.com/vivliostyle/vivliostyle/blob/master/packages/viewer/README.md)
+[README](https://github.com/vivliostyle/vivliostyle/blob/master/packages/viewer/README.md)
 attached to the distribution package.
 
-You can also use the public online Vivliostyle Viewer, <https://vivliostyle.org/viewer/>, that has always been updated to the latest release version. For early bird users, there is also canary version available <https://vivliostyle.github.io/vivliostyle/viewer/>.
+You can also use the public online Vivliostyle Viewer ([vivliostyle.org/viewer/](https://vivliostyle.org/viewer/)) that has always been updated to the latest release version. For early bird users, there is also canary version available [vivliostyle.now.sh](https://vivliostyle.now.sh).
 
-When you open [Vivliostyle Viewer](http://localhost:8000/viewer/) without specifying parameters, an “Input a document URL” box and the following usage description is displayed:
+When you open <AdaptiveLink path="viewer">Vivliostyle Viewer</AdaptiveLink> without specifying parameters, an “Input a document URL” box and the following usage description is displayed:
 
-Access to <AdaptiveLink path="#x=./samples.html" />.
+Access to <AdaptiveLink path="viewer/#x=./samples.html" />.
 
-## Supported document types:
+## Supported document types
 
 - (X)HTML document, with CSS for paged media
   - Web publication (a collection of HTML documents): specify URL of the primary entry page or manifest file.
   - Unzipped EPUB: specify URL of OPF file or top directory of the unzipped EPUB files.
 
-### Notes:
-
-- GitHub and Gist URLs can be directly specified. Vivliostyle loads raw
-  github/gist content when such URL is specified.
-- ⚠️Mixed Content (“http:” URL is specified to “https:” Vivliostyle Viewer) is usually blocked by browser.
-- ⚠️Cross-Origin (request to different domain) is usually blocked by browser unless the server is configured to allow Cross-Origin Resource Sharing (CORS).
-
-### URL parameter options:
+### URL parameter options
 
 - `#b=(document URL)` or `#x=&(document URL)`
 
   - #**b**= Book view. When (X)HTML document URL is specified, the URL is treated as primary entry page’s, and a series of HTML documents linked from the manifest or TOC (Table of Contents, e.g. marked up with `<nav role="doc-toc">`) are automatically loaded.
-  - #**x**= (X)HTML document is simply loaded. Multiple documents can be specified as `#x=<1st HTML>&x=<2nd HTML>...`
+  - #**x**= (X)HTML document is simply loaded. Multiple documents can be specified as `#x=(1st HTML)&x=(2nd HTML)...`
 
 - `&spread=[true | false | auto]`
   - true: Spread view
@@ -101,7 +50,16 @@ Access to <AdaptiveLink path="#x=./samples.html" />.
 
 Options can also be set in the **Settings** panel.
 
-## Specifying HTML documents to be displayed in Vivliostyle Viewer
+### Notes
+
+- GitHub and Gist URLs can be directly specified. Vivliostyle loads raw
+  github/gist content when such URL is specified.
+- ⚠️Mixed Content (“http:” URL is specified to “https:” Vivliostyle Viewer) is usually blocked by browser.
+- ⚠️Cross-Origin (request to different domain) is usually blocked by browser unless the server is configured to allow Cross-Origin Resource Sharing (CORS).
+
+## Load document to render
+
+### HTML
 
 To display an HTML file in the Vivliostyle Viewer, place the file
 (and CSS or image files read from the file) somewhere which the
@@ -135,12 +93,12 @@ Input the document file path (or URL) in the text box; the Vivliostyle Viewer UR
 <input
   id="file-path-input"
   type="text"
-  value="/samples/wood/index.html"
+  defaultValue="/samples/wood/index.html"
   size="30"
 />
 <AdaptiveLink path="#x=../samples/wood/index.html" />
 
-### To display EPUB
+### EPUB
 
 You can display unzipped EPUB files with the Vivliostyle Viewer.
 
@@ -156,7 +114,12 @@ Example: If you want to display an unzipped EPUB folder [samples/niimi/](https:/
 
 Input the EPUB folder path (or URL) in the text box; the Vivliostyle Viewer URL of the EPUB document is displayed below:
 
-<input id="epub-path-input" type="text" value="/samples/niimi/" size="30" />
+<input
+  id="epub-path-input"
+  type="text"
+  defaultValue="/samples/niimi/"
+  size="30"
+/>
 <AdaptiveLink path="#b=../samples/niimi/" />
 
 An example of displaying unzipped EPUB on GitHub:
@@ -165,7 +128,7 @@ An example of displaying unzipped EPUB on GitHub:
 
   <AdaptiveLink path="viewer/#b=https://github.com/IDPF/epub3-samples/tree/master/30/accessible_epub_3/" />
 
-### To display Web publications
+### Web publications
 
 You can display Web publications (a collection of HTML documents)
 with the Vivliostyle Viewer. In this case, use the following
@@ -190,7 +153,9 @@ documents published on the Web:
 - [Cascading Style Sheets Level 2 Revision 2 (CSS 2.2) Specification](https://drafts.csswg.org/css2/) on [CSS Working Group Editor Drafts](https://drafts.csswg.org/)
   <AdaptiveLink path="viewer/#b=https://drafts.csswg.org/css2/" />
 
-### To specify page spread view mode
+## Fine-grained config
+
+### Page spread view mode
 
 #### Spread
 
@@ -211,12 +176,14 @@ following to the URL:
 &spread=auto (auto spread view = default)
 ```
 
-export const Icon = ({ src, alt }) => <img class="icon" src={src} alt={alt} />;
+export const Icon = ({ src, alt }) => (
+  <img className="icon" src={src} alt={alt} />
+);
 
 You can also change the page view mode in the Vivliostyle Viewer's
 setting panel (open by clicking the <Icon src="/assets/user-guide/images/vivliostyle-icon.png" alt="[Setting]" /> icon in the upper right corner of the viewer).
 
-### To specify additional style sheets
+### Additional style sheets
 
 To use additional style sheets (CSS files) in addition to the
 style sheets specified in the HTML file, append the following to
@@ -258,38 +225,71 @@ the document on the Web:
 - [Cascading Style Sheets Level 2 Revision 2 (CSS 2.2) Specification](https://drafts.csswg.org/css2/) on
   [CSS Working Group Editor Drafts](https://drafts.csswg.org/)
 
-  <AdaptiveLink path="viewer/#b=https://drafts.csswg.org/css2/&userStyle=data:,/*%3Cviewer%3E*/%0A@page%20%7B%20size:%20A4;%20%7D%0A/*%3C/viewer%3E*/%0A%0A@page%20:first%20%7B%0A%20%20@top-left%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%20%20@top-right%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%7D%0A%0A@page%20:left%20%7B%0A%20%20font-size:%200.8rem;%0A%20%20@top-left%20%7B%0A%20%20%20%20content:%20env(pub-title);%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20counter(page);%0A%20%20%7D%0A%7D%0A%0A@page%20:right%20%7B%0A%20%20font-size:%200.8rem;%0A%20%20@top-right%20%7B%0A%20%20%20%20content:%20env(doc-title);%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20counter(page);%0A%20%20%7D%0A%7D&renderAllPages=true" />
+  <AdaptiveLink path="viewer/#b=https://drafts.csswg.org/css2/&userStyle=data:,/*%3Cviewer%3E*/%0A@page%20%7B%20size:%20A4;%20%7D%0A/*%3C/viewer%3E*/%0A%0A@page%20:first%20%7B%0A%20%20@top-left%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%20%20@top-right%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%7D%0A%0A@page%20:left%20%7B%0A%20%20font-size:%200.8rem;%0A%20%20@top-left%20%7B%0A%20%20%20%20content:%20env(pub-title);%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20counter(page);%0A%20%20%7D%0A%7D%0A%0A@page%20:right%20%7B%0A%20%20font-size:%200.8rem;%0A%20%20@top-right%20%7B%0A%20%20%20%20content:%20env(doc-title);%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20counter(page);%0A%20%20%7D%0A%7D&renderAllPages=true">
+    #b=https://drafts.csswg.org/css2/&userStyle=data:,CSS
+  </AdaptiveLink>
+
+```
+#b=(URL)&renderAllPages=true&userStyle=data:,/*<viewer>*/
+@page { size: A4; }
+/*</viewer>*/
+
+@page :first {
+  @top-left {
+    content: none;
+  }
+  @top-right {
+    content: none;
+  }
+  @bottom-center {
+    content: none;
+  }
+}
+
+@page :left {
+  font-size: 0.8rem;
+  @top-left {
+    content: env(pub-title);
+  }
+  @bottom-center {
+    content: counter(page);
+  }
+}
+
+@page :right {
+  font-size: 0.8rem;
+  @top-right {
+    content: env(doc-title);
+  }
+  @bottom-center {
+    content: counter(page);
+  }
+}
+```
 
 When setting styles from the settings panel like this example, the CSS code of
 the styles set from option items in the settings panel is generated between
 the comments
-`/*&lt;viewer&gt;*/` and
-`/*&lt;/viewer/&gt;*/` in the user style CSS that are displayed in
+`/*<viewer>*/` and
+`/*</viewer>*/` in the user style CSS that are displayed in
 the **CSS Details** box. You can add your own CSS code to it. In
 this example, page header and footer are added.
 
-### How to Print/Save as PDF from Vivliostyle Viewer
+## Save and Print as PDF
 
-Use your browser’s print/save as PDF feature. For example, to save as PDF with
+Utilizing your browser’s print/save functionality, you can convert rendered document into PDF.
+
+For example, to save as PDF with
 Google Chrome, select Print from menu, set Destination to “Save as PDF”, check
 “Background graphics”, and “Save” to PDF.
-**Note:** When you print all pages of a document, check that{" "}
-**Render All Pages** is On in the setting panel. When this is
-Off, only the pages that have already been displayed can be printed, and the
-page number will not be output correctly.
 
-### CSS features supported by Vivliostyle
+> **Note:** When you print all pages of a document, check that
+> **Render All Pages** is On in the setting panel. When this is
+> Off, only the pages that have already been displayed can be printed, and the
+> page number will not be output correctly.
 
-Supported CSS features are described in
+## Supported CSS features
 
-<a href="/docs/supported-features">Features supported by Vivliostyle</a>.
-
-### Other documentation
-
-You can find other documentation at
-
-<a href="/docs/">Vivliostyle Documentation</a>
-
-import Samples from "@site/src/components/Samples";
+Supported CSS features are described in [Supported features](./supported-features.md).
 
 <Samples />

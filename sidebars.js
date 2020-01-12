@@ -7,8 +7,8 @@
 
 module.exports = {
   someSidebar: {
-    "User Guide": ["user-guide"],
-    API: [
+    Guide: ["user-guide", "contribution", "community"],
+    Reference: [
       "api",
       "supported-features",
       "available-properties",

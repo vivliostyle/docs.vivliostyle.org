@@ -15,7 +15,8 @@
     "mdx-observable": "^0.2.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-input-switch": "^2.2.1"
+    "react-input-switch": "^2.2.1",
+    "url-join": "^4.0.1"
   },
   "browserslist": {
     "production": [
