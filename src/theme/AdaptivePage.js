@@ -7,7 +7,7 @@ export const AdaptiveLink = ({ path, children }) => (
   <Observe>
     {({ isLocal }) => {
       const host = isLocal
-        ? "http://localhost:8080"
+        ? `http://localhost:${window.location.port}`
         : "https://vivliostyle.org";
       return (
         <a href={`${host}/${path}`}>
