@@ -1,10 +1,47 @@
----
-title: ユーザーガイド
----
+# User Guide
 
-import { Layout, AdaptiveLink } from "@theme/AdaptivePage";
-import Samples from "@theme/Samples";
-export default Layout;
+```js {mixin:true}
+{
+  data() {
+    return {
+      isOnline: false,
+    }
+  },
+  methods: {
+    onChangeEventHandler(event) {
+      this.isOnline = event.value;
+    }
+  }
+}
+```
+
+```js {mixin: true}
+Vue.component("Link", {
+  props: { isOnline: { type: Boolean, default: true }, path: String },
+  template: `
+    <a v-bind:href="url+path"><slot>{{url}}{{path}}</slot></a>
+  `,
+  computed: {
+    url() {
+      return this.isOnline
+        ? "https://vivliostyle.org"
+        : `http://localhost:${window.location.port}`;
+    }
+  }
+});
+```
+
+<div class="toggle-box">
+  <v-style>
+    .toggle-box{
+      border: 1px solid var(--border-color);
+      padding: 20px;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+  </v-style>
+  <toggle-button @change="onChangeEventHandler" :value="true" width="70" :labels="{checked: 'Online', unchecked: 'Local'}"></toggle-button>
+</div>
 
 ## Introduction
 
@@ -20,9 +57,9 @@ attached to the distribution package.
 
 You can also use the public online Vivliostyle Viewer ([vivliostyle.org/viewer/](https://vivliostyle.org/viewer/)) that has always been updated to the latest release version. For early bird users, there is also canary version available [vivliostyle.now.sh](https://vivliostyle.now.sh).
 
-When you open <AdaptiveLink path="viewer">Vivliostyle Viewer</AdaptiveLink> without specifying parameters, an “Input a document URL” box and the following usage description is displayed:
+When you open <Link v-bind:isOnline="isOnline" path="/viewer">Vivliostyle Viewer</Link> without specifying parameters, an “Input a document URL” box and the following usage description is displayed:
 
-Access to <AdaptiveLink path="viewer/#x=./samples.html" />.
+Access to <Link v-bind:isOnline="isOnline" path="/viewer/#x=./samples.html" />.
 
 ## Supported document types
 
@@ -86,7 +123,7 @@ connection is required when the document contains mathematics.
 
 Example: If you want to display a HTML file [samples/wood/index.html](https://vivliostyle.github.io/vivliostyle_doc/samples/wood/index.html):
 
-<AdaptiveLink path="#x=../samples/wood/index.html" />
+<Link v-bind:isOnline="isOnline" path="/#x=../samples/wood/index.html" />
 
 Input the document file path (or URL) in the text box; the Vivliostyle Viewer URL of the document is displayed below:
 
@@ -96,7 +133,8 @@ Input the document file path (or URL) in the text box; the Vivliostyle Viewer UR
   defaultValue="/samples/wood/index.html"
   size="30"
 />
-<AdaptiveLink path="#x=../samples/wood/index.html" />
+
+<Link v-bind:isOnline="isOnline" path="/#x=../samples/wood/index.html" />
 
 ### EPUB
 
@@ -110,7 +148,7 @@ In this case, use the following parameter:
 
 Example: If you want to display an unzipped EPUB folder [samples/niimi/](https://vivliostyle.github.io/vivliostyle_doc/samples/niimi/index.html):
 
-<AdaptiveLink path="#b=../samples/niimi/" />
+<Link v-bind:isOnline="isOnline" path="/#b=../samples/niimi/" />
 
 Input the EPUB folder path (or URL) in the text box; the Vivliostyle Viewer URL of the EPUB document is displayed below:
 
@@ -120,13 +158,14 @@ Input the EPUB folder path (or URL) in the text box; the Vivliostyle Viewer URL 
   defaultValue="/samples/niimi/"
   size="30"
 />
-<AdaptiveLink path="#b=../samples/niimi/" />
+
+<Link v-bind:isOnline="isOnline" path="/#b=../samples/niimi/" />
 
 An example of displaying unzipped EPUB on GitHub:
 
 - [Accessible EPUB 3](https://github.com/IDPF/epub3-samples/tree/master/30/accessible_epub_3/) on [IDPF/epub3-samples](https://github.com/IDPF/epub3-samples/)
 
-  <AdaptiveLink path="viewer/#b=https://github.com/IDPF/epub3-samples/tree/master/30/accessible_epub_3/" />
+  <Link v-bind:isOnline="isOnline" path="/viewer/#b=https://github.com/IDPF/epub3-samples/tree/master/30/accessible_epub_3/" />
 
 ### Web publications
 
@@ -151,7 +190,7 @@ An example of displaying publications composed of multiple HTML
 documents published on the Web:
 
 - [Cascading Style Sheets Level 2 Revision 2 (CSS 2.2) Specification](https://drafts.csswg.org/css2/) on [CSS Working Group Editor Drafts](https://drafts.csswg.org/)
-  <AdaptiveLink path="viewer/#b=https://drafts.csswg.org/css2/" />
+  <Link v-bind:isOnline="isOnline" path="viewer/#b=https://drafts.csswg.org/css2/" />
 
 ## Fine-grained config
 
@@ -177,7 +216,7 @@ following to the URL:
 ```
 
 export const Icon = ({ src, alt }) => (
-  <img className="icon" src={src} alt={alt} />
+<img className="icon" src={src} alt={alt} />
 );
 
 You can also change the page view mode in the Vivliostyle Viewer's
@@ -225,7 +264,7 @@ the document on the Web:
 - [Cascading Style Sheets Level 2 Revision 2 (CSS 2.2) Specification](https://drafts.csswg.org/css2/) on
   [CSS Working Group Editor Drafts](https://drafts.csswg.org/)
 
-  <AdaptiveLink path="viewer/#b=https://drafts.csswg.org/css2/&userStyle=data:,/*%3Cviewer%3E*/%0A@page%20%7B%20size:%20A4;%20%7D%0A/*%3C/viewer%3E*/%0A%0A@page%20:first%20%7B%0A%20%20@top-left%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%20%20@top-right%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%7D%0A%0A@page%20:left%20%7B%0A%20%20font-size:%200.8rem;%0A%20%20@top-left%20%7B%0A%20%20%20%20content:%20env(pub-title);%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20counter(page);%0A%20%20%7D%0A%7D%0A%0A@page%20:right%20%7B%0A%20%20font-size:%200.8rem;%0A%20%20@top-right%20%7B%0A%20%20%20%20content:%20env(doc-title);%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20counter(page);%0A%20%20%7D%0A%7D&renderAllPages=true">
+  <Link v-bind:isOnline="isOnline" path="/viewer/#b=https://drafts.csswg.org/css2/&userStyle=data:,/*%3Cviewer%3E*/%0A@page%20%7B%20size:%20A4;%20%7D%0A/*%3C/viewer%3E*/%0A%0A@page%20:first%20%7B%0A%20%20@top-left%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%20%20@top-right%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%7D%0A%0A@page%20:left%20%7B%0A%20%20font-size:%200.8rem;%0A%20%20@top-left%20%7B%0A%20%20%20%20content:%20env(pub-title);%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20counter(page);%0A%20%20%7D%0A%7D%0A%0A@page%20:right%20%7B%0A%20%20font-size:%200.8rem;%0A%20%20@top-right%20%7B%0A%20%20%20%20content:%20env(doc-title);%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20counter(page);%0A%20%20%7D%0A%7D&renderAllPages=true">
     #b=https://drafts.csswg.org/css2/&userStyle=data:,CSS
   </AdaptiveLink>
 

@@ -1,6 +1,4 @@
----
-title: Contribution Guide
----
+# Contribution Guide
 
 ## Module structure
 
