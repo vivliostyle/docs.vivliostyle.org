@@ -115,7 +115,7 @@ connection is required when the document contains mathematics.
 
 Example: If you want to display a HTML file [samples/wood/index.html](https://vivliostyle.github.io/vivliostyle_doc/samples/wood/index.html):
 
-<Link v-bind:isOnline="isOnline" path="/#x=../samples/wood/index.html" />
+<Link v-bind:isOnline="isOnline" path="/viewer/#x=../samples/wood/index.html" />
 
 Input the document file path (or URL) in the text box; the Vivliostyle Viewer URL of the document is displayed below:
 
@@ -126,7 +126,7 @@ Input the document file path (or URL) in the text box; the Vivliostyle Viewer UR
   size="30"
 />
 
-<Link v-bind:isOnline="isOnline" path="/#x=../samples/wood/index.html" />
+<Link v-bind:isOnline="isOnline" path="/viewer/#x=../samples/wood/index.html" />
 
 ### EPUB
 
@@ -140,7 +140,7 @@ In this case, use the following parameter:
 
 Example: If you want to display an unzipped EPUB folder [samples/niimi/](https://vivliostyle.github.io/vivliostyle_doc/samples/niimi/index.html):
 
-<Link v-bind:isOnline="isOnline" path="/#b=../samples/niimi/" />
+<Link v-bind:isOnline="isOnline" path="/viewer/#b=../samples/niimi/" />
 
 Input the EPUB folder path (or URL) in the text box; the Vivliostyle Viewer URL of the EPUB document is displayed below:
 
@@ -151,7 +151,7 @@ Input the EPUB folder path (or URL) in the text box; the Vivliostyle Viewer URL 
   size="30"
 />
 
-<Link v-bind:isOnline="isOnline" path="/#b=../samples/niimi/" />
+<Link v-bind:isOnline="isOnline" path="/viewer/#b=../samples/niimi/" />
 
 An example of displaying unzipped EPUB on GitHub:
 
@@ -182,7 +182,7 @@ An example of displaying publications composed of multiple HTML
 documents published on the Web:
 
 - [Cascading Style Sheets Level 2 Revision 2 (CSS 2.2) Specification](https://drafts.csswg.org/css2/) on [CSS Working Group Editor Drafts](https://drafts.csswg.org/)
-  <Link v-bind:isOnline="isOnline" path="viewer/#b=https://drafts.csswg.org/css2/" />
+  <Link v-bind:isOnline="isOnline" path="/viewer/#b=https://drafts.csswg.org/css2/" />
 
 ## Fine-grained config
 
@@ -207,12 +207,8 @@ following to the URL:
 &spread=auto (auto spread view = default)
 ```
 
-export const Icon = ({ src, alt }) => (
-<img className="icon" src={src} alt={alt} />
-);
-
 You can also change the page view mode in the Vivliostyle Viewer's
-setting panel (open by clicking the <Icon src="/assets/user-guide/images/vivliostyle-icon.png" alt="[Setting]" /> icon in the upper right corner of the viewer).
+setting panel (open by clicking the <img src="/images/logo.png" width="16" height="16" alt="[Setting]" /> icon in the upper right corner of the viewer).
 
 ### Additional style sheets
 
