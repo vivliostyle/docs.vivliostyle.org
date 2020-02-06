@@ -2,11 +2,11 @@
 
 ## Guide
 
-- [User Guide](/#/user-guide)
-- [Contribution Guide](/#/contribution-guide)
+- [User Guide](/user-guide)
+- [Contribution Guide](/contribution-guide)
 
 ## Reference
 
-- [API Reference](/#/api)
-- [Supported Features](/#/supported-features)
-- [Available Properties](/#/available-properties)
+- [API Reference](/api)
+- [Supported Features](/supported-features)
+- [Available Properties](/available-properties)
