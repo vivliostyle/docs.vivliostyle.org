@@ -25,7 +25,7 @@ Vue.component("Link", {
     url() {
       return this.isOnline
         ? "https://vivliostyle.org"
-        : `http://localhost:${window.location.port}`;
+        : `http://localhost:${window.location.port || 80}`;
     }
   }
 });
