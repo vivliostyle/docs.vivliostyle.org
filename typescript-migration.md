@@ -1,7 +1,4 @@
----
-id: typescript-migration
-title: Migration to TypeScript
----
+# Migration to TypeScript
 
 Vivliostyle.js changed its type check system from Google Closure Compiler to TypeScript.
 

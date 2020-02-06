@@ -1,4 +1,4 @@
-# User Guide
+# ユーザーガイド
 
 ```js {mixin:true}
 {
@@ -31,17 +31,9 @@ Vue.component("Link", {
 });
 ```
 
-<div class="toggle-box">
-  <v-style>
-    .toggle-box{
-      border: 1px solid var(--border-color);
-      padding: 20px;
-      font-weight: bold;
-      border-radius: 4px;
-    }
-  </v-style>
+<Note label="">
   <toggle-button @change="onChangeEventHandler" :value="true" width="70" :labels="{checked: 'Online', unchecked: 'Local'}"></toggle-button>
-</div>
+</Note>
 
 ## Introduction
 
