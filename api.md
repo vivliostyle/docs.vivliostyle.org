@@ -1,6 +1,6 @@
 # API Reference
 
-### Table of Contents
+## Table of Contents
 
 - [API](#api)
 
@@ -43,8 +43,6 @@
   - [`SingleDocumentOptions`](#singledocumentoptions)
   - [`ViewerSettings`](#viewersettings)
   - [`ViewerOptions`](#vieweroptions)
-
-# API
 
 ## constants
 
@@ -141,11 +139,11 @@ Enum `PageViewMode`.
 Enum `ZoomType`.
 `ZoomType` has only one member, `FIT_INSIDE_VIEWPORT`.
 
-# Classes
+## Classes
 
-## `Viewer`
+### `Viewer`
 
-### `Viewer.addListener(type, listener)`
+#### `Viewer.addListener(type, listener)`
 
 Add a listener function, which is invoked when the specified type of event is dispatched.
 
@@ -238,7 +236,7 @@ Show or hide TOC box
 - `opt_show` (boolean) - If true show TOC, false hide TOC. If null or undefined toggle TOC.
 - `opt_autohide` (boolean) - If true, automatically hide when click TOC item
 
-# TypeDefs
+## TypeDefs
 
 ### `DocumentOptions`
 
