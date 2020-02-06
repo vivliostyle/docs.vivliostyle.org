@@ -17,7 +17,7 @@
       Vue.use(window["vue-js-toggle-button"].default);
 
       new Docute({
-        title: "Vivliostyle",
+        title: "Vivliostyle Docs",
         target: "#docute",
         plugins: [],
         nav: [
@@ -53,20 +53,21 @@
             title: "Community",
             children: [
               {
-                title: "Stack Overflow",
-                link: "https://stackoverflow.com/questions/tagged/docusaurus"
-              },
-              {
-                title: "Discord",
-                link: "https://discordapp.com/invite/docusaurus"
+                title: "Slack",
+                link:
+                  "https://join.slack.com/t/vivliostyle/shared_invite/enQtNzc1NjE4ODk1ODI5LWQxZjM4YTZjMmQ0ZTUyNmUyOGZlMzIwZjQ5OWYwYjkyZDZmOTIwNGMwOWU5NDc0NjE5OTAyMmVhZTRhYTAyNWQ"
               },
               {
                 label: "GitHub",
-                href: "https://github.com/facebook/docusaurus"
+                href: "https://github.com/vivliostyle"
               },
               {
                 label: "Twitter",
-                href: "https://twitter.com/docusaurus"
+                href: "https://twitter.com/vivliostyle"
+              },
+              {
+                title: "Stack Overflow",
+                link: "https://stackoverflow.com/questions/tagged/vivliostyle"
               }
             ]
           }
@@ -84,18 +85,6 @@
                 ]
               }
             ]
-          },
-          "/2019.8.101/": {
-            sourcePath:
-              "https://raw.githubusercontent.com/vivliostyle/docs.vivliostyle.org/2019.8.101"
-          }
-        },
-        versions: {
-          "v2.0.0 (Latest)": {
-            link: "/"
-          },
-          "2019.8.101": {
-            link: "/2019.8.101/"
           }
         }
       });
