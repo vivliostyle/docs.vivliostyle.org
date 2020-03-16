@@ -45,35 +45,35 @@ Vivliostyle Viewer をローカル環境で利用する場合は、配布パッ�
 
 オンラインで公開されている [vivliostyle.org/viewer/](https://vivliostyle.org/viewer/) も利用でき、これは常に最新のリリース版に更新されています。いち早く最新のバージョンを試したい場合は、[vivliostyle.now.sh](https://vivliostyle.now.sh)を利用してください。
 
-パラメータを指定しないで <Link v-bind:isOnline="isOnline" path="/viewer">Vivliostyle Viewer</Link> を開くと、文書URLの入力欄（“Input a document URL”）と次のように使い方の説明が表示されます:
+パラメータを指定しないで <Link v-bind:isOnline="isOnline" path="/viewer/">Vivliostyle Viewer</Link> を開くと、文書URLの入力欄 (“Input a document URL”)、 **Book Mode** と **Render All Pages** のチェックボックス、および使い方のヘルプが表示されます。
 
-Access to <Link v-bind:isOnline="isOnline" path="/viewer/#x=./samples.html" />.
+試してみる: <Link v-bind:isOnline="isOnline" path="/viewer/" />
 
 ## サポートされている文書の種類
 
-- (X)HTML文書＋ページメディア用のCSS
-- Web出版物（複数のHTML文書からなるコレクション）: プライマリーエントリーページまたはマニフェストファイルのURLを指定します。
-- ZIP解凍済みのEPUB: OPFファイルのURLまたは解凍されたEPUBファイルのトップディレクトリを指定します。
+- HTML文書＋ページメディア用のCSS
+- 本のような出版物（目次付き） (**Book Mode**: オン)
+  - Web出版物（複数のHTML文書からなるコレクション）: 最初のHTMLまたはマニフェストファイルのURLを指定します。
+  - ZIP解凍済みのEPUB: OPFファイルのURLまたは解凍されたEPUBファイルのトップディレクトリを指定します。
 
 ### URLパラメータのオプション
 
-- `#b=(document URL)` or `#x=&(document URL)`
+- #**src**=&lt;document URL>
+- &amp;**bookMode**=[**true** | **false**] (**Book Mode**)
+  - **true**: 本のような出版物（目次付き）用
+    - HTML文書のURLが指定された場合、その出版物マニフェストまたは目次（<nav role="doc-toc"> などでマークアップ）からリンクされた一連のHTML文書が自動的に読み込まれます。
+  - **false** (デフォルト): 単体のHTML文書用
+- &amp;**renderAllPages**=[**true** | **false**] (**Render All Pages**)
+  - **true** (デフォルト): 印刷用（すべてのページが印刷可能で、ページ番号は期待されるとおりに機能します）
+  - **false**: 閲覧用（おおまかなページ番号を使って、クイックロード）
+- &amp;**spread**=[**true** | **false** | **auto**] (**Page Spread View**)
+  - **true**: 見開き表示
+  - **false**: 単一ページ表示
+  - **auto** (デフォルト): 自動見開き表示
+- &amp;**style**=&lt;追加の外部スタイルシートのURL>
+- &amp;**userStyle**=&lt;ユーザースタイルシートのURL>
 
-  - #**b**= Book view. When (X)HTML document URL is specified, the URL is treated as primary entry page’s, and a series of HTML documents linked from the manifest or TOC (Table of Contents, e.g. marked up with `<nav role="doc-toc">`) are automatically loaded.
-  - #**x**= (X)HTML document is simply loaded. Multiple documents can be specified as `#x=(1st HTML)&x=(2nd HTML)...`
-
-- `&spread=[true | false | auto]`
-  - true: Spread view
-  - false: Single page view
-  - auto: Auto spread view (default)
-- &amp;renderAllPages=[true |false]
-  - true: for Print (all pages printable, page count works as
-    expected)
-  - false: for Read (quick loading with rough page count)
-- &amp;style=&lt;additional external style sheet URL&gt;
-- &amp;userStyle=&lt;user style sheet URL&gt;
-
-Options can also be set in the **Settings** panel.
+オプションは設定パネル（**Settings**）でも設定できます。
 
 ### 留意点
 
@@ -88,7 +88,7 @@ Options can also be set in the **Settings** panel.
 HTMLファイルを Vivliostyle Viewer で表示するには、Webサーバーが読み込める場所（上記手順にしたがってWebサーバーを起動している場合は、配布パッケージを解凍してできたフォルダ内）にそのファイル（およびそのファイルから読み込まれるCSSや画像ファイル）を置いた上で、次のようにパラメータを付加したURLをブラウザで開きます:
 
 ```
-⟨Vivliostyle ViewerのURL⟩#x=⟨表示するファイルのURL (Vivliostyle Viewerからの相対)⟩
+⟨Vivliostyle ViewerのURL⟩#src=⟨表示するファイルのURL (Vivliostyle Viewerからの相対)⟩
 ```
 
 注: Vivliostyle Viewer 本体とは別ドメインの文書を読み込もうとする場合、文書があるWebサーバーの設定によって、文書が読み込めない場合があります。文書を読み込ませるためには、サーバー側で CORS (Cross-Origin Resource Sharing)の設定が必要です。
@@ -97,57 +97,31 @@ HTMLファイルを Vivliostyle Viewer で表示するには、Webサーバー�
 
 例: HTMLファイル [samples/gon/index.html](https://vivliostyle.github.io/vivliostyle_doc/samples/gon/index.html) を表示する場合:
 
-<Link v-bind:isOnline="isOnline" path="/viewer/#x=../samples/gon/index.html" />
-
-テキストボックスに文書ファイルのパス（または URL）を入力すると、その文書を表示する Vivliostyle Viewer のURLを下に表示します:
-
-<input
-  id="file-path-input"
-  type="text"
-  defaultValue="/samples/gon/index.html"
-  size="30"
-/>
-
-<Link v-bind:isOnline="isOnline" path="/viewer/#x=../samples/gon/index.html" />
+<Link v-bind:isOnline="isOnline" path="/viewer/#src=../samples/gon/index.html" />
 
 ### EPUB
 
 Vivliostyle ViewerではZIP解凍済みのEPUBファイルを表示することができます。この場合、次のパラメータを指定します:
 
 ```
-#b=⟨表示する解凍済みEPUBフォルダのURL (Vivliostyle Viewer からの相対)⟩
+#src=⟨表示する解凍済みEPUBフォルダのURL⟩&bookMode=true
 ```
-
-例: [samples/niimi/](https://vivliostyle.github.io/vivliostyle_doc/samples/niimi/index.html) フォルダに解凍済みのEPUBファイルを表示する場合:
-
-<Link v-bind:isOnline="isOnline" path="/viewer/#b=../samples/niimi/" />
-
-テキストボックスにEPUBフォルダのパス（またはURL）を入力すると、その文書を表示するVivliostyle ViewerのURLを下に表示します:
-
-<input
-  id="epub-path-input"
-  type="text"
-  defaultValue="/samples/niimi/"
-  size="30"
-/>
-
-<Link v-bind:isOnline="isOnline" path="/viewer/#b=../samples/niimi/" />
 
 GitHub上に公開されているZIP解凍済みのEPUBファイルを表示する例:
 
 - [IDPF/epub3-samples](https://github.com/IDPF/epub3-samples/)の 『[Accessible EPUB 3](https://github.com/IDPF/epub3-samples/tree/master/30/accessible_epub_3/)』
 
-  <Link v-bind:isOnline="isOnline" path="/viewer/#b=https://github.com/IDPF/epub3-samples/tree/master/30/accessible_epub_3/" />
+  <Link v-bind:isOnline="isOnline" path="/viewer/#src=https://github.com/IDPF/epub3-samples/tree/master/30/accessible_epub_3/&bookMode=true" />
 
 ### Web出版物
 
 Vivliostyle ViewerではWeb出版物（複数のHTML文書からなるコレクション）を表示することができます。この場合、次のパラメータを指定します:
 
 ```
-#b=⟨プライマリーエントリーページのHTML文書またはマニフェストファイルのURL (Vivliostyle Viewer からの相対)⟩
+#src=⟨最初のHTML文書またはマニフェストファイルのURL⟩&bookMode=true
 ```
 
-Web出版物のマニフェストの形式については、W3Cドラフトの [Web Publications](https://w3c.github.io/wpub/) および [Readium Web Publication Manifest](https://github.com/readium/webpub-manifest/) をサポートしています。
+Web出版物のマニフェストの形式については、W3Cドラフトの [Publication Manifest](https://www.w3.org/TR/pub-manifest/) および [Readium Web Publication Manifest](https://github.com/readium/webpub-manifest/) をサポートしています。
 
 Web出版物のマニフェストが存在しなくても、指定したHTML文書内の目次要素内に他のHTML文書へのリンクがある場合は、それらの文書が自動的にロードされます。Vivliostyle はHTML文書内の次のCSSセレクタにマッチする要素を目次要素として扱います:
 `[role=doc-toc], [role=directory], nav li, .toc, #toc`
@@ -156,7 +130,7 @@ Web上に公開されている複数のHTML文書からなる出版物を表示�
 
 - [CSS Working Group Editor Drafts](https://drafts.csswg.org/) の 『[Cascading Style Sheets Level 2 Revision 2 (CSS 2.2) Specification](https://drafts.csswg.org/css2/)』
 
-  <Link v-bind:isOnline="isOnline" path="/viewer/#b=https://drafts.csswg.org/css2/" />
+  <Link v-bind:isOnline="isOnline" path="/viewer/#src=https://drafts.csswg.org/css2/&bookMode=true" />
 
 ## 詳細な設定
 
@@ -208,12 +182,12 @@ Web上に公開されている文書に、設定パネルからユーザース�
 
 - [CSS Working Group Editor Drafts](https://drafts.csswg.org/) の 『[Cascading Style Sheets Level 2 Revision 2 (CSS 2.2) Specification](https://drafts.csswg.org/css2/)』
 
-  <Link v-bind:isOnline="isOnline" path="/viewer/#b=https://drafts.csswg.org/css2/&userStyle=data:,/*%3Cviewer%3E*/%0A@page%20%7B%20size:%20A4;%20%7D%0A/*%3C/viewer%3E*/%0A%0A@page%20:first%20%7B%0A%20%20@top-left%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%20%20@top-right%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%7D%0A%0A@page%20:left%20%7B%0A%20%20font-size:%200.8rem;%0A%20%20@top-left%20%7B%0A%20%20%20%20content:%20env(pub-title);%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20counter(page);%0A%20%20%7D%0A%7D%0A%0A@page%20:right%20%7B%0A%20%20font-size:%200.8rem;%0A%20%20@top-right%20%7B%0A%20%20%20%20content:%20env(doc-title);%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20counter(page);%0A%20%20%7D%0A%7D&renderAllPages=true">
-    #b=https://drafts.csswg.org/css2/&userStyle=data:,CSS
+  <Link v-bind:isOnline="isOnline" path="/viewer/#src=https://drafts.csswg.org/css2/&bookMode=true&userStyle=data:,/*%3Cviewer%3E*/%0A@page%20%7B%20size:%20A4;%20%7D%0A/*%3C/viewer%3E*/%0A%0A@page%20:first%20%7B%0A%20%20@top-left%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%20%20@top-right%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%7D%0A%0A@page%20:left%20%7B%0A%20%20font-size:%200.8rem;%0A%20%20@top-left%20%7B%0A%20%20%20%20content:%20env(pub-title);%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20counter(page);%0A%20%20%7D%0A%7D%0A%0A@page%20:right%20%7B%0A%20%20font-size:%200.8rem;%0A%20%20@top-right%20%7B%0A%20%20%20%20content:%20env(doc-title);%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20counter(page);%0A%20%20%7D%0A%7D">
+    #src=https://drafts.csswg.org/css2/&bookMode=true&userStyle=data:,CSS
   </AdaptiveLink>
 
 ```
-#b=(URL)&renderAllPages=true&userStyle=data:,/*<viewer>*/
+#src=(URL)&bookMode=true&userStyle=data:,/*<viewer>*/
 @page { size: A4; }
 /*</viewer>*/
 

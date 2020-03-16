@@ -49,33 +49,33 @@ attached to the distribution package.
 
 You can also use the public online Vivliostyle Viewer ([vivliostyle.org/viewer/](https://vivliostyle.org/viewer/)) that has always been updated to the latest release version. For early bird users, there is also canary version available [vivliostyle.now.sh](https://vivliostyle.now.sh).
 
-When you open <Link v-bind:isOnline="isOnline" path="/viewer">Vivliostyle Viewer</Link> without specifying parameters, an “Input a document URL” box and the following usage description is displayed:
+When you open <Link v-bind:isOnline="isOnline" path="/viewer/">Vivliostyle Viewer</Link> without specifying parameters, an “Input a document URL” box, **Book Mode** and **Render All Pages** check boxes, and usage help is displayed.
 
-Access to <Link v-bind:isOnline="isOnline" path="/viewer/#x=./samples.html" />.
+Access to <Link v-bind:isOnline="isOnline" path="/viewer/" />.
 
 ## Supported document types
 
-- (X)HTML document, with CSS for paged media
-  - Web publication (a collection of HTML documents): specify URL of the primary entry page or manifest file.
+- HTML documents, with CSS for paged media
+- Book-like publications, with Table of Contents (**Book Mode**: On)
+  - Web publications (a collection of HTML documents): specify URL of the first HTML or the manifest file.
   - Unzipped EPUB: specify URL of OPF file or top directory of the unzipped EPUB files.
 
 ### URL parameter options
 
-- `#b=(document URL)` or `#x=&(document URL)`
-
-  - #**b**= Book view. When (X)HTML document URL is specified, the URL is treated as primary entry page’s, and a series of HTML documents linked from the manifest or TOC (Table of Contents, e.g. marked up with `<nav role="doc-toc">`) are automatically loaded.
-  - #**x**= (X)HTML document is simply loaded. Multiple documents can be specified as `#x=(1st HTML)&x=(2nd HTML)...`
-
-- `&spread=[true | false | auto]`
-  - true: Spread view
-  - false: Single page view
-  - auto: Auto spread view (default)
-- &amp;renderAllPages=[true |false]
-  - true: for Print (all pages printable, page count works as
-    expected)
-  - false: for Read (quick loading with rough page count)
-- &amp;style=&lt;additional external style sheet URL&gt;
-- &amp;userStyle=&lt;user style sheet URL&gt;
+- #**src**=&lt;document URL>
+- &amp;**bookMode**=[**true** | **false**] (**Book Mode**)
+  - **true**: for Book-like publications, with Table of Contents.
+    - When an HTML document URL is specified, a series of HTML documents linked from the publication manifest or Table of Contents (e.g., marked up with `<nav role="doc-toc">`) are automatically loaded.
+  - **false** (default): for single HTML documents
+- &amp;**renderAllPages**=[**true** | **false**] (**Render All Pages**)
+  - **true** (default): for Print (all pages printable, page count works as expected)
+  - **false**: for Read (quick loading with rough page count)
+- &amp;**spread**=[**true** | **false** | **auto**] (**Page Spread View**)
+  - **true**: Spread view
+  - **false**: Single page view
+  - **auto** (default): Auto spread view
+- &amp;**style**=&lt;additional external style sheet URL>
+- &amp;**userStyle**=&lt;user style sheet URL>
 
 Options can also be set in the **Settings** panel.
 
@@ -115,18 +115,7 @@ connection is required when the document contains mathematics.
 
 Example: If you want to display a HTML file [samples/wood/index.html](https://vivliostyle.github.io/vivliostyle_doc/samples/wood/index.html):
 
-<Link v-bind:isOnline="isOnline" path="/viewer/#x=../samples/wood/index.html" />
-
-Input the document file path (or URL) in the text box; the Vivliostyle Viewer URL of the document is displayed below:
-
-<input
-  id="file-path-input"
-  type="text"
-  defaultValue="/samples/wood/index.html"
-  size="30"
-/>
-
-<Link v-bind:isOnline="isOnline" path="/viewer/#x=../samples/wood/index.html" />
+<Link v-bind:isOnline="isOnline" path="/viewer/#src=../samples/wood/index.html" />
 
 ### EPUB
 
@@ -135,29 +124,14 @@ You can display unzipped EPUB files with the Vivliostyle Viewer.
 In this case, use the following parameter:
 
 ```
-#b=⟨URL of the unzipped EPUB folder (relative to the Vivliostyle Viewer)⟩
+#src=⟨URL of the unzipped EPUB folder⟩&bookMode=true
 ```
-
-Example: If you want to display an unzipped EPUB folder [samples/niimi/](https://vivliostyle.github.io/vivliostyle_doc/samples/niimi/index.html):
-
-<Link v-bind:isOnline="isOnline" path="/viewer/#b=../samples/niimi/" />
-
-Input the EPUB folder path (or URL) in the text box; the Vivliostyle Viewer URL of the EPUB document is displayed below:
-
-<input
-  id="epub-path-input"
-  type="text"
-  defaultValue="/samples/niimi/"
-  size="30"
-/>
-
-<Link v-bind:isOnline="isOnline" path="/viewer/#b=../samples/niimi/" />
 
 An example of displaying unzipped EPUB on GitHub:
 
 - [Accessible EPUB 3](https://github.com/IDPF/epub3-samples/tree/master/30/accessible_epub_3/) on [IDPF/epub3-samples](https://github.com/IDPF/epub3-samples/)
 
-  <Link v-bind:isOnline="isOnline" path="/viewer/#b=https://github.com/IDPF/epub3-samples/tree/master/30/accessible_epub_3/" />
+  <Link v-bind:isOnline="isOnline" path="/viewer/#src=https://github.com/IDPF/epub3-samples/tree/master/30/accessible_epub_3/&bookMode=true" />
 
 ### Web publications
 
@@ -166,10 +140,10 @@ with the Vivliostyle Viewer. In this case, use the following
 parameter:
 
 ```
-#b=⟨URL of the primary entry page HTML document or manifest file (relative to the Vivliostyle Viewer)⟩
+#src=⟨URL of the first HTML document or manifest file⟩&bookMode=true
 ```
 
-For the format of Web publication manifest, W3C draft [Web Publications](https://w3c.github.io/wpub/) and [Readium Web Publication Manifest](https://github.com/readium/webpub-manifest/) are supported.
+For the format of Web publication manifest, W3C draft [Publication Manifest](https://www.w3.org/TR/pub-manifest/) and [Readium Web Publication Manifest](https://github.com/readium/webpub-manifest/) are supported.
 
 When Web publication manifest does not exist, and there are links
 to other HTML documents in the table of contents in the specified
@@ -182,7 +156,8 @@ An example of displaying publications composed of multiple HTML
 documents published on the Web:
 
 - [Cascading Style Sheets Level 2 Revision 2 (CSS 2.2) Specification](https://drafts.csswg.org/css2/) on [CSS Working Group Editor Drafts](https://drafts.csswg.org/)
-  <Link v-bind:isOnline="isOnline" path="/viewer/#b=https://drafts.csswg.org/css2/" />
+
+  <Link v-bind:isOnline="isOnline" path="/viewer/#src=https://drafts.csswg.org/css2/&bookMode=true" />
 
 ## Fine-grained config
 
@@ -252,12 +227,12 @@ the document on the Web:
 - [Cascading Style Sheets Level 2 Revision 2 (CSS 2.2) Specification](https://drafts.csswg.org/css2/) on
   [CSS Working Group Editor Drafts](https://drafts.csswg.org/)
 
-  <Link v-bind:isOnline="isOnline" path="/viewer/#b=https://drafts.csswg.org/css2/&userStyle=data:,/*%3Cviewer%3E*/%0A@page%20%7B%20size:%20A4;%20%7D%0A/*%3C/viewer%3E*/%0A%0A@page%20:first%20%7B%0A%20%20@top-left%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%20%20@top-right%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%7D%0A%0A@page%20:left%20%7B%0A%20%20font-size:%200.8rem;%0A%20%20@top-left%20%7B%0A%20%20%20%20content:%20env(pub-title);%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20counter(page);%0A%20%20%7D%0A%7D%0A%0A@page%20:right%20%7B%0A%20%20font-size:%200.8rem;%0A%20%20@top-right%20%7B%0A%20%20%20%20content:%20env(doc-title);%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20counter(page);%0A%20%20%7D%0A%7D&renderAllPages=true">
-    #b=https://drafts.csswg.org/css2/&userStyle=data:,CSS
+  <Link v-bind:isOnline="isOnline" path="/viewer/#src=https://drafts.csswg.org/css2/&bookMode=true&userStyle=data:,/*%3Cviewer%3E*/%0A@page%20%7B%20size:%20A4;%20%7D%0A/*%3C/viewer%3E*/%0A%0A@page%20:first%20%7B%0A%20%20@top-left%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%20%20@top-right%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%7D%0A%0A@page%20:left%20%7B%0A%20%20font-size:%200.8rem;%0A%20%20@top-left%20%7B%0A%20%20%20%20content:%20env(pub-title);%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20counter(page);%0A%20%20%7D%0A%7D%0A%0A@page%20:right%20%7B%0A%20%20font-size:%200.8rem;%0A%20%20@top-right%20%7B%0A%20%20%20%20content:%20env(doc-title);%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20counter(page);%0A%20%20%7D%0A%7D">
+    #src=https://drafts.csswg.org/css2/&bookMode=true&userStyle=data:,CSS
   </AdaptiveLink>
 
 ```
-#b=(URL)&renderAllPages=true&userStyle=data:,/*<viewer>*/
+#src=(URL)&bookMode=true&userStyle=data:,/*<viewer>*/
 @page { size: A4; }
 /*</viewer>*/
 
