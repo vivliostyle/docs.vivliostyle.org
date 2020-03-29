@@ -17,32 +17,32 @@
     - [`profiler.printTimings()`](#profileprofilerprinttimings)
     - [`profiler.disable()`](#profileprofilerdisable)
     - [`profiler.enable()`](#profileprofilerenable)
-  - [viewer](#viewer)
-    - [`new Viewer(settings, options)`](#new-viewerviewersettings-options)
-    - [`PageViewMode`](#viewerpageviewmode)
-    - [`ZoomType`](#viewerzoomtype)
+  - [core-viewer](#core-viewer)
+    - [`new CoreViewer(settings, options)`](#new-coreviewersettings-options)
+    - [`PageViewMode`](#pageviewmode)
+    - [`ZoomType`](#zoomtype)
 
 - [Classes](#classes)
 
-  - [`Viewer`](#viewer-1)
-    - [`addListener(type, listener)`](#vieweraddlistenertype-listener)
-    - [`getCurrentPageProgression()`](#viewergetcurrentpageprogression)
-    - [`getPageSizes()`](#viewergetpagesizes)
-    - [`isTOCVisible()`](#vieweristocvisible)
-    - [`loadDocument(singleDocumentOptions, documentOptions, viewerOptions)`](#viewerloaddocumentsingledocumentoptions-documentoptions-vieweroptions)
-    - [`loadPublication(pubURL, documentOptions, viewerOptions)`](#viewerloadpublicationpubURL-documentoptions-vieweroptions)
-    - [`navigateToInternalUrl()`](#viewernavigatetointernalurl)
-    - [`navigateToPage()`](#viewernavigatetopage)
-    - [`queryZoomFactor(type)`](#viewerqueryzoomfactortype)
-    - [`removeListener(type, listener)`](#viewerremovelistenertype-listener)
-    - [`setOptions(options)`](#viewersetoptionsoptions)
-    - [`showTOC(opt_show, opt_autohide)`](#viewershowtocopt_show-opt_autohide)
+  - [`CoreViewer`](#coreviewer)
+    - [`addListener(type, listener)`](#corevieweraddlistenertype-listener)
+    - [`getCurrentPageProgression()`](#coreviewergetcurrentpageprogression)
+    - [`getPageSizes()`](#coreviewergetpagesizes)
+    - [`isTOCVisible()`](#corevieweristocvisible)
+    - [`loadDocument(singleDocumentOptions, documentOptions, viewerOptions)`](#coreviewerloaddocumentsingledocumentoptions-documentoptions-vieweroptions)
+    - [`loadPublication(pubURL, documentOptions, viewerOptions)`](#coreviewerloadpublicationpubURL-documentoptions-vieweroptions)
+    - [`navigateToInternalUrl()`](#coreviewernavigatetointernalurl)
+    - [`navigateToPage()`](#coreviewernavigatetopage)
+    - [`queryZoomFactor(type)`](#coreviewerqueryzoomfactortype)
+    - [`removeListener(type, listener)`](#coreviewerremovelistenertype-listener)
+    - [`setOptions(options)`](#coreviewersetoptionsoptions)
+    - [`showTOC(opt_show, opt_autohide)`](#coreviewershowtocopt_show-opt_autohide)
 
 - [TypeDefs](#typedefs)
   - [`DocumentOptions`](#documentoptions)
   - [`SingleDocumentOptions`](#singledocumentoptions)
-  - [`ViewerSettings`](#viewersettings)
-  - [`ViewerOptions`](#vieweroptions)
+  - [`CoreViewerSettings`](#coreviewersettings)
+  - [`CoreViewerOptions`](#corevieweroptions)
 
 ## constants
 
@@ -118,32 +118,32 @@ Disable profiling.
 
 Enable profiling.
 
-## viewer
+## core-viewer
 
-### `new viewer.Viewer(settings, options)`
+### `new CoreViewer(settings, options)`
 
-Vivliostyle Viewer class. Creates [`Viewer`](#viewer-1).
+Vivliostyle CoreViewer class. Creates [`CoreViewer`](#coreviewer).
 
 ###### Parameters
 
-- `settings` ([ViewerSettings](#viewersettings))
-- `options` ([ViewerOptions](#vieweroptions), optional)
+- `settings` ([CoreViewerSettings](#coreviewersettings))
+- `options` ([CoreViewerOptions](#corevieweroptions), optional)
 
-### `viewer.PageViewMode`
+### `PageViewMode`
 
 Enum `PageViewMode`.
 `PageViewMode` has members, `SINGLE_PAGE`, `SPREAD` and `AUTO_SPREAD`.
 
-### `viewer.ZoomType`
+### `ZoomType`
 
 Enum `ZoomType`.
 `ZoomType` has only one member, `FIT_INSIDE_VIEWPORT`.
 
 ## Classes
 
-### `Viewer`
+### `CoreViewer`
 
-#### `Viewer.addListener(type, listener)`
+#### `CoreViewer.addListener(type, listener)`
 
 Add a listener function, which is invoked when the specified type of event is dispatched.
 
@@ -152,7 +152,7 @@ Add a listener function, which is invoked when the specified type of event is di
 - `type` (string) — Event type.
 - `listener` (function) — Listener function.
 
-### `Viewer.getCurrentPageProgression()`
+### `CoreViewer.getCurrentPageProgression()`
 
 Returns the current page progression of the viewer. If no document is loaded, returns null.
 
@@ -160,17 +160,17 @@ Returns the current page progression of the viewer. If no document is loaded, re
 
 [PageProgression](#constantspageprogression)
 
-### `Viewer.getPageSizes()`
+### `CoreViewer.getPageSizes()`
 
 ###### Returns
 
 Array<{width: number, height: number}>
 
-### `Viewer.isTOCVisible()`
+### `CoreViewer.isTOCVisible()`
 
 Returns true if TOC is visible, false if hidden, null if TOC is unavailable
 
-### `Viewer.loadDocument(singleDocumentOptions, documentOptions, viewerOptions)`
+### `CoreViewer.loadDocument(singleDocumentOptions, documentOptions, viewerOptions)`
 
 Load an HTML or XML document(s).
 
@@ -178,9 +178,9 @@ Load an HTML or XML document(s).
 
 - `singleDocumentOptions` ([SingleDocumentOptions](#singledocumentoptions)|Array<[SingleDocumentOptions](#singledocumentoptions)>)
 - `documentOptions` ([DocumentOptions](#documentoptions), optional)
-- `viewerOptions` ([ViewerOptions](#vieweroptions), optional)
+- `viewerOptions` ([CoreViewerOptions](#corevieweroptions), optional)
 
-### `Viewer.loadPublication(pubURL, documentOptions, viewerOptions)`
+### `CoreViewer.loadPublication(pubURL, documentOptions, viewerOptions)`
 
 Load a EPUB/WebPub publication.
 
@@ -188,29 +188,29 @@ Load a EPUB/WebPub publication.
 
 - `pubURL` (string)
 - `documentOptions` ([DocumentOptions](#documentoptions), optional)
-- `viewerOptions` ([ViewerOptions](#vieweroptions), optional)
+- `viewerOptions` ([CoreViewerOptions](#corevieweroptions), optional)
 
-### `Viewer.navigateToInternalUrl()`
+### `CoreViewer.navigateToInternalUrl()`
 
 Navigate to the specified internal URL.
 
-### `Viewer.navigateToPage()`
+### `CoreViewer.navigateToPage()`
 
 Navigate to the specified page.
 
-### `Viewer.queryZoomFactor(type)`
+### `CoreViewer.queryZoomFactor(type)`
 
 Returns zoom factor corresponding to the specified zoom type.
 
 ###### Parameters
 
-- `type` ([ZoomType](#viewerzoomtype))
+- `type` ([ZoomType](#zoomtype))
 
 ###### Returns
 
 number
 
-### `Viewer.removeListener(type, listener)`
+### `CoreViewer.removeListener(type, listener)`
 
 Remove an event listener.
 
@@ -219,15 +219,15 @@ Remove an event listener.
 - `type` (string) — Event type.
 - `listener` (function) — Listener function.
 
-### `Viewer.setOptions(options)`
+### `CoreViewer.setOptions(options)`
 
-Set ViewerOptions to the viewer.
+Set CoreViewerOptions to the viewer.
 
 ###### Parameters
 
-- `options` ([ViewerOptions](#vieweroptions))
+- `options` ([CoreViewerOptions](#corevieweroptions))
 
-### `Viewer.showTOC(opt_show, opt_autohide)`
+### `CoreViewer.showTOC(opt_show, opt_autohide)`
 
 Show or hide TOC box
 
@@ -256,16 +256,16 @@ Options for a single source document.
 - `startPage` (number, optional) — If specified, the `page` page-based counter is set to the specified value on the first page of the document. It is equivalent to specifying `counter-reset: page [specified value - 1]` on that page.
 - `skipPagesBefore` (number, optional) — If specified, the `page` page-based counter is incremented by the specified value _before_ updating page-based counters on the first page of the document. This option is ignored if `startPageNumber` option is also specified.
 
-### `ViewerSettings`
+### `CoreViewerSettings`
 
-Viewer settings that must be passed to Viewer's constructor.
+CoreViewer settings that must be passed to CoreViewer's constructor.
 
 - `viewportElement` (HTMLElement, **required**) — An element used as the viewport of the displayed contents.
 - `userAgentRootURL` (string, optional) — URL of a directory from which viewer resource files (under resources/ directory in the source repository) are served.
 - `window` (Window, optional) — Window object. If omitted, current `window` is used.
 - `debug` (boolean, optional) — Debug flag.
 
-### `ViewerOptions`
+### `CoreViewerOptions`
 
 Viewer options that can be set after the Viewer object is constructed.
 
