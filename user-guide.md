@@ -182,7 +182,7 @@ following to the URL:
 ```
 
 You can also change the page view mode in the Vivliostyle Viewer's
-setting panel (open by clicking the <img src="/images/logo.png" width="16" height="16" alt="[Setting]" /> icon in the upper right corner of the viewer).
+setting panel (open by clicking the <img src="./images/logo.png" width="16" height="16" alt="[Setting]" /> icon in the upper right corner of the viewer).
 
 ### Additional style sheets
 
