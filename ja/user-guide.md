@@ -141,7 +141,7 @@ Vivliostyle Viewer は、表示領域の横幅が大きいとき（高さの1.45
 &spread=auto（自動切り替え＝デフォルト）
 ```
 
-Vivliostyle Viewer の設定パネル（画面右上のアイコン <img src="./images/logo.png" width="16" height="16" alt="[Setting]" /> をクリックして開く）でも、ページ表示モードの変更ができます。
+Vivliostyle Viewer の設定パネル（画面右上のアイコン <img src="images/vivliostyle-icon.png" width="16" height="16" alt="[Settings]" /> をクリックして開く）でも、ページ表示モードの変更ができます。
 
 ### スタイルシートの追加
 
