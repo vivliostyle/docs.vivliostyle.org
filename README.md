@@ -8,5 +8,4 @@
 ## Reference
 
 - [API Reference](/api)
-- [Supported Features](/supported-features)
-- [Available Properties](/available-properties)
+- [Supported CSS Features](/supported-css-features)

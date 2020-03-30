@@ -1,4 +1,4 @@
-# サポートする機能
+# サポートする CSS 機能
 
 Vivliostyleは2段階のアーキテクチャから成り、その機能の一部は純粋にTypeScriptで実装され、一部はVivliostyleが実行されているブラウザーエンジンに全部または一部が委譲されます。 次のリストで “Supported in all browsers” と示されたものは、ブラウザーエンジンに関係なく機能する、TypeScriptで実装された機能を示しています。 他の機能について実際に動作するか、またどのように動作するかは、基盤となるブラウザーエンジンでサポートされているものによって異なります。
 
@@ -194,7 +194,7 @@ Vivliostyleは2段階のアーキテクチャから成り、その機能の一�
 
 ## Properties
 
-### [CSS 2](https://www.w3.org/TR/CSS2/)
+## [CSS 2](https://www.w3.org/TR/CSS2/)
 
 - [background](https://www.w3.org/TR/CSS2/colors.html#propdef-background)
   - Supports [CSS Backgrounds 3 syntax](https://www.w3.org/TR/css3-background/#background)
@@ -405,7 +405,7 @@ Vivliostyleは2段階のアーキテクチャから成り、その機能の一�
 - [z-index](https://www.w3.org/TR/CSS2/visuren.html#propdef-z-index)
   - Support depends on browser capabilities
 
-### [CSS Paged Media 3](https://drafts.csswg.org/css-page-3/)
+## [CSS Paged Media 3](https://drafts.csswg.org/css-page-3/)
 
 - [bleed](https://drafts.csswg.org/css-page/#bleed)
   - Supported in all browsers
@@ -417,14 +417,14 @@ Vivliostyleは2段階のアーキテクチャから成り、その機能の一�
   - Supported in all browsers
   - Supports `JIS-B5` and `JIS-B4` values in the current editor's draft.
 
-### [CSS Color 3](https://www.w3.org/TR/css3-color/)
+## [CSS Color 3](https://www.w3.org/TR/css3-color/)
 
 - [color](https://www.w3.org/TR/css3-color/#color0)
   - Support depends on browser capabilities
 - [opacity](https://www.w3.org/TR/css3-color/#opacity)
   - Support depends on browser capabilities
 
-### [CSS Backgrounds and Borders 3](https://www.w3.org/TR/css3-background/)
+## [CSS Backgrounds and Borders 3](https://www.w3.org/TR/css3-background/)
 
 - [background](https://www.w3.org/TR/css3-background/#background)
   - Support depends on browser capabilities
@@ -520,7 +520,7 @@ Vivliostyleは2段階のアーキテクチャから成り、その機能の一�
   - Allowed prefixes: webkit
   - Support depends on browser capabilities
 
-### [CSS Image Values and Replaced Content 3](https://www.w3.org/TR/css3-images/)
+## [CSS Image Values and Replaced Content 3](https://www.w3.org/TR/css3-images/)
 
 - [image-resolution](https://www.w3.org/TR/css3-images/#the-image-resolution)
   - Supported in all browsers
@@ -532,7 +532,7 @@ Vivliostyleは2段階のアーキテクチャから成り、その機能の一�
 - [object-position](https://www.w3.org/TR/css3-images/#object-position)
   - Support depends on browser capabilities
 
-### [CSS Fonts 3](https://www.w3.org/TR/css-fonts-3/)
+## [CSS Fonts 3](https://www.w3.org/TR/css-fonts-3/)
 
 - [font-family](https://www.w3.org/TR/css-fonts-3/#propdef-font-family)
   - Support depends on browser capabilities
@@ -554,7 +554,7 @@ Vivliostyleは2段階のアーキテクチャから成り、その機能の一�
 - [font-stretch](https://www.w3.org/TR/css-fonts-3/#propdef-font-stretch)
   - Support depends on browser capabilities
 
-### [CSS Text 3](https://www.w3.org/TR/css-text-3/)
+## [CSS Text 3](https://www.w3.org/TR/css-text-3/)
 
 - [hyphens](https://www.w3.org/TR/css-text-3/#hyphens)
   - Allowed prefixes: epub, moz, ms, webkit
@@ -589,13 +589,13 @@ Vivliostyleは2段階のアーキテクチャから成り、その機能の一�
   - Support depends on browser capabilities
   - Note: While the spec states that `word-wrap` must be treated as if it were a shorthand of `overflow-wrap`, Vivliostyle treat them for now as different properties and might result in an incorrect cascading behavior when inconsistent values are specified for both of the properties.
 
-### [CSS Text 4](https://drafts.csswg.org/css-text-4/)
+## [CSS Text 4](https://drafts.csswg.org/css-text-4/)
 
 - [hyphenate-character](https://drafts.csswg.org/css-text-4/#propdef-hyphenate-character)
   - Allowed prefixes: webkit
   - Support depends on browser capabilities
 
-### [CSS Text Decoration 3](https://www.w3.org/TR/css-text-decor-3/)
+## [CSS Text Decoration 3](https://www.w3.org/TR/css-text-decor-3/)
 
 - Note: While `text-decoration` property is a shorthand in CSS Text Decoration 3, Vivliostyle treats `text-decoration` for now as an independent property defined in CSS Level 2.1.
 - [text-decoration-color](https://www.w3.org/TR/css-text-decor-3/#text-decoration-color)
@@ -628,7 +628,7 @@ Vivliostyleは2段階のアーキテクチャから成り、その機能の一�
   - Support depends on browser capabilities
   - Allowed prefixes: ms, webkit
 
-### [CSS Multi-column Layout 1](https://www.w3.org/TR/css3-multicol/)
+## [CSS Multi-column Layout 1](https://www.w3.org/TR/css3-multicol/)
 
 - [break-after](https://www.w3.org/TR/css3-multicol/#break-after)
   - Supported in all browsers
@@ -677,7 +677,7 @@ Vivliostyleは2段階のアーキテクチャから成り、その機能の一�
   - Supported in all browsers
   - Note: Currently `column-span` is effective only when specified on a page float. When `auto` value is specified, either a single column or all columns are spanned depending on the min-content inline size of the page float.
 
-### [CSS Basic User Interface 3](https://www.w3.org/TR/css3-ui/)
+## [CSS Basic User Interface 3](https://www.w3.org/TR/css3-ui/)
 
 - [box-sizing](https://www.w3.org/TR/css3-ui/#propdef-box-sizing)
   - Support depends on browser capabilities
@@ -693,7 +693,7 @@ Vivliostyleは2段階のアーキテクチャから成り、その機能の一�
   - Allowed prefixes: ms
   - Support depends on browser capabilities
 
-### [CSS Writing Modes 3](https://www.w3.org/TR/css-writing-modes-3/)
+## [CSS Writing Modes 3](https://www.w3.org/TR/css-writing-modes-3/)
 
 - [direction](https://www.w3.org/TR/css-writing-modes-3/#propdef-direction)
   - Support depends on browser capabilities
@@ -719,7 +719,7 @@ Vivliostyleは2段階のアーキテクチャから成り、その機能の一�
   - Support depends on browser capabilities
   - Note: supported values are [those defined in 20 March 2014 Candidate Recommendation](https://www.w3.org/TR/2014/CR-css-writing-modes-3-20140320/#propdef-writing-mode), not those in the latest spec.
 
-### [CSS Flexible Box Layout 1](https://www.w3.org/TR/css-flexbox-1/)
+## [CSS Flexible Box Layout 1](https://www.w3.org/TR/css-flexbox-1/)
 
 - [align-content](https://www.w3.org/TR/css-flexbox-1/#propdef-align-content)
   - Support depends on browser capabilities
@@ -749,7 +749,7 @@ Vivliostyleは2段階のアーキテクチャから成り、その機能の一�
 - [order](https://www.w3.org/TR/css-flexbox-1/#propdef-order)
   - Support depends on browser capabilities
 
-### [CSS Fragmentation 3](https://www.w3.org/TR/css3-break/)
+## [CSS Fragmentation 3](https://www.w3.org/TR/css3-break/)
 
 - [break-after](https://www.w3.org/TR/css3-break/#propdef-break-after)
   - Supported in all browsers
@@ -767,7 +767,7 @@ Vivliostyleは2段階のアーキテクチャから成り、その機能の一�
   - Supported in all browsers
   - Note: Background, box-shadow and border images on inline-start/end borders are always rendered as if `box-decoration-break: clone` is specified.
 
-### [CSS Transforms 1](https://www.w3.org/TR/css-transforms-1/)
+## [CSS Transforms 1](https://www.w3.org/TR/css-transforms-1/)
 
 - [backface-visibility](https://www.w3.org/TR/css-transforms-1/#propdef-backface-visibility)
   - Allowed prefixes: ms, webkit
@@ -779,7 +779,7 @@ Vivliostyleは2段階のアーキテクチャから成り、その機能の一�
   - Allowed prefixes: epub, ms
   - Support depends on browser capabilities
 
-### [CSS Ruby Layout 1](https://www.w3.org/TR/css-ruby-1/)
+## [CSS Ruby Layout 1](https://www.w3.org/TR/css-ruby-1/)
 
 - [display](https://www.w3.org/TR/css-ruby-1/#propdef-display)
   - Support depends on browser capabilities
@@ -790,7 +790,7 @@ Vivliostyleは2段階のアーキテクチャから成り、その機能の一�
   - Support depends on browser capabilities
   - Supports syntax defined in the current editor's draft.
 
-### [CSS Mobile Text Size Adjustment 1](https://drafts.csswg.org/css-size-adjust-1/)
+## [CSS Mobile Text Size Adjustment 1](https://drafts.csswg.org/css-size-adjust-1/)
 
 - [text-size-adjust](https://drafts.csswg.org/css-size-adjust-1/#text-size-adjust)
   - Allowed prefixes: moz, ms
@@ -805,7 +805,7 @@ Vivliostyleは2段階のアーキテクチャから成り、その機能の一�
 - [mix-blend-mode](https://www.w3.org/TR/compositing-1/#propdef-mix-blend-mode)
   - Support depends on browser capabilities
 
-### [Scalable Vector Graphics (SVG) 2](https://www.w3.org/TR/SVG2/)
+## [Scalable Vector Graphics (SVG) 2](https://www.w3.org/TR/SVG2/)
 
 - [color-interpolation](https://www.w3.org/TR/SVG2/painting.html#ColorInterpolationProperty)
   - Support depends on browser capabilities
@@ -862,7 +862,7 @@ Vivliostyleは2段階のアーキテクチャから成り、その機能の一�
 - [vector-effect](https://www.w3.org/TR/SVG2/coords.html#VectorEffectProperty)
   - Support depends on browser capabilities
 
-### [Scalable Vector Graphics (SVG) 1.1](https://www.w3.org/TR/SVG11/)
+## [Scalable Vector Graphics (SVG) 1.1](https://www.w3.org/TR/SVG11/)
 
 - [alignment-baseline](https://www.w3.org/TR/SVG11/text.html#AlignmentBaselineProperty)
   - Support depends on browser capabilities
@@ -873,7 +873,7 @@ Vivliostyleは2段階のアーキテクチャから成り、その機能の一�
 - [mask](https://www.w3.org/TR/SVG11/masking.html#MaskProperty)
   - Support depends on browser capabilities
 
-### [CSS Masking 1](https://drafts.fxtf.org/css-masking-1/)
+## [CSS Masking 1](https://drafts.fxtf.org/css-masking-1/)
 
 - [clip-path](https://drafts.fxtf.org/css-masking-1/#the-clip-path)
   - Allowed prefixes: webkit
@@ -914,7 +914,7 @@ Vivliostyleは2段階のアーキテクチャから成り、その機能の一�
 - [lighting-color](https://www.w3.org/TR/filter-effects-1/#propdef-lighting-color)
   - Support depends on browser capabilities
 
-### [Pointer Events](https://www.w3.org/TR/pointerevents/)
+## [Pointer Events](https://www.w3.org/TR/pointerevents/)
 
 - [touch-action](https://www.w3.org/TR/pointerevents/#the-touch-action-css-property)
   - Allowed prefixes: ms

@@ -8,5 +8,4 @@
 ## リファレンス
 
 - [API リファレンス](/ja/api)
-- [サポートする機能](/ja/supported-features)
-- [利用可能なプロパティ](/ja/available-properties)
+- [サポートする CSS 機能](/ja/supported-css-features)

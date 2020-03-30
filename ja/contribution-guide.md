@@ -72,15 +72,8 @@ packages/coreディレクトリとpackages/viewerディレクトリの両方で 
 以下のドキュメントを開発中に更新してください。
 
 - [`CHANGELOG.md`](https://github.com/vivliostyle/vivliostyle/blob/master/CHANGELOG.md)
-- [Available Properties](./available-properties.md)
-- ~~This file can be generated with [`scripts/generate-property-doc.js`](https://github.com/vivliostyle/vivliostyle.org/blob/master/scripts/generate-property-doc.js) script as follows:~~ (Currently not working, need fix!)
-  ```shell
-  cd scripts
-  curl -o anchors.json -H "Accept: application/json" 'https://test.csswg.org/shepherd/api/spec/?anchors&draft'  # Download spec data
-  node ./generate-property-doc
-  ```
-- [Supported features](./supported-features.md)
-- Document about features (values, selectors, at-rules, media queries and properties) supported by Vivliostyle. Automatically deployed to https://vivliostyle.org/docs/supported-features. ~~Update this file using information in `property-doc-generated.md`.~~
+- [Supported CSS Features](./supported-css-features.md)
+  - Document about CSS features (values, selectors, at-rules, media queries and properties) supported by Vivliostyle.
 
 ## コード情報
 

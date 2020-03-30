@@ -279,8 +279,8 @@ Google Chrome, select Print from menu, set Destination to “Save as PDF”, che
 > Off, only the pages that have already been displayed can be printed, and the
 > page number will not be output correctly.
 
-## Supported CSS features
+## Supported CSS Features
 
-Supported CSS features are described in [Supported features](./supported-features.md).
+Supported CSS Features are described in [Supported CSS Features](./supported-css-features.md).
 
 <Samples />

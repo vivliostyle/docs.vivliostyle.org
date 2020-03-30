@@ -227,6 +227,6 @@ Web上に公開されている文書に、設定パネルからユーザース�
 
 ## サポートされているCSSの機能
 
-VivliostyleがサポートするCSSの機能については [Supported features](./supported-features.md) を参照してください。
+VivliostyleがサポートするCSSの機能については [サポートする CSS 機能](./supported-css-features.md) を参照してください。
 
 <Samples />
