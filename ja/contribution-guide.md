@@ -2,11 +2,11 @@
 
 ## モジュール構成
 
-Vivliostyle Viewerは2つのコンポーネントで構成されています:
+Vivliostyle.js は2つのコンポーネントで構成されています:
 
-| [Core](https://github.com/vivliostyle/vivliostyle/tree/master/packages/core) | [Viewer](https://github.com/vivliostyle/vivliostyle/tree/master/packages/viewer) |
-| ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| Page layout engine                                                           | UI for Vivliostyle Core                                                          |
+| [Core](https://github.com/vivliostyle/vivliostyle.js/tree/master/packages/core) | [Viewer](https://github.com/vivliostyle/vivliostyle.js/tree/master/packages/viewer) |
+| --------------------------------- | --------------------------------- |
+| Vivliostyle.js Core layout engine | Vivliostyle.js Viewer UI          |
 
 ## 開発環境のセットアップ
 
@@ -16,146 +16,185 @@ Vivliostyle Viewerは2つのコンポーネントで構成されています:
 - [Yarn](https://yarnpkg.com)
 - [Git](https://git-scm.com)
 
-[vivliostyle](https://github.com/vivliostyle/vivliostyle)をクローンします。
+[vivliostyle.js](https://github.com/vivliostyle/vivliostyle.js)をクローンします。
 
 ```shell
-git clone https://github.com/vivliostyle/vivliostyle.git
-cd vivliostyle
+git clone https://github.com/vivliostyle/vivliostyle.js.git
+cd vivliostyle.js
 ```
 
 `@vivliostyle/core` は `@vivliostyle/viewer` 内の `package.json` でdependencyに含まれています。開発時には、`@vivliostyle/core` はnpmからインストールされたパッケージではなくローカルのコピーを用います。このため、`yarn bootstrap` を使ってシンボリックリンクを作成します。
 
 ```shell
-yarn install # install dependencies
-yarn bootstrap # setup development environment
+yarn install    # install dependencies
+yarn bootstrap  # setup development environment
 ```
 
 ## ビルド・開発サーバーの立ち上げ
 
 ```shell
-yarn build-dev # build a development version of both Core and Viewer.
-yarn dev # start watching source files and open browser.
+yarn build-dev  # build a development version of both Core and Viewer.
+yarn dev        # start watching source files and open browser.
 ```
 
 `yarn dev` を使用すると、（[Browsersync](https://browsersync.io/) によりライブリロードが有効な）Webサーバーが起動し、Google Chromeが自動的に開きます。 ブラウザーが開かない場合は、<http://localhost:3000/core/test/files/>を開きます。 ソースファイルを保存すると、ブラウザは自動的にリロードされます。
 
-## ビューワーとテストファイル
+### ビューワーとテストファイル
 
-開発モード中のビューワーHTMLファイルは `packages/viewer/lib/vivliostyle-viewer-dev.html` にあります。`x` ハッシュパラメータを指定して、ビューワーHTMLファイルから相対の(X)HTMLファイルをURLで指定できます。例えば、<http://localhost:3000/viewer/lib/vivliostyle-viewer-dev.html#x=../../core/test/files/print_media/index.html> は `packages/core/test/files/print_media/index.html` にあるprint mediaのテストファイルを開きます。また、`b` パラメータによってEPUBディレクトリ（解凍されたEPUBファイル）を開くこともできます。例えば、<http://localhost:3000/viewer/lib/vivliostyle-viewer-dev.html#b=../../core/scripts/package-artifacts/samples/niimi/> は `packages/core/scripts/package-artifacts/samples/niimi/` にあるサンプルのEPUBディレクトリを開きます。ただし、末尾のスラッシュは省略できないことに注意してください。`b` パラメータはWeb出版物（複数のHTMLによるドキュメント）も受け入れます。PR: [Support Web Publications and similar multi-HTML documents with TOC navigation](https://github.com/vivliostyle/vivliostyle/pull/511) を参照してください。
+開発モード中のビューワーHTMLファイルは `packages/viewer/lib/vivliostyle-viewer-dev.html` にあります。`#src=` ハッシュパラメータを指定して、ビューワーHTMLファイルから相対の(X)HTMLファイルをURLで指定できます。例えば、<http://localhost:3000/viewer/lib/vivliostyle-viewer-dev.html#src=../../core/test/files/print_media/index.html> は `packages/core/test/files/print_media/index.html` にあるprint mediaのテストファイルを開きます。
 
 開発中に使用することを目的としたテストHTMLファイルは、 `packages/core/test/files/` にあります。 機能の実装と検証に役立つテストファイルを追加することをお勧めします。
 
-`packages/core/scripts/package-artifacts/samples/` ディレクトリには公開用のサンプルファイルがあり、これらは [vivliostyle.orgのサンプルページ](https://vivliostyle.org/samples) にデプロイされます。
+`packages/core/scripts/package-artifacts/samples/` ディレクトリにテスト用のサンプルファイルがあります。より多くのサンプルが [vivliostyle.orgのサンプルページ](https://vivliostyle.org/samples) にあります。
 
-## テスト
+### テスト
 
-以下を実行する前に、ルートディレクトリで `npm install` を実行する必要があります。
+TypeScriptで書かれたソースファイルは、Rollupによってコンパイル・minifyされます。 JavaScriptファイルのminifiedバージョンをビルドするには、（リポジトリのルートディレクトリで）`yarn build` を実行します。 ソースは型チェックされ、minifyされたファイルは `packages/core/lib/` と `packages/viewer/lib` ディレクトリの下に生成されます。
 
-TypeScriptで書かれたソースファイルは、Rollupによってコンパイル・minifyされます。 JavaScriptファイルのminifiedバージョンをビルドするには、（ルートディレクトリで）`yarn build` を実行します。 ソースは型チェックされ、minifyされたファイルは `packages/core/lib/` と `packages/viewer/lib` ディレクトリの下に生成されます。
+[Jasmine](http://jasmine.github.io/) はユニットテストに使用されます。 スペックファイルは `packages/core/test/spec/` の下にあります。 ローカルマシンでテストを実行するには、`yarn test` を実行します。
 
-[Jasmine](http://jasmine.github.io/) はユニットテストに使用されます。 スペックファイルは `packages/core/test/spec/` の下にあります。 ローカルマシンでテストを実行するには、`npm run test-local` を実行します。
+ユニットテストはGitHubにプッシュした際に [Travis CI](https://travis-ci.org/vivliostyle/vivliostyle.js) が自動的に実行されます。masterにプッシュされると、すべてのテストに合格した後、コードは自動的に[Canary release](https://vivliostyle.github.io/#canary-release-equivalent-to-master)にデプロイされます。masterへのプッシュ（PRのマージ）には注意してくだい。
 
-~~[A forked version of CSSWG reftests](https://github.com/vivliostyle/csswg-test) can be run with vivliostyle. See files under `packages/core/test/wpt/` for details.~~ (Currently not working, need fix!)
+### 開発モード
 
-ユニットテスト ~~and reftests (listed in `packages/core/test/wpt/metadata/MANIFEST.json`)~~ はGitHubにプッシュした際に [Travis CI](https://travis-ci.org/vivliostyle/vivliostyle) が自動的に実行されます。masterにプッシュされると、すべてのテストに合格した後、コードは自動的にGitHub Pagesにデプロイされ、[vivliostyle.orgのサンプルページ](https://vivliostyle.org/samples) からアクセスできます。masterへのプッシュ（PRのマージ）には注意してくだい。
+開発モード (`yarn dev`) では、ブラウザの開発者ツールでVivliostyle.jsのTypeScriptソースコードをデバッグできます。
 
-## production versionのビルド
+### Lint とコードのフォーマット
 
-packages/coreディレクトリとpackages/viewerディレクトリの両方で `yarn build` を実行することで、Vivliostyleのproduction versionをビルドできます。 packages/coreおよびpackages/viewerのすべてのJSファイルは、単一のファイルに結合されます。
+### Lint / code formatting
 
-## 開発モード
+vivliostyleのソースコードは、`yarn lint` を実行（[eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier) を用いた [ESLint](https://eslint.org/)）して、コード整形してください。
 
-開発モード (`yarn build-dev`) では、コンパイルされたJSファイル ` vivliostyle.js` とソースマップファイル `vivliostyle.js.map`（両方とも ` packages/core/lib` の下にあります）がブラウザーによってロードされ、 ブラウザの開発者ツールでTypeScriptコードをデバッグできます。
+`yarn format` で [prettier](https://prettier.io/) によるコードのフォーマットを行います。
+
+### リリースのフロー
+
+リリース処理の前に、次のコードを実行して、リリースビルドが作成されることを確認します。
+
+```shell
+yarn lint
+yarn test
+yarn clean
+yarn build
+```
+
+#### 1. プレリリース
+
+`yarn version:prerelease` を実行してプレリリース版を作成します。そして、 `yarn version:bump` でプレリリース番号を上げます。
+
+#### 2. 安定版(Stable)リリース
+
+現在のバージョンがプレリリース（例 v2.0.0-pre.4）なら、次を実行します:
+
+```shell
+yarn version:graduate
+```
+
+安定版から次の安定版（例 v2.0.0 -> v2.0.1）にバージョンアップする場合:
+
+```shell
+yarn version:bump
+```
+
+## 一貫した命名ガイドライン
+
+1. 一貫性を保つために、クラス名とそのファイル名を一致させます。
+2. モジュールのインポート名にはPascalCaseを、ファイル名にはkebab-caseを使用して、違いを視覚的に区別しやすくします。
+3. 分かりやすさのために、ファイル名とクラス名に省略語を使わないようにします。ただし以下を除きます:
+    1. イニシャリズム（EPUB、PDFなど）。
+    2. 長い名前（conditional-properties よりも conditional-props が好ましい）。
+
+## コミットメッセージのガイドライン
+
+このプロジェクトへの重要な変更は `CHANGELOG.md` に記録されます。
+そのためのコミットメッセージのガイドラインは [Conventional Commits](https://conventionalcommits.org) を参照。
+
+## トラブルシューティング
+
+### Cannot find `node_modules/@vivliostyle/core`
+
+これは `yarn add` の後に発生します。 インストール後にシンボリックリンクを再作成するには、 `lerna link` を実行します。それ以外の場合は、`yarn add` の代わりに `lerna add` を使用します。
 
 ## ドキュメントのメンテナンス
 
 以下のドキュメントを開発中に更新してください。
 
-- [`CHANGELOG.md`](https://github.com/vivliostyle/vivliostyle/blob/master/CHANGELOG.md)
+- [`CHANGELOG.md`](https://github.com/vivliostyle/vivliostyle.js/blob/master/CHANGELOG.md)
+  - [Conventional Commits](https://conventionalcommits.org) により自動で生成されます.
 - [Supported CSS Features](./supported-css-features.md)
-  - Document about CSS features (values, selectors, at-rules, media queries and properties) supported by Vivliostyle.
+  - VivliostyleでサポートされるCSS機能(values, selectors, at-rules, media queries and properties)
 
-## コード情報
-
-### Lint / code formatting
-
-vivliostyleのソースコードは、`npm run lint` を実行（[eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier) を用いた [ESLint](https://eslint.org/)）して、コードフォーマットをチェックしてください。
-
-修正できる問題は、`npm run lint-fix` を実行して修正します。
-
-コードのフォーマットには、[Prettierのデフォルトオプション](https://prettier.io/docs/en/options.html) を使用します。`npm run lint-fix` を使用して、きれいなコードを保ってください。
-
-### ソースファイル
+## ソースファイル
 
 `packages/core/src/` 以下のソースファイルについて簡単に説明します。
 
-#### `vivliostyle/core-viewer.ts`
+### `vivliostyle/core-viewer.ts`
 
 - Exposed interface of vivliostyle-core. To use vivliostyle-core, instantiate
   Vivliostyle.CoreViewer, set options, register event listeners by addListener
   method, and call loadDocument or loadPublication method.
 
-#### `vivliostyle/constants.ts`
+### `vivliostyle/constants.ts`
 
 - Defines constants used throughout the library.
 
-#### `vivliostyle/task.ts`
+### `vivliostyle/task.ts`
 
 - Task scheduling.
 
-#### `vivliostyle/exprs.ts`
+### `vivliostyle/exprs.ts`
 
-- Definitions for [expressions](http://web.archive.org/web/20190506055550im_/http://www.idpf.org/epub/pgt/#s2) of Adaptive Layout.
+- Definitions for [expressions](http://www.idpf.org/epub/pgt/#s2) of Adaptive Layout.
 
-#### `vivliostyle/css.ts`
+### `vivliostyle/css.ts`
 
 - Definitions for various CSS values.
 
-#### `vivliostyle/css-parser.ts`
+### `vivliostyle/css-parser.ts`
 
 - CSS parser.
 
-#### `vivliostyle/css-cascade.ts`
+### `vivliostyle/css-cascade.ts`
 
 - Classes for selector matching and cascading calculation.
 
-#### `vivliostyle/vtree.ts`
+### `vivliostyle/vtree.ts`
 
 - View tree data structures.
 
-#### `vivliostyle/css-styler.ts`
+### `vivliostyle/css-styler.ts`
 
 - Apply CSS cascade to a document incrementally.
 
-#### `vivliostyle/font.ts`
+### `vivliostyle/font.ts`
 
 - Web font handling.
 
-#### `vivliostyle/page-masters.ts`
+### `vivliostyle/page-masters.ts`
 
-- Classes for [page masters of Adaptive Layout](http://web.archive.org/web/20190506055550im_/http://www.idpf.org/epub/pgt/#s3.4).
+- Classes for [page masters of Adaptive Layout](http://www.idpf.org/epub/pgt/#s3.4).
 
-#### `vivliostyle/page-floats.ts`
+### `vivliostyle/page-floats.ts`
 
 - Page floats.
 
-#### `vivliostyle/vgen.ts`
+### `vivliostyle/vgen.ts`
 
 - Generation of view tree.
 
-#### `vivliostyle/layout.ts`
+### `vivliostyle/layout.ts`
 
 - Content layout inside regions, including column breaking etc.
 
-#### `vivliostyle/css-page.ts`
+### `vivliostyle/css-page.ts`
 
 - Support for [CSS Paged Media](https://drafts.csswg.org/css-page/).
 
-#### `vivliostyle/ops.ts`
+### `vivliostyle/ops.ts`
 
 - Select page master, layout regions (columns) one by one etc.
 
-#### `vivliostyle/epub.ts`
+### `vivliostyle/epub.ts`
 
 - Handling EPUB metadata, rendering pages etc.
 
