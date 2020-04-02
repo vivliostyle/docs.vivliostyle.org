@@ -150,7 +150,7 @@ documents published on the Web:
 
 ## TOC panel
 
-Specifying `&bookMode=true` (or **Book Mode** check box On) enables the TOC panel (open by clicking the <img src="images/toc-icon.png" width="16" height="16" alt="[TOC]" /> icon in the upper left corner of the viewer) if there is a TOC element in the HTML, even for a single HTML file, as well as [Web publications](#Web%20publications%20(multi-HTML%20documents)).
+Specifying `&bookMode=true` (or **Book Mode** check box On) enables the TOC panel (open by clicking the <img src="images/toc-icon.png" width="16" height="16" alt="[TOC]" /> icon in the upper left corner of the viewer) if there is a TOC element in the HTML, even for a single HTML file, as well as [Web publications](#web-publications-multi-html-documents).
 
 ## Page spread view mode
 
