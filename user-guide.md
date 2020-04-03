@@ -30,7 +30,7 @@ Vue.component("Link", {
 
 Vivliostyle Viewer is a web application displaying and typesetting HTML+CSS documents.
 
-### Hoe to use
+### How to use
 
 To use the Vivliostyle Viewer in a local environment, start a web
 server by following the instructions described in the
