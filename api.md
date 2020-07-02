@@ -1,4 +1,4 @@
-# API Reference
+# Core API Reference
 
 ## Table of Contents
 
@@ -285,7 +285,7 @@ Viewer options that can be set after the Viewer object is constructed.
 Allows page-layouting using the vivliostyle for printing within a website without destroying the original layout
 
 ```js
-import { printHTML } from "@vivliostyle/core";
+import { printHTML } from '@vivliostyle/core';
 
 const htmlDoc = `<!doctype html>
 <html>
@@ -300,8 +300,8 @@ const htmlDoc = `<!doctype html>
 </html>`;
 
 const config = {
-  title: "My printed page",
-  printCallback: iframeWin => iframeWin.print() // optional: only needed if calling something other than window.print() for printing.
+  title: 'My printed page',
+  printCallback: (iframeWin) => iframeWin.print(), // optional: only needed if calling something other than window.print() for printing.
 };
 
 printHTML(htmlDoc, config);
