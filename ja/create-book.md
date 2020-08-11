@@ -13,7 +13,7 @@
 ## 本文書の読者対象
 
 - ターミナルの操作がある程度できる
-- Markdownの記法をある程度知っている
+- markdownの記法をある程度知っている
 - 以下のような本を手間をかけずに作りたいと思っている
     - 技術同人誌をふくむ横書き文書
     - 学術論文をふくむ横書き文書
@@ -36,7 +36,7 @@
 
 1. [Create Book](https://github.com/vivliostyle/create-book) を実行し、プロジェクトフォルダを作成
 2. 作成されたプロジェクトフォルダに移動
-3. 既存の Markdown ファイルを編集して原稿を執筆
+3. 既存の markdown ファイルを編集して原稿を執筆
 4. `vivliostyle.config.js` を編集してカスタマイズ
 5. npm により [Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli) を実行し本を生成
 
@@ -77,7 +77,7 @@ npm create book <directory>
 
 ![図2 インストールにより生成されたmybookフォルダの内容。なお、グレイのファイル／フォルダは不可視属性。](../images/tutorial-CB-fig2.png)
 
-- ❶ `manuscript.md` ……本の原稿となる Markdownファイル
+- ❶ `manuscript.md` ……本の原稿となる markdownファイル
 - ❷ `vivliostyle.config.js` ……判型や目次／奥付の追加など本をカスタマイズする設定ファイル
 - ❸ `package.json` ……プロジェクトフォルダ全体の設定ファイル
 
@@ -91,7 +91,7 @@ npm は上記設定ファイルを参照し、また上記ライブラリを使�
 
 ## 原稿の執筆
 
-インストールすると作成される `manuscript.md` (図2❶) をテンプレートにして原稿を執筆します。記法は標準的な Markdown である[GFM (GitHub Flavored Markdown) <i class=“mdi mdi-open-in-new”></i>](https://github.github.com/gfm/ )を、書籍向けに拡張した [VFM (Vivliostyle Flavored Markdown)](https://github.com/vivliostyle/vfm) です。
+インストールすると作成される `manuscript.md` (図2❶) をテンプレートにして原稿を執筆します。記法は標準的な markdown である[GFM (GitHub Flavored Markdown) <i class=“mdi mdi-open-in-new”></i>](https://github.github.com/gfm/ )を、書籍向けに拡張した [VFM (Vivliostyle Flavored Markdown)](https://github.com/vivliostyle/vfm) です。
 
 GFM の上位互換ですから、慣れた人なら基本的な記法は GFM がそのまま使え、新たに覚えるのは VFM だけですみます。
 
@@ -112,12 +112,12 @@ GFM の上位互換ですから、慣れた人なら基本的な記法は GFM �
 
 - [Hard new line (強制改行)](https://vivliostyle.github.io/vfm/#/vfm#hard-new-line)
 - [Code (コードの記述)](https://vivliostyle.github.io/vfm/#/vfm#code)
-    - [with caption (コード部分のキャプション)](https://vivliostyle.github.io/vfm/#/vfm#with-caption)
+   - [with caption (コード部分のキャプション)](https://vivliostyle.github.io/vfm/#/vfm#with-caption)
 - [Image (画像とそのサイズ指定)](https://vivliostyle.github.io/vfm/#/vfm#image)
-なお、仕様に書かれていませんが、以下の記法で画像のサイズ指定が可能です。画像ファイルは(  )内に相対パスで指定します。xxxは数値、単位はpxですが省略して記述します。`width` (幅) の他に `height` (高さ) も使えます。
-    ```
-    ![図n](./foo.png){width=xxx}
-    ```
+     なお、仕様に書かれていませんが、以下の記法で画像のサイズ指定が可能です。画像ファイルは(  )内に相対パスで指定します。xxxは数値、単位はpxですが省略して記述します。`width` (幅) の他に `height` (高さ) も使えます。
+      ```
+      ![図n](./foo.png){width=xxx}
+      ```
     - [with caption (画像のキャプション)](https://vivliostyle.github.io/vfm/#/vfm#with-caption-2)
 - [Ruby (ルビの記述)](https://vivliostyle.github.io/vfm/#/vfm#ruby)
 - [Raw HTML (HTMLそのままの記述)](https://vivliostyle.github.io/vfm/#/vfm#raw-html)
@@ -211,7 +211,7 @@ entry: [
 
 以下の手順で目次を追加することができます。
 
-1. あらかじめ以下のような目次用の markdown ファイルを用意し、ファイル名を `index.md` としてプロジェクトフォルダに保存します。なお、HTMLのタグがある行とMarkdownの行の間には、必ず空行をいれるよう注意してください。そうしないとエラーになります。
+1. あらかじめ以下のような目次用の markdown ファイルを用意し、ファイル名を `index.md` としてプロジェクトフォルダに保存します。なお、HTMLのタグがある行とmarkdownの行の間には、必ず空行をいれるよう注意してください。そうしないとエラーになります。
 
 ```
 # 本のタイトル
@@ -241,7 +241,7 @@ entry: [
 以下の手順で奥付を追加することができます。
 
 
-1. あらかじめ以下のような markdownファイルを用意し、ファイル名を `colophon.md` としてプロジェクトフォルダに保存します。なお、HTMLのタグがある行とMarkdownの行の間には、必ず空行をいれるよう注意してください。そうしないとエラーになります。
+1. あらかじめ以下のような markdownファイルを用意し、ファイル名を `colophon.md` としてプロジェクトフォルダに保存します。なお、HTMLのタグがある行とmarkdownの行の間には、必ず空行をいれるよう注意してください。そうしないとエラーになります。
 ```
 <section id="colophon" role="doc-colophon">
 
