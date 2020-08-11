@@ -114,10 +114,10 @@ However, it implements only the following items, not all in the current version:
     - [with caption](https://vivliostyle.github.io/vfm/#/vfm#with-caption)
 - [Image (and its size specification)](https://vivliostyle.github.io/vfm/#/vfm#image)
 
-In addition, although it has not been written in the specification yet, you can specify the size of the image by the following notation. The image file is specified as a relative path in (  ). xxx is a number, the unit is px, but omitted. You can use `width` as well as `height`.
-```
-![fig-n](./foo.png){width=xxx}
-```
+    In addition, although it has not been written in the specification yet, you can specify the size of the image by the following notation. The image file is specified as a relative path in (  ). xxx is a number, the unit is px, but omitted. You can use `width` as well as `height`.
+    ```
+    ![fig-n](./foo.png){width=xxx}
+    ```
     - [with caption](https://vivliostyle.github.io/vfm/#/vfm#with-caption-2)
 - [Ruby](https://vivliostyle.github.io/vfm/#/vfm#ruby)
 - [Raw HTML](https://vivliostyle.github.io/vfm/#/vfm#raw-html)
