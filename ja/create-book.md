@@ -112,12 +112,12 @@ GFM の上位互換ですから、慣れた人なら基本的な記法は GFM �
 
 - [Hard new line (強制改行)](https://vivliostyle.github.io/vfm/#/vfm#hard-new-line)
 - [Code (コードの記述)](https://vivliostyle.github.io/vfm/#/vfm#code)
-   - [with caption (コード部分のキャプション)](https://vivliostyle.github.io/vfm/#/vfm#with-caption)
+    - [with caption (コード部分のキャプション)](https://vivliostyle.github.io/vfm/#/vfm#with-caption)
 - [Image (画像とそのサイズ指定)](https://vivliostyle.github.io/vfm/#/vfm#image)
-     なお、仕様に書かれていませんが、以下の記法で画像のサイズ指定が可能です。画像ファイルは(  )内に相対パスで指定します。xxxは数値、単位はpxですが省略して記述します。`width` (幅) の他に `height` (高さ) も使えます。
-      ```
-      ![図n](./foo.png){width=xxx}
-      ```
+  なお、仕様に書かれていませんが、以下の記法で画像のサイズ指定が可能です。画像ファイルは(  )内に相対パスで指定します。xxxは数値、単位はpxですが省略して記述します。`width` (幅) の他に `height` (高さ) も使えます。
+    ```
+    ![図n](./foo.png){width=xxx}
+    ```
     - [with caption (画像のキャプション)](https://vivliostyle.github.io/vfm/#/vfm#with-caption-2)
 - [Ruby (ルビの記述)](https://vivliostyle.github.io/vfm/#/vfm#ruby)
 - [Raw HTML (HTMLそのままの記述)](https://vivliostyle.github.io/vfm/#/vfm#raw-html)
