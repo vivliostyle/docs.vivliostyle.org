@@ -139,7 +139,7 @@ GFM の上位互換ですから、慣れた人なら基本的な記法は GFM �
 
 GFM にも VFM にも規定されていませんが、下記外部サイトの記法でいくつかの footnote (後注) が利用できます。
 
-- [footnote /remark](https://www.npmjs.com/package/remark-footnotes)
+- [remark-footnotes](https://www.npmjs.com/package/remark-footnotes)
 
 #### 縦中横
 

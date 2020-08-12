@@ -137,7 +137,7 @@ However, it implements only the following items, not all in the current version:
 
 It is not specified by GFM and VFM, but footnotes are  available in the notation of the following external sites.
 
-- [footnote /remark](https://www.npmjs.com/package/remark-footnotes)
+- [remark-footnotes](https://www.npmjs.com/package/remark-footnotes)
 
 #### Tatechuyoko (Horizontal-in-Vertical Settings)
 
