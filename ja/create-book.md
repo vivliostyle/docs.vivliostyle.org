@@ -57,18 +57,11 @@ npm create book <directory>
 
 インストールの際、以下の項目を指定することができます (図1)。必ずしもここで全てを指定する必要はなく、指定したくない場合はリターンキーで次の項目に移動できます。後述の `vivliostyle.config.js` を編集することで変更が可能です。
 
-
 <figure>
-<img src=“../images/tutorial-CB-fig1.png”>
-<figcaption>図1 Create Bookのインストール。プロジェクトフォルダ名として mybook を指定している。なお、npmから警告が出るがユーザに影響はない。</figcaption>
-</figure>
 
-
-<figure>
 ![](../images/tutorial-CB-fig1.png)
 <figcaption>図1 Create Bookのインストール。プロジェクトフォルダ名として mybook を指定している。なお、npmから警告が出るがユーザに影響はない。</figcaption>
 </figure>
-
 
 - description (本の内容に関する簡単な説明。英数字以外に漢字片仮名平仮名も使用可)
 - author name (著者名。英数字以外に漢字片仮名平仮名も使用可)
@@ -86,7 +79,11 @@ npm create book <directory>
 
 下図は実際にインストールしたプロジェクトフォルダ (ここでは `mybook`) の内容です (図2)。自分の意図に合わせて本を作るため、❶〜❸のファイルを編集します。
 
-![図2 インストールにより生成されたmybookフォルダの内容。なお、グレイのファイル／フォルダは不可視属性。](../images/tutorial-CB-fig2.png)
+<figure>
+
+![](../images/tutorial-CB-fig2.png)
+<figcaption>図2 インストールにより生成されたmybookフォルダの内容。なお、グレイのファイル／フォルダは不可視属性。</figcaption>
+</figure>
 
 - ❶ `manuscript.md` ……本の原稿となる markdownファイル
 - ❷ `vivliostyle.config.js` ……判型や目次／奥付の追加など本をカスタマイズする設定ファイル
@@ -149,7 +146,7 @@ GFM にも VFM にも規定されていませんが、下記外部サイトの�
 テーマファイル `@vivliostyle/theme-bunko`を選択すると、以下の記法で縦中横が書けるようになります。テーマファイルの選択については、後述[テーマファイルの指定](#テーマファイルの指定)を参照してください。
 
 ```md
-「これいいよ」と彼が言ったから<span class="tcy">12</span>月<span class="tcy">17</span>日はmarkdown記念日
+「これいいよ」と彼が言ったから<span class="tcy">12</span>月<span class="tcy">17</span>日は markdown 記念日
 ```
 
 ## 本のカスタマイズ
@@ -303,9 +300,11 @@ npm スクリプトにより、Vivliostyle CLI を使って本を生成します
 npm run build
 ```
 
-以下は生成時のキャプチャです (図3)。
+<figure>
 
-![図3 Vivliostyle CLI を使った本の生成](../images/tutorial-CB-fig3.png)
+![](../images/tutorial-CB-fig3.png)
+<figcaption>図3 Vivliostyle CLI を使った本の生成。</figcaption>
+</figure>
 
 ### 4色印刷用PDFファイル の生成
 
@@ -323,7 +322,11 @@ npm run build
 
 以下は生成時のキャプチャです (図4)。
 
-![図4 CMYK (4色) のPDF/x-1aを出力](../images/tutorial-CB-fig4.png)
+<figure>
+
+![](../images/tutorial-CB-fig4.png)
+<figcaption>図4 CMYK (4色) 印刷用のPDF/x-1aを出力。</figcaption>
+</figure>
 
 ## 制限事項
 
