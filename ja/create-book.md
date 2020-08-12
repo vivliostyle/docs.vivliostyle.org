@@ -122,6 +122,7 @@ GFM の上位互換ですから、慣れた人なら基本的な記法は GFM �
 - [Code (コードの記述)](https://vivliostyle.github.io/vfm/#/vfm#code)
     - [with caption (コード部分のキャプション)](https://vivliostyle.github.io/vfm/#/vfm#with-caption)
 - [Image (画像とそのサイズ指定)](https://vivliostyle.github.io/vfm/#/vfm#image)
+
   なお、仕様に書かれていませんが、以下の記法で画像のサイズ指定が可能です。画像ファイルは(  )内に相対パスで指定します。xxxは数値、単位はpxですが省略して記述します。`width` (幅) の他に `height` (高さ) も使えます。
 
     ```md
