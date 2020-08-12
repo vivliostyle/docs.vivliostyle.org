@@ -57,7 +57,18 @@ npm create book <directory>
 
 インストールの際、以下の項目を指定することができます (図1)。必ずしもここで全てを指定する必要はなく、指定したくない場合はリターンキーで次の項目に移動できます。後述の `vivliostyle.config.js` を編集することで変更が可能です。
 
-![図1 Create Bookのインストール。プロジェクトフォルダ名として mybook を指定している。なお、npmから警告が出るがユーザに影響はない。](../images/tutorial-CB-fig1.png)
+
+<figure>
+<img src=“../images/tutorial-CB-fig1.png”>
+<figcaption>図1 Create Bookのインストール。プロジェクトフォルダ名として mybook を指定している。なお、npmから警告が出るがユーザに影響はない。</figcaption>
+</figure>
+
+
+<figure>
+![](../images/tutorial-CB-fig1.png)
+<figcaption>図1 Create Bookのインストール。プロジェクトフォルダ名として mybook を指定している。なお、npmから警告が出るがユーザに影響はない。</figcaption>
+</figure>
+
 
 - description (本の内容に関する簡単な説明。英数字以外に漢字片仮名平仮名も使用可)
 - author name (著者名。英数字以外に漢字片仮名平仮名も使用可)
