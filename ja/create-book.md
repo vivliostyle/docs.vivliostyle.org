@@ -116,7 +116,7 @@ GFM の上位互換ですから、慣れた人なら基本的な記法は GFM �
 
 - [Vivliostyle Flavored Markdown: Working Draft](https://vivliostyle.github.io/vfm/#/vfm)
 
-ただし、現バージョンではすべてではなく、以下の項目のみ実装しています。
+ただし、現バージョンでは以下の項目のみ実装しています。
 
 - [Hard new line (強制改行)](https://vivliostyle.github.io/vfm/#/vfm#hard-new-line)
 - [Code (コードの記述)](https://vivliostyle.github.io/vfm/#/vfm#code)

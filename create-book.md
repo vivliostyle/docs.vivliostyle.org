@@ -115,7 +115,7 @@ For detailed specifications, please refer to the following.
 
 - [Vivliostyle Flavored Markdown: Working Draft](https://vivliostyle.github.io/vfm/#/vfm)
 
-However, it implements only the following items, not all in the current version:
+However, only the following items are implemented in the current version:
 
 - [Hard new line](https://vivliostyle.github.io/vfm/#/vfm#hard-new-line)
 - [Code](https://vivliostyle.github.io/vfm/#/vfm#code)
