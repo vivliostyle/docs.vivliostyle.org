@@ -88,7 +88,7 @@ The fig-2 below shows the contents of the actual folder installed (in this case,
 - ❷ `vivliostyle.config.js` ……Setting files that customize books such as adding a format, table of contents, or a colophon.
 - ❸ `package.json` ……Configuration file for the entire project folder.
 
-Create Book runs on [Node.js](https://nodejs.org/ ) , one of the JavaScript execution environments. More specifically, the command-line interface that comes with Node.js, drives Vivliostyle CLI by [npm](https://www.npmjs.com/ ). During installation, Create Book does the following:
+Create Book uses [npm](https://www.npmjs.com/ ), a command line interface that comes with [Node.js](https://nodejs.org/ ), one of the JavaScript execution environments, to made a book. During installation, Create Book does the following:
 
 - Create `vivliostyle.config.js` and  `package.json`, which are configuration files referenced by npm.
 - Create a template for the manuscript, `manuscript.md`.

@@ -89,7 +89,7 @@ npm create book <directory>
 - ❷ `vivliostyle.config.js` ……判型や目次／奥付の追加など本をカスタマイズする設定ファイル
 - ❸ `package.json` ……プロジェクトフォルダ全体の設定ファイル
 
-Create Book は JavaScript の実行環境の一つである [Node.js](https://nodejs.org/ja/ ) で動作します。具体的には Node.js に付属するコマンドラインインターフェイス、[npm](https://www.npmjs.com/ )によって Vivliostyle CLI を駆動します。Create Book はインストールの際、以下のようなことをします。
+Create Book は JavaScript の実行環境の一つである [Node.js](https://nodejs.org/ja/ ) に付属するコマンドラインインターフェイス、[npm](https://www.npmjs.com/ )によって本作りをします。Create Book はインストールの際、以下のようなことをします。
 
 - npm が参照する設定ファイル `vivliostyle.config.js` (❷)や `package.json`(❸)を作成
 - 原稿のテンプレート `manuscript.md`(❶)を作成
