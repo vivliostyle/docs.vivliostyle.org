@@ -25,10 +25,10 @@
 - macOS 10.13 (High Sierra) 以上
 - Windows 10
 - 以下がインストールずみであること
-    - [Node.js (v.10以上)  <i class=“mdi mdi-open-in-new”></i>](https://nodejs.org/ja/)
+    - [Node.js (v.10以上)](https://nodejs.org/ja/)
 - 印刷用PDFファイルの出力には、以下のインストールも必要
-    - [ghostscript <i class=“mdi mdi-open-in-new”></i>](https://www.ghostscript.com/)
-    - [Xpdf <i class=“mdi mdi-open-in-new”></i>](https://texwiki.texjp.org/?Xpdf)
+    - [ghostscript](https://www.ghostscript.com/)
+    - [Xpdf](https://texwiki.texjp.org/?Xpdf)
 
 ## 本を作る手順
 
@@ -40,7 +40,7 @@
 4. `vivliostyle.config.js` を編集してカスタマイズ
 5. npm により [Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli) を実行し本を生成
 
-作成されるプロジェクトフォルダは git で管理されるため、[SourceTree <i class=“mdi mdi-open-in-new”></i>](https://www.sourcetreeapp.com/ )
+作成されるプロジェクトフォルダは git で管理されるため、[SourceTree](https://www.sourcetreeapp.com/ )
 などの git クライアントを使えば、現在の版と以前の版を比較したり戻したりといった、バージョン管理による本作りができます (もしバージョン管理が不要でしたら、無視しても全く問題ありません)。なお、本文書では git の解説はしません。各種解説書、解説サイトをご参照ください。
 
 ## インストール
@@ -53,7 +53,7 @@ npm create book <directory>
 
 指定したプロジェクトフォルダが既に存在しており、且つそのフォルダが空でない場合、 Create Book はエラーになります（既存のフォルダが空であればインストールは成功します）。
 
-なお、[npm <i class=“mdi mdi-open-in-new”></i>](https://www.npmjs.com/ )以外に [yarn <i class=“mdi mdi-open-in-new”></i>](https://classic.yarnpkg.com/ja/ )も利用可能ですが、本文書ではより一般的な前者で説明します。
+なお、[npm](https://www.npmjs.com/ )以外に [yarn](https://classic.yarnpkg.com/ja/ )も利用可能ですが、本文書ではより一般的な前者で説明します。
 
 インストールの際、以下の項目を指定することができます (図1)。必ずしもここで全てを指定する必要はなく、指定したくない場合はリターンキーで次の項目に移動できます。後述の `vivliostyle.config.js` を編集することで変更が可能です。
 
@@ -81,7 +81,7 @@ npm create book <directory>
 - ❷ `vivliostyle.config.js` ……判型や目次／奥付の追加など本をカスタマイズする設定ファイル
 - ❸ `package.json` ……プロジェクトフォルダ全体の設定ファイル
 
-Create Book は JavaScript の実行環境の一つである [Node.js  <i class=“mdi mdi-open-in-new”></i>](https://nodejs.org/ja/ ) で動作します。具体的には Node.js に付属するコマンドラインインターフェイス、[npm  <i class=“mdi mdi-open-in-new”></i>](https://www.npmjs.com/ )によって Vivliostyle CLI を駆動します。Create Book はインストールの際、以下のようなことをします。
+Create Book は JavaScript の実行環境の一つである [Node.js](https://nodejs.org/ja/ ) で動作します。具体的には Node.js に付属するコマンドラインインターフェイス、[npm](https://www.npmjs.com/ )によって Vivliostyle CLI を駆動します。Create Book はインストールの際、以下のようなことをします。
 
 - npm が参照する設定ファイル `vivliostyle.config.js` (❷)や `package.json`(❸)を作成
 - 原稿のテンプレート `manuscript.md`(❶)を作成
@@ -91,7 +91,7 @@ npm は上記設定ファイルを参照し、また上記ライブラリを使�
 
 ## 原稿の執筆
 
-インストールすると作成される `manuscript.md` (図2❶) をテンプレートにして原稿を執筆します。記法は標準的な markdown である[GFM (GitHub Flavored Markdown) <i class=“mdi mdi-open-in-new”></i>](https://github.github.com/gfm/ )を、書籍向けに拡張した [VFM (Vivliostyle Flavored Markdown)](https://github.com/vivliostyle/vfm) です。
+インストールすると作成される `manuscript.md` (図2❶) をテンプレートにして原稿を執筆します。記法は標準的な markdown である[GFM (GitHub Flavored Markdown)](https://github.github.com/gfm/ )を、書籍向けに拡張した [VFM (Vivliostyle Flavored Markdown)](https://github.com/vivliostyle/vfm) です。
 
 GFM の上位互換ですから、慣れた人なら基本的な記法は GFM がそのまま使え、新たに覚えるのは VFM だけですみます。
 
@@ -99,8 +99,8 @@ GFM の上位互換ですから、慣れた人なら基本的な記法は GFM �
 
 下記の外部サイトを参照してください。
 
-- [基本的な書き方とフォーマットの構文 &#91GitHub&#93<i class=“mdi mdi-open-in-new”></i>](https://docs.github.com/ja/github/writing-on-github/basic-writing-and-formatting-syntax) (ただし、記事中[「絵文字の利用」](https://docs.github.com/ja/github/writing-on-github/basic-writing-and-formatting-syntax#using-emoji)はCreate Bookでサポートされません)
--  [高度なフォーマットを使用して作業する &#91GitHub&#93<i class=“mdi mdi-open-in-new”></i>](https://docs.github.com/ja/github/writing-on-github/working-with-advanced-formatting)
+- [基本的な書き方とフォーマットの構文 /GitHub](https://docs.github.com/ja/github/writing-on-github/basic-writing-and-formatting-syntax) (ただし、記事中[「絵文字の利用」](https://docs.github.com/ja/github/writing-on-github/basic-writing-and-formatting-syntax#using-emoji)はCreate Bookでサポートされません)
+-  [高度なフォーマットを使用して作業する /GitHub](https://docs.github.com/ja/github/writing-on-github/working-with-advanced-formatting)
 
 ### VFM (Vivliostyle Flavored Markdown)
 
@@ -115,7 +115,8 @@ GFM の上位互換ですから、慣れた人なら基本的な記法は GFM �
     - [with caption (コード部分のキャプション)](https://vivliostyle.github.io/vfm/#/vfm#with-caption)
 - [Image (画像とそのサイズ指定)](https://vivliostyle.github.io/vfm/#/vfm#image)
   なお、仕様に書かれていませんが、以下の記法で画像のサイズ指定が可能です。画像ファイルは(  )内に相対パスで指定します。xxxは数値、単位はpxですが省略して記述します。`width` (幅) の他に `height` (高さ) も使えます。
-    ```
+
+    ```md
     ![図n](./foo.png){width=xxx}
     ```
     - [with caption (画像のキャプション)](https://vivliostyle.github.io/vfm/#/vfm#with-caption-2)
@@ -126,9 +127,19 @@ GFM の上位互換ですから、慣れた人なら基本的な記法は GFM �
 
 ### その他の記法
 
+####  後注
+
 GFM にも VFM にも規定されていませんが、下記外部サイトの記法でいくつかの footnote (後注) が利用できます。
 
-- [footnote &#91remark&#93<i class=“mdi mdi-open-in-new”></i>](https://www.npmjs.com/package/remark-footnotes)
+- [footnote /remark](https://www.npmjs.com/package/remark-footnotes)
+
+#### 縦中横
+
+テーマファイル `@vivliostyle/theme-bunko`を選択すると、以下の記法で縦中横が書けるようになります。テーマファイルの選択については、後述[テーマファイルの指定](#テーマファイルの指定)を参照してください。
+
+```md
+「これいいよ」と彼が言ったから<span class="tcy">12</span>月<span class="tcy">17</span>日はmarkdown記念日
+```
 
 ## 本のカスタマイズ
 
@@ -138,7 +149,7 @@ GFM にも VFM にも規定されていませんが、下記外部サイトの�
 
 以下のように `title` を指定すると書名となります (値をシングルクォートで括る。以下同じ)。
 
-```
+```js
 title: 'mybook',
 ```
 
@@ -146,25 +157,25 @@ title: 'mybook',
 
 インストール時に `author name`  で入力した著者名がデフォルトになりますが、以下のように指定すると、それが優先されます。
 
-```
+```js
 author: 'yamada <yamadataro@example.com>',
 ```
 
 ### 使用する言語の指定
 
-`language` のコメントアウト (スラッシュ部分) を削除すると、本で使用する言語を指定できます。デフォルトの英語は  `en`、日本語は `ja`。その他、 [ISO 639-1<i class=“mdi mdi-open-in-new”></i>](https://www.loc.gov/standards/iso639-2/php/code_list.php )に規定された2文字コードが指定できます。
+`language` のコメントアウト (スラッシュ部分) を削除すると、本で使用する言語を指定できます。デフォルトの英語は  `en`、日本語は `ja`。その他、 [ISO 639-1](https://www.loc.gov/standards/iso639-2/php/code_list.php )に規定された2文字コードが指定できます。
 
-```
+```js
 // language: 'ja',
 ```
 ↓
-```
+```js
 language: 'ja',
 ```
 
 ### 判型の指定
 
-`size`のコメントアウトを削除すると判型を指定できます。[CSS Paged Media Module Level 3 (7.1. Page size)<i class=“mdi mdi-open-in-new”></i>](https://drafts.csswg.org/css-page-3/#page-size-prop )に規定された下記の値が指定できます。なお、日本での一般的なB5は `JIS-B5` ですのでご注意ください (B4も同様)。
+`size`のコメントアウトを削除すると判型を指定できます。[CSS Paged Media Module Level 3 (7.1. Page size)](https://drafts.csswg.org/css-page-3/#page-size-prop )に規定された下記の値が指定できます。なお、日本での一般的なB5は `JIS-B5` ですのでご注意ください (B4も同様)。
 
 - `A5`
 - `A4` (デフォルト)
@@ -177,11 +188,11 @@ language: 'ja',
 - `legal`
 - `ledger`
 
-```
+```js
 // size: 'A4',
 ```
 ↓
-```
+```js
 size: 'JIS-B5',
 ```
 
@@ -189,9 +200,10 @@ size: 'JIS-B5',
 
 インストール時に `theme` で指定したテーマファイルがデフォルトで読み込まれますが、ここで任意のテーマファイルを指定すると、そちらが優先されます。
 
-```
+```js
 theme: 'sample.css',
 ```
+
 なお、テーマファイルは本のスタイルを定義したCSSファイルです。仕様は下記を参照してください。
 
 - [Theme Design Guideline (Draft)](https://github.com/vivliostyle/themes/blob/master/DESIGN.md)
@@ -199,7 +211,8 @@ theme: 'sample.css',
 ### 複数原稿の掲載
 
 `entry` の部分で下記のように指定することで、複数の markdown ファイルをまとめて1冊にできます。
-```
+
+```js
 entry: [
     "filename1.md",
     "filename2.md",
@@ -213,7 +226,7 @@ entry: [
 
 1. あらかじめ以下のような目次用の markdown ファイルを用意し、ファイル名を `index.md` としてプロジェクトフォルダに保存します。なお、HTMLのタグがある行とmarkdownの行の間には、必ず空行をいれるよう注意してください。そうしないとエラーになります。
 
-```
+```md
 # 本のタイトル
 
 <nav id="toc" role="doc-toc">
@@ -226,8 +239,10 @@ entry: [
 
 </nav>
 ```
+
 2. `vivliostyle.config.js` の `entry` の先頭行に、用意した `index.md` を指定します。
-```
+
+```js
 entry: [
     "index.md",
     "filename1.md",
@@ -240,9 +255,9 @@ entry: [
 
 以下の手順で奥付を追加することができます。
 
-
 1. あらかじめ以下のような markdownファイルを用意し、ファイル名を `colophon.md` としてプロジェクトフォルダに保存します。なお、HTMLのタグがある行とmarkdownの行の間には、必ず空行をいれるよう注意してください。そうしないとエラーになります。
-```
+
+```md
 <section id="colophon" role="doc-colophon">
 
 ## 私が書いた本
@@ -254,8 +269,10 @@ entry: [
 
 </section>
 ```
+
 2. `vivliostyle.config.js` の `entry` の末尾行に、用意した `colophon.md` を指定します。
-```
+
+```js
 entry: [
     "index.md",
     "filename1.md",
@@ -283,14 +300,15 @@ npm run build
 
 `package.json` (図2❸) を編集して、下記のように `"vivliostyle build"` の部分に `--press-ready` オプションを追加することで、PDF/X-1a規格に適合した4色印刷可能なPDFファイルを生成することができます。
 
-```
+```js
 "build": "vivliostyle build",
 ```
 ↓
-```
+```js
 "build": "vivliostyle build --press-ready",
 ```
-なお、このオプションを指定した際、データにドロップシャドウなど透明画像が含まれている場合に限って全体がラスタライズ（ビットマップ化）され、その結果文字の縁などにわずかな滲みが出ます。大きな問題にはなりませんが、不安な場合はあらかじめ印刷所にご相談ください。この現象は、[Acrobat Pro DC<i class=“mdi mdi-open-in-new”></i>](https://acrobat.adobe.com/jp/ja/acrobat/acrobat-pro.html ) 等により、PDF/X-4 に変換することで回避できます。
+
+なお、このオプションを指定した際、データにドロップシャドウなど透明画像が含まれている場合に限って全体がラスタライズ（ビットマップ化）され、その結果文字の縁などにわずかな滲みが出ます。大きな問題にはなりませんが、不安な場合はあらかじめ印刷所にご相談ください。この現象は、[Acrobat Pro DC](https://acrobat.adobe.com/jp/ja/acrobat/acrobat-pro.html ) 等により、PDF/X-4 に変換することで回避できます。
 
 以下は生成時のキャプチャです (図4)。
 
@@ -300,12 +318,12 @@ npm run build
 
 現在のバージョンでは、以下のような制限があります。
 
-- 任意のカバー画像を含めてPDFファイルに出力することがができません。その場合は、[Acrobat Pro DC<i class=“mdi mdi-open-in-new”></i>](https://acrobat.adobe.com/jp/ja/acrobat/acrobat-pro.html ) や[プレビュー (mac)<i class=“mdi mdi-open-in-new”></i>](https://support.apple.com/ja-jp/guide/preview/prvw11793/mac )などのPDFエディタをご利用ください。
-- グレイスケールの印刷用PDFファイルが出力できません。この問題は、[Acrobat Pro DC<i class=“mdi mdi-open-in-new”></i>](https://acrobat.adobe.com/jp/ja/acrobat/acrobat-pro.html )で変換することで回避できます。
+- 任意のカバー画像を含めてPDFファイルに出力することがができません。その場合は、[Acrobat Pro DC](https://acrobat.adobe.com/jp/ja/acrobat/acrobat-pro.html ) や[プレビュー (mac)](https://support.apple.com/ja-jp/guide/preview/prvw11793/mac )などのPDFエディタをご利用ください。
+- グレイスケールの印刷用PDFファイルが出力できません。この問題は、[Acrobat Pro DC](https://acrobat.adobe.com/jp/ja/acrobat/acrobat-pro.html )で変換することで回避できます。
 - ディレクトリ名に非ASCII文字が含まれているとエラーになります。
 
 ## おわりに
 
 バージョン番号をみてもお分かりのように、Create Book はまだ開発中。そして Vivliostyle のプロダクトはすべてオープンソース。こうなればいい、こんな機能はないの、こんなエラーが出たなどの感想や報告を、ぜひお寄せください。もちろん開発に加わりたい！　も大歓迎。詳しくは下記のページをご覧ください。
 
-- [コミュニティ&#91Vivliostyle&#93](https://vivliostyle.org/ja/community/)
+- [コミュニティ/Vivliostyle](https://vivliostyle.org/ja/community/)
