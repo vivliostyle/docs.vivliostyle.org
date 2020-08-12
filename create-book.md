@@ -140,9 +140,9 @@ It is not specified by GFM and VFM, but footnotes are  available in the notation
 
 - [remark-footnotes](https://www.npmjs.com/package/remark-footnotes)
 
-#### Tatechuyoko (Horizontal-in-Vertical Settings)
+#### Tate-chu-yoko (Horizontal-in-Vertical)
 
-If you select the theme file `@vivliostyle/theme-bunko`, you will be able to write Tatechuyoko (Horizontal-in-Vertical Settings) by the following notation. For information on selecting a theme file, see Specify theme file below.
+If you select the theme file `@vivliostyle/theme-bunko`, you will be able to write Tate-chu-yoko (Horizontal-in-Vertical) by the following notation. For information on selecting a theme file, see Specify theme file below.
 
 ```md
 「これいいよ」と彼が言ったから<span class="tcy">12</span>月<span class="tcy">17</span>日は markdown 記念日
