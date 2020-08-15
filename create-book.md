@@ -12,8 +12,6 @@ In this document, a PDF file that contains multiple pages is collectively referr
 
 ## Target readers of this document
 
-- Can clone git repositories
-    - Noted that the description of this document assumes that you have cloned [Create Book] (https://github.com/vivliostyle/create-book)
 - Have some basic familiarity with running commands in a terminal
 - Have some basic knowledge about markdown notation
 - Would like to make the following types of books without any hassle:
