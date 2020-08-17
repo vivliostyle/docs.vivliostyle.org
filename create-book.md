@@ -136,7 +136,7 @@ However, only the following items are implemented in the current version:
 
 #### Notes
 
-It is not specified by GFM and VFM, but footnotes are  available in the notation of the following external sites.
+It is not specified by GFM and VFM, but Endnotes are  available in the notation of the following external sites.
 
 - [remark-footnotes](https://www.npmjs.com/package/remark-footnotes)
 

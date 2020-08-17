@@ -138,7 +138,7 @@ GFM の上位互換ですから、慣れた人なら基本的な記法は GFM �
 
 #### 注
 
-GFM にも VFM にも規定されていませんが、下記外部サイトの記法でいくつかの footnote (後注) が利用できます。
+GFM にも VFM にも規定されていませんが、下記外部サイトの記法でいくつかの 後注が利用できます。
 
 - [remark-footnotes](https://www.npmjs.com/package/remark-footnotes)
 
