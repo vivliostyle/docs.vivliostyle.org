@@ -142,7 +142,7 @@ GFM にも VFM にも規定されていませんが、下記外部サイトの�
 
 - [remark-footnotes](https://www.npmjs.com/package/remark-footnotes)
 
-また、より煩雑にはなりますが、以下の記法で脚注が利用できます。
+また、テーマファイル `@vivliostyle/theme-techbook` を選択した場合、より煩雑にはなりますが、以下の記法で脚注が利用できます。
 
 ```md
  <span class="footnote">text</span>

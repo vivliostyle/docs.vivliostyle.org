@@ -140,7 +140,7 @@ It is not specified by GFM and VFM, but Endnotes are  available in the notation 
 
 - [remark-footnotes](https://www.npmjs.com/package/remark-footnotes)
 
-It's also a more cumbersome approach, but footnotes are available in the following notation:
+Also, if you select the theme file '@vivliostyle/theme-techbook', footnotes are available using the following notation: However, it is a little cumbersome:
 
 ```md
  <span class="footnote">text</span>
