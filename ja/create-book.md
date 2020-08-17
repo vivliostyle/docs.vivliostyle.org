@@ -136,11 +136,18 @@ GFM の上位互換ですから、慣れた人なら基本的な記法は GFM �
 
 ### その他の記法
 
-####  後注
+#### 注
 
 GFM にも VFM にも規定されていませんが、下記外部サイトの記法でいくつかの footnote (後注) が利用できます。
 
 - [remark-footnotes](https://www.npmjs.com/package/remark-footnotes)
+
+また、より煩雑にはなりますが、以下の記法で脚注が利用できます。
+
+```md
+ <span class="footnote">text</span>
+```
+
 
 #### 縦中横
 

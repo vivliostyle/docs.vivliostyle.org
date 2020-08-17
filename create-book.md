@@ -134,11 +134,17 @@ However, only the following items are implemented in the current version:
 
 ### Other notation
 
-#### Footnotes
+#### Notes
 
 It is not specified by GFM and VFM, but footnotes are  available in the notation of the following external sites.
 
 - [remark-footnotes](https://www.npmjs.com/package/remark-footnotes)
+
+It's also a more cumbersome approach, but footnotes are available in the following notation:
+
+```md
+ <span class="footnote">text</span>
+```
 
 #### Tate-chu-yoko (Horizontal-in-Vertical)
 
