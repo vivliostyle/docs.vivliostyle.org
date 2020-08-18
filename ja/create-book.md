@@ -154,7 +154,7 @@ GFM にも VFM にも規定されていませんが、下記外部サイトの�
 テーマファイル `@vivliostyle/theme-bunko`を選択すると、以下の記法で縦中横が書けるようになります。テーマファイルの選択については、後述[テーマファイルの指定](#テーマファイルの指定)を参照してください。
 
 ```md
-「これいいよ」と彼が言ったから<span class="tcy">12</span>月<span class="tcy">17</span>日は markdown 記念日
+ええと<span class="tcy">4</span>×<span class="tcy">5</span>＝<span class="tcy">12</span>、<span class="tcy">4</span>×<span class="tcy">6</span>＝<span class="tcy">13</span>、<span class="tcy">4</span>×<span class="tcy">7</span>——ああ、もう！　そんな調子じゃいつまでも<span class="tcy">20</span>にならなくてよ！
 ```
 
 ## 本のカスタマイズ
