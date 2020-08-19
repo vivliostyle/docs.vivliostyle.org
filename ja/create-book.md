@@ -220,9 +220,14 @@ size: 'JIS-B5',
 theme: 'sample.css',
 ```
 
-なお、テーマファイルは本のスタイルを定義したCSSファイルです。仕様は下記を参照してください。
+テーマファイルは本のスタイルを定義したCSSファイルです。仕様は下記を参照してください。
 
 - [Theme Design Guideline (Draft)](https://github.com/vivliostyle/themes/blob/master/DESIGN.md)
+
+なお、テーマファイルは下記から取得できます。
+
+- [npm: keywords / vivliostyle-theme](https://www.npmjs.com/search?q=keywords:vivliostyle-theme)
+
 
 ### 複数原稿の掲載
 

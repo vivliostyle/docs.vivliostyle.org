@@ -220,6 +220,10 @@ A theme file is a CSS file that defines the style of the book. Please refer to A
 
 - [Theme Design Guideline (Draft)](https://github.com/vivliostyle/themes/blob/master/DESIGN.md)
 
+The theme file can be obtained from the following.
+
+- [npm: keywords / vivliostyle-theme](https://www.npmjs.com/search?q=keywords:vivliostyle-theme)
+
 ### Publication of multiple manuscripts
 
 You can combine multiple markdown files into one book by specifying the following in the `entry` part as follows.
