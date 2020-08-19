@@ -140,7 +140,7 @@ It is not specified by GFM and VFM, but Endnotes are  available in the notation 
 
 - [remark-footnotes](https://www.npmjs.com/package/remark-footnotes)
 
-It's also a more cumbersome approach, but footnotes are available in the following notation:
+Also, if you select the theme file '@vivliostyle/theme-techbook', footnotes are available using the following notation: However, it is a little cumbersome:
 
 ```md
  <span class="footnote">text</span>
@@ -151,7 +151,7 @@ It's also a more cumbersome approach, but footnotes are available in the followi
 If you select the theme file `@vivliostyle/theme-bunko`, you will be able to write Tate-chu-yoko (Horizontal-in-Vertical) by the following notation. For information on selecting a theme file, see Specify theme file below.
 
 ```md
-「これいいよ」と彼が言ったから<span class="tcy">12</span>月<span class="tcy">17</span>日は markdown 記念日
+ええと<span class="tcy">4</span>×<span class="tcy">5</span>＝<span class="tcy">12</span>、<span class="tcy">4</span>×<span class="tcy">6</span>＝<span class="tcy">13</span>、<span class="tcy">4</span>×<span class="tcy">7</span>——ああ、もう！　そんな調子じゃいつまでも<span class="tcy">20</span>にならなくてよ！
 ```
 
 ## Book customization
