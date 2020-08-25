@@ -68,10 +68,10 @@ npm create book <directory>
 - author email (著者のメールアドレス)
 - license (配布ライセンスの種別を矢印キー上下で選択)
 - choose theme (下記テーマファイルを矢印キー上下で選択)
-    - `@vivliostyle/theme-techbook`……技術同人誌をふくむ横書き冊子
-    - `@vivliostyle/theme-academic`……論文、レポートをふくむ横書き文書
     - `@vivliostyle/theme-bunko`……小説同人誌をふくむ縦書き文書／冊子
+    - `@vivliostyle/theme-techbook`……技術同人誌をふくむ横書き冊子
     - `@vivliostyle/theme-slide`……スライド
+    - `@vivliostyle/theme-academic`……論文、レポートをふくむ横書き文書
 
 なお、[テーマファイル](https://github.com/vivliostyle/themes)もOSS開発です。開発が進むにつれ、上記以外にも追加される可能性があります。
 
