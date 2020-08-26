@@ -68,10 +68,10 @@ npm create book <directory>
 - author email (著者のメールアドレス)
 - license (配布ライセンスの種別を矢印キー上下で選択)
 - choose theme (下記テーマファイルを矢印キー上下で選択)
-    - `@vivliostyle/theme-techbook`……技術同人誌をふくむ横書き冊子
-    - `@vivliostyle/theme-academic`……論文、レポートをふくむ横書き文書
     - `@vivliostyle/theme-bunko`……小説同人誌をふくむ縦書き文書／冊子
+    - `@vivliostyle/theme-techbook`……技術同人誌をふくむ横書き冊子
     - `@vivliostyle/theme-slide`……スライド
+    - `@vivliostyle/theme-academic`……論文、レポートをふくむ横書き文書
 
 なお、[テーマファイル](https://github.com/vivliostyle/themes)もOSS開発です。開発が進むにつれ、上記以外にも追加される可能性があります。
 
@@ -220,9 +220,14 @@ size: 'JIS-B5',
 theme: 'sample.css',
 ```
 
-なお、テーマファイルは本のスタイルを定義したCSSファイルです。仕様は下記を参照してください。
+テーマファイルは本のスタイルを定義したCSSファイルです。仕様は下記を参照してください。
 
 - [Theme Design Guideline (Draft)](https://github.com/vivliostyle/themes/blob/master/DESIGN.md)
+
+なお、テーマファイルは下記から取得できます。
+
+- [npm: keywords / vivliostyle-theme](https://www.npmjs.com/search?q=keywords:vivliostyle-theme)
+
 
 ### 複数原稿の掲載
 

@@ -67,10 +67,10 @@ During installation, you can specify the following items (fig-1). You don't have
 - author email
 - license (Select the type of distribution license with the up and down arrow keys)
 - choose theme (Select the type of theme faile with the up and down arrow keys)
-    - `@vivliostyle/theme-techbook`……Horizontal  books including technical doujinshi.
-    - `@vivliostyle/theme-academic`……Horizontal documents including academic articles.
-    - `@vivliostyle/theme-bunko`……Vertical document including a novel doujinshi.
+    - `@vivliostyle/theme-bunko`……Japanese novel style (vertical text).
+    - `@vivliostyle/theme-techbook`……Technical books.
     - `@vivliostyle/theme-slide`……Slide document.
+    - `@vivliostyle/theme-academic`……Academic articles.
 
 In addition, the theme file is also [OSS development](https://github.com/vivliostyle/themes). As development progresses, it may be added to other additions.
 
@@ -219,6 +219,10 @@ theme: 'sample.css',
 A theme file is a CSS file that defines the style of the book. Please refer to A specification below.
 
 - [Theme Design Guideline (Draft)](https://github.com/vivliostyle/themes/blob/master/DESIGN.md)
+
+The theme file can be obtained from the following.
+
+- [npm: keywords / vivliostyle-theme](https://www.npmjs.com/search?q=keywords:vivliostyle-theme)
 
 ### Publication of multiple manuscripts
 
