@@ -66,13 +66,13 @@ During installation, you can specify the following items (fig-1). You don't have
 - author name (In addition to alphanumeric characters, kanji, katakana, and hiragana are also available)
 - author email
 - license (Select the type of distribution license with the up and down arrow keys)
-- choose theme (Select the type of theme faile with the up and down arrow keys)
+- choose theme (Select the type of theme package with the up and down arrow keys)
     - `@vivliostyle/theme-bunko`……Japanese novel style (vertical text).
     - `@vivliostyle/theme-techbook`……Technical books.
     - `@vivliostyle/theme-slide`……Slide document.
     - `@vivliostyle/theme-academic`……Academic articles.
 
-In addition, the theme file is also [OSS development](https://github.com/vivliostyle/themes). As development progresses, it may be added to other additions.
+In addition, the theme package is also [OSS development](https://github.com/vivliostyle/themes). As development progresses, it may be added to other additions.
 
 ## How Create Book works
 
@@ -140,7 +140,7 @@ It is not specified by GFM and VFM, but Endnotes are  available in the notation 
 
 - [remark-footnotes](https://www.npmjs.com/package/remark-footnotes)
 
-Also, if you select the theme file '@vivliostyle/theme-techbook', footnotes are available using the following notation: However, it is a little cumbersome:
+Also, if you select the theme package '@vivliostyle/theme-techbook', footnotes are available using the following notation: However, it is a little cumbersome:
 
 ```md
  <span class="footnote">text</span>
@@ -148,7 +148,7 @@ Also, if you select the theme file '@vivliostyle/theme-techbook', footnotes are 
 
 #### Tate-chu-yoko (Horizontal-in-Vertical)
 
-If you select the theme file `@vivliostyle/theme-bunko`, you will be able to write Tate-chu-yoko (Horizontal-in-Vertical) by the following notation. For information on selecting a theme file, see Specify theme file below.
+If you select the theme package `@vivliostyle/theme-bunko`, you will be able to write Tate-chu-yoko (Horizontal-in-Vertical) by the following notation. For information on selecting a theme package, see Specify theme package below.
 
 ```md
 ええと<span class="tcy">4</span>×<span class="tcy">5</span>＝<span class="tcy">12</span>、<span class="tcy">4</span>×<span class="tcy">6</span>＝<span class="tcy">13</span>、<span class="tcy">4</span>×<span class="tcy">7</span>——ああ、もう！　そんな調子じゃいつまでも<span class="tcy">20</span>にならなくてよ！
@@ -209,18 +209,18 @@ You can specify the format by removing the `size` comment-out.[CSS Paged Media M
 size: 'JIS-B5',
 ```
 
-### Specify a theme file
+### Specify a theme package
 
-A theme file specified as `theme` during installation is loaded by default, but if you specify any theme file here, it will be overridden.
+A theme package specified as `theme` during installation is loaded by default, but if you specify any theme package here, it will be overridden.
 
 ```js
 theme: 'sample.css',
 ```
-A theme file is a CSS file that defines the style of the book. Please refer to A specification below.
+A theme package is a CSS file that defines the style of the book. Please refer to A specification below.
 
 - [Theme Design Guideline (Draft)](https://github.com/vivliostyle/themes/blob/master/DESIGN.md)
 
-The theme file can be obtained from the following.
+The theme package can be obtained from the following.
 
 - [npm: keywords / vivliostyle-theme](https://www.npmjs.com/search?q=keywords:vivliostyle-theme)
 
