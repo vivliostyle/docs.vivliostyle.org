@@ -216,7 +216,7 @@ A theme package specified as `theme` during installation is loaded by default, b
 ```js
 theme: 'sample.css',
 ```
-A theme package is a CSS file that defines the style of the book. Please refer to A specification below.
+A theme package contains a CSS file that defines the style of the book. Please refer to A specification below.
 
 - [Theme Design Guideline (Draft)](https://github.com/vivliostyle/themes/blob/master/DESIGN.md)
 
