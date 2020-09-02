@@ -67,13 +67,13 @@ npm create book <directory>
 - author name (著者名。英数字以外に漢字片仮名平仮名も使用可)
 - author email (著者のメールアドレス)
 - license (配布ライセンスの種別を矢印キー上下で選択)
-- choose theme (下記テーマファイルを矢印キー上下で選択)
+- choose theme (下記テーマパッケージを矢印キー上下で選択)
     - `@vivliostyle/theme-bunko`……小説同人誌をふくむ縦書き文書／冊子
     - `@vivliostyle/theme-techbook`……技術同人誌をふくむ横書き冊子
     - `@vivliostyle/theme-slide`……スライド
     - `@vivliostyle/theme-academic`……論文、レポートをふくむ横書き文書
 
-なお、[テーマファイル](https://github.com/vivliostyle/themes)もOSS開発です。開発が進むにつれ、上記以外にも追加される可能性があります。
+なお、[テーマパッケージ](https://github.com/vivliostyle/themes)もOSS開発です。開発が進むにつれ、上記以外にも追加される可能性があります。
 
 ## Create Book の仕組み
 
@@ -142,7 +142,7 @@ GFM にも VFM にも規定されていませんが、下記外部サイトの�
 
 - [remark-footnotes](https://www.npmjs.com/package/remark-footnotes)
 
-また、テーマファイル `@vivliostyle/theme-techbook` を選択した場合、より煩雑にはなりますが、以下の記法で脚注が利用できます。
+また、テーマパッケージ `@vivliostyle/theme-techbook` を選択した場合、より煩雑にはなりますが、以下の記法で脚注が利用できます。
 
 ```md
  <span class="footnote">text</span>
@@ -151,7 +151,7 @@ GFM にも VFM にも規定されていませんが、下記外部サイトの�
 
 #### 縦中横
 
-テーマファイル `@vivliostyle/theme-bunko`を選択すると、以下の記法で縦中横が書けるようになります。テーマファイルの選択については、後述[テーマファイルの指定](#テーマファイルの指定)を参照してください。
+テーマパッケージ `@vivliostyle/theme-bunko`を選択すると、以下の記法で縦中横が書けるようになります。テーマパッケージの選択については、後述[テーマパッケージの指定](#テーマパッケージの指定)を参照してください。
 
 ```md
 ええと<span class="tcy">4</span>×<span class="tcy">5</span>＝<span class="tcy">12</span>、<span class="tcy">4</span>×<span class="tcy">6</span>＝<span class="tcy">13</span>、<span class="tcy">4</span>×<span class="tcy">7</span>——ああ、もう！　そんな調子じゃいつまでも<span class="tcy">20</span>にならなくてよ！
@@ -212,19 +212,19 @@ language: 'ja',
 size: 'JIS-B5',
 ```
 
-### テーマファイルの指定
+### テーマパッケージの指定
 
-インストール時に `theme` で指定したテーマファイルがデフォルトで読み込まれますが、ここで任意のテーマファイルを指定すると、そちらが優先されます。
+インストール時に `theme` で指定したテーマパッケージがデフォルトで読み込まれますが、ここで任意のテーマパッケージを指定すると、そちらが優先されます。
 
 ```js
 theme: 'sample.css',
 ```
 
-テーマファイルは本のスタイルを定義したCSSファイルです。仕様は下記を参照してください。
+テーマパッケージは本のスタイルを定義したCSSファイルを含みます。仕様は下記を参照してください。
 
 - [Theme Design Guideline (Draft)](https://github.com/vivliostyle/themes/blob/master/DESIGN.md)
 
-なお、テーマファイルは下記から取得できます。
+なお、テーマパッケージは下記から取得できます。
 
 - [npm: keywords / vivliostyle-theme](https://www.npmjs.com/search?q=keywords:vivliostyle-theme)
 
