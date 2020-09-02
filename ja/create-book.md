@@ -220,7 +220,7 @@ size: 'JIS-B5',
 theme: 'sample.css',
 ```
 
-テーマパッケージは本のスタイルを定義したSSファイルを含みます。仕様は下記を参照してください。
+テーマパッケージは本のスタイルを定義したCSSファイルを含みます。仕様は下記を参照してください。
 
 - [Theme Design Guideline (Draft)](https://github.com/vivliostyle/themes/blob/master/DESIGN.md)
 
