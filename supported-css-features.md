@@ -30,6 +30,10 @@ Properties where <quote>Allowed prefixes</quote> is indicated may be used with a
   - Supported in all browsers
   - `min()` and `max()` functions can be used inside `calc()` function.
   - Limitation: Percentage value in `calc()` is not calculated correctly.
+- [`content()` function](https://www.w3.org/TR/css-gcpm-3/#content-function-header)
+  - Supported in all browsers
+- [`string()` function](https://www.w3.org/TR/css-gcpm-3/#using-named-strings)
+  - Supported in all browsers
 - [`env()` function](https://drafts.csswg.org/css-env/)
   - Supported in all browsers
   - Implemented only `env(pub-title)` and `env(doc-title)` that are not yet defined in the css-env draft spec but useful for making page header.
@@ -896,8 +900,10 @@ Properties where <quote>Allowed prefixes</quote> is indicated may be used with a
 - [float-reference](https://drafts.csswg.org/css-page-floats-3/#propdef-float-reference)
   - Supported in all browsers
 
-## [CSS GCPM 3](https://www.w3.org/TR/css-gcpm-3/)
+## [CSS Generated Content for Paged Media (GCPM) 3](https://www.w3.org/TR/css-gcpm-3/)
 
+- [string-set](https://www.w3.org/TR/css-gcpm-3/#setting-named-strings-the-string-set-pro)
+  - Supported in all browsers
 - [footnote-policy](https://www.w3.org/TR/css-gcpm-3/#propdef-footnote-policy)
   - Supports [`auto`, `line`](https://www.w3.org/TR/css-gcpm-3/#propdef-footnote-policy) values.
   - Supported in all browsers
