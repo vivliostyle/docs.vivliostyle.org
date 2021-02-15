@@ -25,7 +25,7 @@
 - macOS 10.13 (High Sierra) 以上
 - Windows 10
 - 以下がインストールずみであること
-    - [Node.js (v.10以上)](https://nodejs.org/ja/)
+    - [Node.js](https://nodejs.org/ja/) (v10 以上、ただし v14.0.0 以外)
 - 印刷用PDFファイルの出力には、以下のインストールも必要
     - [ghostscript](https://www.ghostscript.com/)
     - [Xpdf](https://texwiki.texjp.org/?Xpdf)

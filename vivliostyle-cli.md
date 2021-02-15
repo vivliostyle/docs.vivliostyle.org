@@ -4,7 +4,7 @@ Vivliostyle CLI is a command line interface for typesetting HTML or Markdown doc
 
 ## Install
 
-You need to install [Node.js](https://nodejs.org/ja/) prior to using it.
+You need to install [Node.js](https://nodejs.org/ja/) (v10 or higher, except v14.0.0) prior to using it.
 
 You can install the Vivliostyle CLI with the following command:
 

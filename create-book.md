@@ -25,7 +25,7 @@ In this document, a PDF file that contains multiple pages is collectively referr
 - macOS 10.13 (High Sierra) or higher
 - Windows 10
 - The following must be installed.
-    - [node.js (v.10 or higher)](https://nodejs.org/)
+    - [node.js](https://nodejs.org/) (v10 or higher, except v14.0.0)
 - The following installations are also required to output PDF file for printing.
     - [ghostscript](https://www.ghostscript.com/)
     - [Xpdf](https://www.xpdfreader.com/)
