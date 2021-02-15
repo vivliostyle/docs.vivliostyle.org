@@ -16,7 +16,6 @@ npm install -g @vivliostyle/cli
 
 When an HTML file is specified with the `vivliostyle build` command, a PDF file will be output as a result of typesetting from the HTML.
 
-Example:
 ```
 vivliostyle build index.html
 ```
@@ -27,7 +26,6 @@ The default output PDF file name is "output.pdf".
 
 The `-o` (`--output`) option can be used to specify a PDF file name.
 
-Example:
 ```
 vivliostyle build book.html -o book.pdf
 ```
@@ -36,7 +34,6 @@ vivliostyle build book.html -o book.pdf
 
 The `-s` (`--size`) option can be used to specify the page size. The possible sizes are A5, A4, A3, B5, B4, JIS-B5, JIS-B4, letter, legal, ledger, or comma-separated width and height.
 
-Example:
 ```
 vivliostyle build paper.html -s A4 -o paper.pdf
 vivliostyle build letter.html -s letter -o letter.pdf
@@ -47,7 +44,6 @@ vivliostyle build slide.html -s 10in,7.5in -o slide.pdf
 
 In addition to a local HTML file, you can also specify a Web URL.
 
-Example:
 ```
 vivliostyle build https://vivliostyle.github.io/vivliostyle_doc/samples/gutenberg/Alice.html -s A4 -o Alice.pdf
 ```
@@ -56,7 +52,6 @@ vivliostyle build https://vivliostyle.github.io/vivliostyle_doc/samples/gutenber
 
 When an EPUB file is specified with the `vivliostyle build` command, a PDF file will be output as a result of typesetting from the EPUB.
 
-Example:
 ```
 vivliostyle build ebpaj-sample.epub -s A5 -o ebpaj-sample.pdf
 ```
@@ -65,7 +60,6 @@ vivliostyle build ebpaj-sample.epub -s A5 -o ebpaj-sample.pdf
 
 To generate a PDF from an unzipped EPUB, specify the EPUB's OPF file.
 
-Example:
 ```
 unzip ebpaj-sample.epub
 vivliostyle build item/standard.opf -s A5 -o ebpaj-sample.pdf
@@ -75,7 +69,6 @@ vivliostyle build item/standard.opf -s A5 -o ebpaj-sample.pdf
 
 When a Markdown file is specified with the `vivliostyle build` command, a PDF file will be output as a result of typesetting from the Markdown.
 
-Example:
 ```
 vivliostyle build manuscript.md -s A4 -o paper.pdf
 ```
@@ -88,7 +81,6 @@ For more information on the Markdown notation available in Vivliostyle CLI, refe
 
 The `-T` (`--theme`) option can be used to specify a CSS file.
 
-Example:
 ```
 vivliostyle build manuscript.md -T style.css -o paper.pdf
 ```
@@ -97,7 +89,6 @@ vivliostyle build manuscript.md -T style.css -o paper.pdf
 
 The `vivliostyle preview` command can be used to preview the result of typesetting in the browser.
 
-Example:
 ```
 vivliostyle preview manuscript.md -T style.css
 ```
@@ -116,7 +107,6 @@ To find the themes published as npm packages, search for the keyword "vivliostyl
 
 To use a theme published as a npm package in Vivliostyle CLI, you need to install it.
 
-Example:
 ```
 npm install @vivliostyle/theme-techbook
 ```
@@ -137,7 +127,7 @@ You can create a configuration file `vivliostyle.config.js` with the following c
 vivliostyle init
 ```
 
-This will create `vivliostyle.config.js` in the current directory. Edit it and configure the settings.
+This will create `vivliostyle.config.js` in the current directory. The configuration file is written in JavaScript, and various settings can be changed by editing it.
 
 ### Configuration settings
 
@@ -148,7 +138,7 @@ The configuration settings are explained in the comments (beginning with `//`) i
 - **language**: Language. Example: `language: 'en'`. If this is specified, it will be reflected in the `lang` attribute of the HTML.
 - **size**: Page size. Example: `size: 'A4'`.
 - **theme**: Specify a CSS file. Example: `theme: 'style.css'`, or specify a [Vivliostyle Themes](https://vivliostyle.github.io/themes/) package name. Example: `theme: '@vivliostyle/theme-techbook'`.
-- **entry**: Specify input Markdown or HTML files. Example:
+- **entry**: Specify input Markdown or HTML files.
     ```js
     entry: [
       'introduction.md',
@@ -157,7 +147,7 @@ The configuration settings are explained in the comments (beginning with `//`) i
       'glossary.html'
     ],
     ```
-    - You can specify `title` and `theme` for individual items in the `entry`. Example:
+    - You can specify `title` and `theme` for individual items in the `entry`.
         ```js
         entry: [
           {
@@ -198,9 +188,9 @@ Ubuntu:
 apt-get install poppler-utils ghostscript
 ```
 
-> Windows:
-> - Download and install the Ghostscript for Windows at <https://www.ghostscript.com/download/gsdnld.html>. Then, add the installed Ghostscript's bin directory (e.g., "C:\Program Files\gs\gs9.52\bin") to the `PATH` environment variable.
-> - Download and install the Xpdf command line tools for Windows at <http://www.xpdfreader.com/download.html>. Then, add the installed Xpdf's bin directory (e.g., "C:\xpdf-tools-win-4.02\bin64") to the `PATH` environment variable.
+Windows:
+- Download and install the Ghostscript for Windows at <https://www.ghostscript.com/download/gsdnld.html>. Then, add the installed Ghostscript's bin directory (e.g., "C:\Program Files\gs\gs9.52\bin") to the `PATH` environment variable.
+- Download and install the Xpdf command line tools for Windows at <http://www.xpdfreader.com/download.html>. Then, add the installed Xpdf's bin directory (e.g., "C:\xpdf-tools-win-4.02\bin64") to the `PATH` environment variable.
 
 ## Generate PDF Bookmarks
 
@@ -218,7 +208,6 @@ To specify the file name of the table of contents HTML, specify it with `toc:`. 
 
 The generated table of contents HTML file will look like the following:
 
-Example:
 ```html
 <html>
   <head>
@@ -251,7 +240,6 @@ Example:
 
 If you specify `{ rel: 'contents' }` as an element of the `entry` array in the configuration file `vivliostyle.config.js`, the table of contents HTML file will be generated at that position.
 
-Example:
 ```js
   entry: [
     'titlepage.md',
@@ -268,7 +256,6 @@ This way, the first HTML file in the publication will be `titlepage.html`, follo
 
 To create a table of contents yourself, specify the path to the table of contents file with `rel: 'contents'` in the the `entry` array in the configuration file, as follows:
 
-Example:
 ```js
   entry: [
     'titlepage.md',
@@ -289,7 +276,6 @@ The `vivliostyle build` command with the `-f` (`--format`) option with `webpub` 
 
 (In the example below, we assume that the input Markdown and HTML files are specified in the configuration file `vivliostyle.config.js`.
 
-Example:
 ```
 vivliostyle build -o webpub/ -f webpub
 ```
@@ -298,14 +284,12 @@ In the generated webpub directory, there is a publication manifest file, `public
 
 The webpub can be used to create publications that can be read on the web. You can also generate a PDF from webpub by specifying the `publication.json` file to the `vivliostyle build` command as follows:
 
-Example:
 ```
 vivliostyle build webpub/publication.json -o pdfbook.pdf
 ```
 
 It is also possible to generate both webpub and PDF with a single `vivliostyle build` command, as follows:
 
-Example:
 ```
 vivliostyle build -o webpub/ -f webpub -o pdfbook.pdf -f pdf
 ```

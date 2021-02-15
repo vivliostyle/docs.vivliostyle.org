@@ -16,7 +16,6 @@ npm install -g @vivliostyle/cli
 
 `vivliostyle build` コマンドで HTML ファイルを指定すると、HTML から組版した結果の PDF ファイルが出力されます。
 
-例:
 ```
 vivliostyle build index.html
 ```
@@ -27,7 +26,6 @@ vivliostyle build index.html
 
 `-o` (`--output`) オプションで PDF ファイル名を指定できます。
 
-例:
 ```
 vivliostyle build book.html -o book.pdf
 ```
@@ -36,7 +34,6 @@ vivliostyle build book.html -o book.pdf
 
 `-s` (`--size`) オプションでページサイズを指定できます。指定できるサイズは、A5, A4, A3, B5, B4, JIS-B5, JIS-B4, letter, legal, ledger のいずれか、またはコンマで区切って幅と高さを指定します。
 
-例:
 ```
 vivliostyle build paper.html -s A4 -o paper.pdf
 vivliostyle build letter.html -s letter -o letter.pdf
@@ -47,7 +44,6 @@ vivliostyle build slide.html -s 10in,7.5in -o slide.pdf
 
 ローカルの HTML ファイルのほか、Web の URL を指定することもできます。
 
-例:
 ```
 vivliostyle build https://vivliostyle.github.io/vivliostyle_doc/samples/gutenberg/Alice.html -s A4 -o Alice.pdf
 ```
@@ -56,7 +52,6 @@ vivliostyle build https://vivliostyle.github.io/vivliostyle_doc/samples/gutenber
 
 `vivliostyle build` コマンドで EPUB ファイルを指定すると、EPUB から組版した結果の PDF ファイルが出力されます。
 
-例:
 ```
 vivliostyle build ebpaj-sample.epub -s A5 -o ebpaj-sample.pdf
 ```
@@ -65,7 +60,6 @@ vivliostyle build ebpaj-sample.epub -s A5 -o ebpaj-sample.pdf
 
 解凍(unzip)された EPUB から PDF を生成するには、EPUB の OPF ファイルを指定します。
 
-例:
 ```
 unzip ebpaj-sample.epub
 vivliostyle build item/standard.opf -s A5 -o ebpaj-sample.pdf
@@ -75,7 +69,6 @@ vivliostyle build item/standard.opf -s A5 -o ebpaj-sample.pdf
 
 `vivliostyle build` コマンドで Markdown ファイルを指定すると、Markdown から組版した結果の PDF ファイルが出力されます。
 
-例:
 ```
 vivliostyle build manuscript.md -s A4 -o paper.pdf
 ```
@@ -88,7 +81,6 @@ Vivliostyle CLI で利用可能な Markdown 記法については、[VFM: Vivlio
 
 `-T` (`--theme`) オプションで CSS ファイルを指定することができます。
 
-例:
 ```
 vivliostyle build manuscript.md -T style.css -o paper.pdf
 ```
@@ -97,7 +89,6 @@ vivliostyle build manuscript.md -T style.css -o paper.pdf
 
 `vivliostyle preview` コマンドで組版結果をブラウザでプレビューすることができます。
 
-例:
 ```
 vivliostyle preview manuscript.md -T style.css
 ```
@@ -116,7 +107,6 @@ npm パッケージとして公開されている Theme を見つけるには [n
 
 Vivliostyle CLI で npm パッケージとして公開されている Theme を利用するには、そのインストールが必要です。
 
-例:
 ```
 npm install @vivliostyle/theme-techbook
 ```
@@ -137,7 +127,7 @@ Vivliostyle Themes を利用するより簡単な方法は Create Book を使用
 vivliostyle init
 ```
 
-これでカレントディレクトリに `vivliostyle.config.js` が生成されます。これを編集して設定を行ってください。
+これでカレントディレクトリに `vivliostyle.config.js` が生成されます。構成ファイルは JavaScript で記述され、これを編集することで様々な設定を変更できます。
 
 ### 構成ファイルの設定内容
 
@@ -148,7 +138,7 @@ vivliostyle init
 - **language**: 言語。例: `language: 'en'`。 この指定があると HTML の `lang` 属性に反映されます。
 - **size**: ページサイズ。例: `size: 'A4'`。
 - **theme**: CSS ファイルを指定します。例: `theme: 'style.css'`、または [Vivliostyle Themes](https://vivliostyle.github.io/themes/) のパッケージ名を指定します。例: `theme: '@vivliostyle/theme-techbook'`。
-- **entry**: 入力の Markdown または HTML ファイルの配列を指定します。例:
+- **entry**: 入力の Markdown または HTML ファイルの配列を指定します。
     ```js
     entry: [
       'introduction.md',
@@ -157,7 +147,7 @@ vivliostyle init
       'glossary.html'
     ],
     ```
-    - `entry` の個別の要素に `title` や `theme` の指定が可能です。例:
+    - `entry` の個別の要素に `title` や `theme` の指定が可能です。
         ```js
         entry: [
           {
@@ -218,7 +208,6 @@ Windows:
 
 生成される目次 HTML ファイルの内容は次のようになります。
 
-例:
 ```html
 <html>
   <head>
@@ -251,7 +240,6 @@ Windows:
 
 構成ファイル `vivliostyle.config.js` の `entry` の配列の要素として `{ rel: 'contents' }` を指定すると、その位置に目次 HTML ファイルが生成されます。
 
-例:
 ```js
   entry: [
     'titlepage.md',
@@ -268,7 +256,6 @@ Windows:
 
 目次を自分で作成するには、次のように、構成ファイルの `entry` の配列の要素として目次のファイルのパスと `rel: 'contents'` を指定してください。
 
-例:
 ```js
   entry: [
     'titlepage.md',
@@ -289,7 +276,6 @@ Windows:
 
 （以下の例では、入力の Markdown や HTML ファイルの指定は構成ファイル `vivliostyle.config.js` に記述されているものとします）
 
-例:
 ```
 vivliostyle build -o webpub/ -f webpub
 ```
@@ -298,14 +284,12 @@ vivliostyle build -o webpub/ -f webpub
 
 webpub は、Web 上で読むことができる出版物を作るのに使えます。また、次のように `publication.json` ファイルを `vivliostyle build` コマンドに指定することで、webpub から PDF を生成することができます。
 
-例:
 ```
 vivliostyle build webpub/publication.json -o pdfbook.pdf
 ```
 
 また、次のように1回の `vivliostyle build` コマンドで webpub と PDF の両方を生成することもできます。
 
-例:
 ```
 vivliostyle build -o webpub/ -f webpub -o pdfbook.pdf -f pdf
 ```
