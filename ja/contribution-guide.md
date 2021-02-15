@@ -1,4 +1,4 @@
-# コントリビューションガイド
+# Vivliostyle.js コントリビューションガイド
 
 ## モジュール構成
 
@@ -13,7 +13,7 @@ Vivliostyle.js は2つのコンポーネントで構成されています:
 以下のものがインストールされていることを確認してください:
 
 - [Node.js](https://nodejs.org)
-- [Yarn](https://yarnpkg.com)
+- [Yarn](https://classic.yarnpkg.com)
 - [Git](https://git-scm.com)
 
 [vivliostyle.js](https://github.com/vivliostyle/vivliostyle.js)をクローンします。

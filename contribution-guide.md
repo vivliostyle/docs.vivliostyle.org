@@ -1,4 +1,4 @@
-# Contribution Guide
+# Vivliostyle.js Contribution Guide
 
 ## Module structure
 
@@ -13,7 +13,7 @@ Vivliostyle.js consists of two components:
 Make sure that the following is installed:
 
 - [Node.js](https://nodejs.org)
-- [Yarn](https://yarnpkg.com)
+- [Yarn](https://classic.yarnpkg.com)
 - [Git](https://git-scm.com)
 
 Clone [vivliostyle.js](https://github.com/vivliostyle/vivliostyle.js).
