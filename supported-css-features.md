@@ -173,6 +173,8 @@ Properties where <quote>Allowed prefixes</quote> is indicated may be used with a
 - [Page-based counters (page, pages)](https://drafts.csswg.org/css-page/#page-based-counters)
   - Supported in all browsers
 
+See also: [Properties in CSS Paged Media 3](#css-paged-media-3-2)
+
 ### [CSS Generated Content for Paged Media (GCPM) 3](https://www.w3.org/TR/css-gcpm-3/)
 
 - [Nth page selector :nth(An+B)](https://www.w3.org/TR/css-gcpm-3/#document-page-selectors)
@@ -180,11 +182,15 @@ Properties where <quote>Allowed prefixes</quote> is indicated may be used with a
   - The `:nth(An+B)` syntax is supported but the `:nth(An+B of <custom-ident>)` is not because the named pages are not yet supported. [[Issue]](https://github.com/vivliostyle/vivliostyle.js/issues/425)
   - Note: In multi-document publications, the `:nth(1)` matches the first page of each document, but the `:first` matches only the first page of the first document. [[Issue]](https://github.com/vivliostyle/vivliostyle.js/issues/667#issuecomment-738020563)
 
+See also: [Properties in CSS Generated Content for Paged Media (GCPM) 3](#css-generated-content-for-paged-media-gcpm-3-2)
+
 ### [CSS Fonts 3](https://www.w3.org/TR/css-fonts-3/)
 
 - [@font-face](https://www.w3.org/TR/css-fonts-3/#font-face-rule)
   - Support depends on browser capabilities
   - Note: `font-stretch`, `unicode-range` and `font-feature-settings` descriptors are currently ignored.
+
+See also: [Properties in CSS Fonts 3](#css-fonts-3-2)
 
 ## Media queries
 
@@ -428,12 +434,61 @@ Properties where <quote>Allowed prefixes</quote> is indicated may be used with a
   - Supported in all browsers
   - Supports `JIS-B5` and `JIS-B4` values in the current editor's draft.
 
+See also: [At-rules in CSS Paged Media 3](#css-paged-media-3)
+
+## [CSS Generated Content for Paged Media (GCPM) 3](https://www.w3.org/TR/css-gcpm-3/)
+
+- [string-set](https://www.w3.org/TR/css-gcpm-3/#setting-named-strings-the-string-set-pro)
+  - Supported in all browsers
+- [footnote-policy](https://www.w3.org/TR/css-gcpm-3/#propdef-footnote-policy)
+  - Supports [`auto`, `line`](https://www.w3.org/TR/css-gcpm-3/#propdef-footnote-policy) values.
+  - Supported in all browsers
+
+See also:
+- [At-rules in CSS Generated Content for Paged Media (GCPM) 3](#css-generated-content-for-paged-media-gcpm-3)
+- [Values - Cross references, content(), and string() functions](#values)
+
+## [CSS Fragmentation 3](https://www.w3.org/TR/css3-break/)
+
+- [break-after](https://www.w3.org/TR/css3-break/#propdef-break-after)
+  - Supported in all browsers
+- [break-before](https://www.w3.org/TR/css3-break/#propdef-break-before)
+  - Supported in all browsers
+- [break-inside](https://www.w3.org/TR/css3-multicol/#break-inside)
+  - Supported in all browsers
+  - Note: All of `avoid-page`, `avoid-column` and `avoid-region` values are treated as if they were `avoid`. [[Issue]](https://github.com/vivliostyle/vivliostyle.js/issues/128)
+- [orphans](https://www.w3.org/TR/css3-break/#propdef-orphans)
+  - Supported in all browsers
+- [widows](https://www.w3.org/TR/css3-break/#propdef-widows)
+  - Supported in all browsers
+- [box-decoration-break](https://www.w3.org/TR/css3-break/#propdef-box-decoration-break)
+  - Allowed prefixes: webkit
+  - Supported in all browsers
+  - Note: Background, box-shadow and border images on inline-start/end borders are always rendered as if `box-decoration-break: clone` is specified.
+
+## [CSS Page Floats 3](https://drafts.csswg.org/css-page-floats-3/)
+
+- [clear](https://drafts.csswg.org/css-page-floats-3/#propdef-clear)
+  - Supports [`none`, `left`, `right`, `top`, `bottom`, `both`, `all`, `same`](https://drafts.csswg.org/css-page-floats-3/#propdef-clear) values.
+  - When `all` is specified on a block-level box (not a page float), the block-start edge of the box gets pushed down so that the edge comes after any block-start/block-end page float of which anchors are before the box in the document order.
+  - When a `clear` value is specified on a page float, it is placed so that it comes after any of preceding page floats.
+  - `same` value means the same direction as one which the page float is floated to.
+  - If a page float with `float: snap-block` would be placed at the block-start end but a `clear` value on it forbidden such placement, the float is instead placed at the block-end side (unless the `clear` value also forbidden such placement).
+  - Supported in all browsers
+- [float](https://drafts.csswg.org/css-page-floats-3/#propdef-float)
+  - Supports [`block-start`, `block-end`, `inline-start`, `inline-end`, `snap-block`, `left`, `right`, `top`, `bottom` and `none`](https://drafts.csswg.org/css-page-floats/#propdef-float) values.
+  - Supported in all browsers
+- [float-reference](https://drafts.csswg.org/css-page-floats-3/#propdef-float-reference)
+  - Supported in all browsers
+
 ## [CSS Color 3](https://www.w3.org/TR/css3-color/)
 
 - [color](https://www.w3.org/TR/css3-color/#color0)
   - Support depends on browser capabilities
 - [opacity](https://www.w3.org/TR/css3-color/#opacity)
   - Support depends on browser capabilities
+
+See also: [Values - Supported color values](#values)
 
 ## [CSS Backgrounds and Borders 3](https://www.w3.org/TR/css3-background/)
 
@@ -564,6 +619,8 @@ Properties where <quote>Allowed prefixes</quote> is indicated may be used with a
   - Support depends on browser capabilities
 - [font-stretch](https://www.w3.org/TR/css-fonts-3/#propdef-font-stretch)
   - Support depends on browser capabilities
+
+See also: [At-rules in CSS Fonts 3](#css-fonts-3)
 
 ## [CSS Text 3](https://www.w3.org/TR/css-text-3/)
 
@@ -760,24 +817,6 @@ Properties where <quote>Allowed prefixes</quote> is indicated may be used with a
 - [order](https://www.w3.org/TR/css-flexbox-1/#propdef-order)
   - Support depends on browser capabilities
 
-## [CSS Fragmentation 3](https://www.w3.org/TR/css3-break/)
-
-- [break-after](https://www.w3.org/TR/css3-break/#propdef-break-after)
-  - Supported in all browsers
-- [break-before](https://www.w3.org/TR/css3-break/#propdef-break-before)
-  - Supported in all browsers
-- [break-inside](https://www.w3.org/TR/css3-multicol/#break-inside)
-  - Supported in all browsers
-  - Note: All of `avoid-page`, `avoid-column` and `avoid-region` values are treated as if they were `avoid`. [[Issue]](https://github.com/vivliostyle/vivliostyle.js/issues/128)
-- [orphans](https://www.w3.org/TR/css3-break/#propdef-orphans)
-  - Supported in all browsers
-- [widows](https://www.w3.org/TR/css3-break/#propdef-widows)
-  - Supported in all browsers
-- [box-decoration-break](https://www.w3.org/TR/css3-break/#propdef-box-decoration-break)
-  - Allowed prefixes: webkit
-  - Supported in all browsers
-  - Note: Background, box-shadow and border images on inline-start/end borders are always rendered as if `box-decoration-break: clone` is specified.
-
 ## [CSS Transforms 1](https://www.w3.org/TR/css-transforms-1/)
 
 - [backface-visibility](https://www.w3.org/TR/css-transforms-1/#propdef-backface-visibility)
@@ -891,29 +930,6 @@ Properties where <quote>Allowed prefixes</quote> is indicated may be used with a
   - Support depends on browser capabilities
 - [clip-rule](https://drafts.fxtf.org/css-masking-1/#the-clip-rule)
   - Support depends on browser capabilities
-
-## [CSS Page Floats 3](https://drafts.csswg.org/css-page-floats-3/)
-
-- [clear](https://drafts.csswg.org/css-page-floats-3/#propdef-clear)
-  - Supports [`none`, `left`, `right`, `top`, `bottom`, `both`, `all`, `same`](https://drafts.csswg.org/css-page-floats-3/#propdef-clear) values.
-  - When `all` is specified on a block-level box (not a page float), the block-start edge of the box gets pushed down so that the edge comes after any block-start/block-end page float of which anchors are before the box in the document order.
-  - When a `clear` value is specified on a page float, it is placed so that it comes after any of preceding page floats.
-  - `same` value means the same direction as one which the page float is floated to.
-  - If a page float with `float: snap-block` would be placed at the block-start end but a `clear` value on it forbidden such placement, the float is instead placed at the block-end side (unless the `clear` value also forbidden such placement).
-  - Supported in all browsers
-- [float](https://drafts.csswg.org/css-page-floats-3/#propdef-float)
-  - Supports [`block-start`, `block-end`, `inline-start`, `inline-end`, `snap-block`, `left`, `right`, `top`, `bottom` and `none`](https://drafts.csswg.org/css-page-floats/#propdef-float) values.
-  - Supported in all browsers
-- [float-reference](https://drafts.csswg.org/css-page-floats-3/#propdef-float-reference)
-  - Supported in all browsers
-
-## [CSS Generated Content for Paged Media (GCPM) 3](https://www.w3.org/TR/css-gcpm-3/)
-
-- [string-set](https://www.w3.org/TR/css-gcpm-3/#setting-named-strings-the-string-set-pro)
-  - Supported in all browsers
-- [footnote-policy](https://www.w3.org/TR/css-gcpm-3/#propdef-footnote-policy)
-  - Supports [`auto`, `line`](https://www.w3.org/TR/css-gcpm-3/#propdef-footnote-policy) values.
-  - Supported in all browsers
 
 ## [Filter Effects 1](https://www.w3.org/TR/filter-effects-1/)
 
