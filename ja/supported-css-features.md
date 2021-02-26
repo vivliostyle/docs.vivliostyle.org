@@ -173,6 +173,13 @@ Vivliostyleは2段階のアーキテクチャから成り、その機能の一�
 - [Page-based counters (page, pages)](https://drafts.csswg.org/css-page/#page-based-counters)
   - Supported in all browsers
 
+### [CSS Generated Content for Paged Media (GCPM) 3](https://www.w3.org/TR/css-gcpm-3/)
+
+- [Nth page selector :nth(An+B)](https://www.w3.org/TR/css-gcpm-3/#document-page-selectors)
+  - Supported in all browsers
+  - The `:nth(An+B)` syntax is supported but the `:nth(An+B of <custom-ident>)` is not because the named pages are not yet supported. [[Issue]](https://github.com/vivliostyle/vivliostyle.js/issues/425)
+  - Note: In multi-document publications, the `:nth(1)` matches the first page of each document, but the `:first` matches only the first page of the first document. [[Issue]](https://github.com/vivliostyle/vivliostyle.js/issues/667#issuecomment-738020563)
+
 ### [CSS Fonts 3](https://www.w3.org/TR/css-fonts-3/)
 
 - [@font-face](https://www.w3.org/TR/css-fonts-3/#font-face-rule)
