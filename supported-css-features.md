@@ -32,7 +32,7 @@ Properties where <quote>Allowed prefixes</quote> is indicated may be used with a
   - Limitation: Percentage value in `calc()` is not calculated correctly.
 - [`content()` function](https://www.w3.org/TR/css-gcpm-3/#content-function-header)
   - Supported in all browsers
-- [`string()` function](https://www.w3.org/TR/css-gcpm-3/#using-named-strings)
+- [`string()` function (Named Strings)](https://www.w3.org/TR/css-gcpm-3/#using-named-strings)
   - Supported in all browsers
 - [`env()` function](https://drafts.csswg.org/css-env/)
   - Supported in all browsers
@@ -164,13 +164,15 @@ Properties where <quote>Allowed prefixes</quote> is indicated may be used with a
 
 ### [CSS Paged Media 3](https://drafts.csswg.org/css-page-3/)
 
-- [@page](https://drafts.csswg.org/css-page/#at-page-rule)
+- [@page](https://drafts.csswg.org/css-page-3/#at-page-rule)
   - Supported in all browsers
-- [Page-margin boxes (@top-left-corner, @top-left, @top-center, @top-right, @top-right-corner, @left-top, @left-middle, @left-bottom, @right-top, @right-middle, @right-bottom, @bottom-left-corner, @bottom-left, @bottom-center, @bottom-right, @bottom-right-coner)](https://drafts.csswg.org/css-page/#margin-at-rules)
+- [Page-margin boxes (@top-left-corner, @top-left, @top-center, @top-right, @top-right-corner, @left-top, @left-middle, @left-bottom, @right-top, @right-middle, @right-bottom, @bottom-left-corner, @bottom-left, @bottom-center, @bottom-right, @bottom-right-coner)](https://drafts.csswg.org/css-page-3/#margin-at-rules)
   - Supported in all browsers
-- Page selectors [:left, :right](http://dev.w3.org/csswg/css-page/#spread-pseudos), [:first](http://dev.w3.org/csswg/css-page/#first-pseudo), [:recto, :verso](http://dev.w3.org/csswg/css-logical-props/#logical-page)
+- Page selectors [:left, :right](https://drafts.csswg.org/css-page-3/#spread-pseudos), [:first](https://drafts.csswg.org/css-page-3/#first-pseudo), [:recto, :verso](https://drafts.csswg.org/css-logical-props/#logical-page)
   - Supported in all browsers
-- [Page-based counters (page, pages)](https://drafts.csswg.org/css-page/#page-based-counters)
+- [Named pages (page type selector)](https://drafts.csswg.org/css-page-3/#page-type-selector)
+  - Supported in all browsers
+- [Page-based counters (page, pages)](https://drafts.csswg.org/css-page-3/#page-based-counters)
   - Supported in all browsers
 
 See also: [Properties in CSS Paged Media 3](#css-paged-media-3-2)
@@ -179,10 +181,12 @@ See also: [Properties in CSS Paged Media 3](#css-paged-media-3-2)
 
 - [Nth page selector :nth(An+B)](https://www.w3.org/TR/css-gcpm-3/#document-page-selectors)
   - Supported in all browsers
-  - The `:nth(An+B)` syntax is supported but the `:nth(An+B of <custom-ident>)` is not because the named pages are not yet supported. [[Issue]](https://github.com/vivliostyle/vivliostyle.js/issues/425)
+  - The `:nth(An+B)` syntax is supported but the `:nth(An+B of <custom-ident>)` is not yet supported.
   - Note: In multi-document publications, the `:nth(1)` matches the first page of each document, but the `:first` matches only the first page of the first document. [[Issue]](https://github.com/vivliostyle/vivliostyle.js/issues/667#issuecomment-738020563)
 
-See also: [Properties in CSS Generated Content for Paged Media (GCPM) 3](#css-generated-content-for-paged-media-gcpm-3-2)
+See also:
+- [Properties in CSS Generated Content for Paged Media (GCPM) 3](#css-generated-content-for-paged-media-gcpm-3-2)
+- [Values - Cross references, content(), and string() functions](#values)
 
 ### [CSS Fonts 3](https://www.w3.org/TR/css-fonts-3/)
 
@@ -424,21 +428,23 @@ See also: [Properties in CSS Fonts 3](#css-fonts-3-2)
 
 ## [CSS Paged Media 3](https://drafts.csswg.org/css-page-3/)
 
-- [bleed](https://drafts.csswg.org/css-page/#bleed)
+- [bleed](https://drafts.csswg.org/css-page-3/#bleed)
   - Supported in all browsers
   - Only effective when specified within an `@page` rule without page selectors
-- [marks](https://drafts.csswg.org/css-page/#marks)
+- [marks](https://drafts.csswg.org/css-page-3/#marks)
   - Supported in all browsers
   - Only effective when specified within an `@page` rule without page selectors
 - [size](https://drafts.csswg.org/css-page-3/#descdef-page-size)
   - Supported in all browsers
-  - Supports `JIS-B5` and `JIS-B4` values in the current editor's draft.
+  - Supports all required values and proposed values `A0`-`A10`, `B0`-`B10`, `C0`-`C10` and `JIS-B0`-`JIS-B10`. See [[Pull Request]](https://github.com/vivliostyle/vivliostyle.js/pull/713)
+- [page (Named Pages)](https://drafts.csswg.org/css-page-3/#using-named-pages)
+  - Supported in all browsers
 
 See also: [At-rules in CSS Paged Media 3](#css-paged-media-3)
 
 ## [CSS Generated Content for Paged Media (GCPM) 3](https://www.w3.org/TR/css-gcpm-3/)
 
-- [string-set](https://www.w3.org/TR/css-gcpm-3/#setting-named-strings-the-string-set-pro)
+- [string-set (Named Strings)](https://www.w3.org/TR/css-gcpm-3/#setting-named-strings-the-string-set-pro)
   - Supported in all browsers
 - [footnote-policy](https://www.w3.org/TR/css-gcpm-3/#propdef-footnote-policy)
   - Supports [`auto`, `line`](https://www.w3.org/TR/css-gcpm-3/#propdef-footnote-policy) values.
@@ -643,10 +649,9 @@ See also: [At-rules in CSS Fonts 3](#css-fonts-3)
   - Allowed prefixes: moz, ms
   - Support depends on browser capabilities
   - Note: While `text-align` property is a shorthand in CSS Text 3, Vivliostyle treats `text-align` for now as an independent property (defined in CSS 2.1) rather than a shorthand.
-- [text-justify](https://drafts.csswg.org/css-text-3/#propdef-text-justify)
+- [text-justify](https://www.w3.org/TR/css-text-3/#text-justify)
   - Allowed prefixes: ms
   - Support depends on browser capabilities
-  - Note: `inter-ideograph` value as well as values defined in the current editor's draft is supported since we use it in UA stylesheet to emulate text-justify: auto behavior defined in the spec on IE.
 - [white-space](https://www.w3.org/TR/css-text-3/#white-space)
   - Support depends on browser capabilities
 - [word-break](https://www.w3.org/TR/css-text-3/#word-break)
@@ -836,9 +841,8 @@ See also: [At-rules in CSS Fonts 3](#css-fonts-3)
   - Supports [`flex`, `inline-flex`](https://www.w3.org/TR/css-flexbox-1/#flex-containers), [`ruby`, `ruby-base`, `ruby-text`, `ruby-base-container` and `ruby-text-container`](https://www.w3.org/TR/css-ruby-1/#propdef-display) values.
 - [ruby-align](https://www.w3.org/TR/css-ruby-1/#propdef-ruby-align)
   - Support depends on browser capabilities
-- [ruby-position](https://drafts.csswg.org/css-ruby-1/#propdef-ruby-position)
+- [ruby-position](https://www.w3.org/TR/css-ruby-1/#propdef-ruby-position)
   - Support depends on browser capabilities
-  - Supports syntax defined in the current editor's draft.
 
 ## [CSS Mobile Text Size Adjustment 1](https://drafts.csswg.org/css-size-adjust-1/)
 

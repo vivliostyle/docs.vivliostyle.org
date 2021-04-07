@@ -15,8 +15,8 @@
 
 ## References
 
-- [Core API Reference](/api)
 - [Supported CSS Features](/supported-css-features)
+- [Core API Reference](/api)
 - [Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli/blob/main/README.md#readme)
 - [Create Book](https://github.com/vivliostyle/create-book#readme)
 - [VFM](https://vivliostyle.github.io/vfm/#/vfm)

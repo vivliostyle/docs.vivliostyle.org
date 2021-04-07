@@ -15,8 +15,8 @@
 
 ## リファレンス
 
-- [Core API リファレンス](/ja/api)
 - [サポートする CSS 機能](/ja/supported-css-features)
+- [Core API リファレンス](/ja/api)
 - [Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli/blob/main/README.md#readme)
 - [Create Book](https://github.com/vivliostyle/create-book#readme)
 - [VFM](https://vivliostyle.github.io/vfm/#/vfm)
