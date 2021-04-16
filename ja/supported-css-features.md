@@ -168,8 +168,13 @@ Vivliostyleは2段階のアーキテクチャから成り、その機能の一�
   - Supported in all browsers
 - [Page-margin boxes (@top-left-corner, @top-left, @top-center, @top-right, @top-right-corner, @left-top, @left-middle, @left-bottom, @right-top, @right-middle, @right-bottom, @bottom-left-corner, @bottom-left, @bottom-center, @bottom-right, @bottom-right-coner)](https://drafts.csswg.org/css-page-3/#margin-at-rules)
   - Supported in all browsers
-- Page selectors [:left, :right](https://drafts.csswg.org/css-page-3/#spread-pseudos), [:first](https://drafts.csswg.org/css-page-3/#first-pseudo), [:recto, :verso](https://drafts.csswg.org/css-logical-props/#logical-page)
+- [Page selectors](https://drafts.csswg.org/css-page-3/#page-selectors)
   - Supported in all browsers
+  - [:left, :right](https://drafts.csswg.org/css-page-3/#spread-pseudos)
+  - [:recto, :verso](https://drafts.csswg.org/css-logical-props/#logical-page)
+  - [:first](https://drafts.csswg.org/css-page-3/#first-pseudo)
+    - Note: In multi-document publications, the `:first` matches only the first page of the first document, and the `:nth(1)` matches the first page of each document. [[Issue]](https://github.com/vivliostyle/vivliostyle.js/issues/667#issuecomment-738020563)
+  - [:blank](https://drafts.csswg.org/css-page-3/#blank-pseudo)
 - [Named pages (page type selector)](https://drafts.csswg.org/css-page-3/#page-type-selector)
   - Supported in all browsers
 - [Page-based counters (page, pages)](https://drafts.csswg.org/css-page-3/#page-based-counters)
