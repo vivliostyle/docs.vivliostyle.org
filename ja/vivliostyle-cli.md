@@ -30,6 +30,10 @@ vivliostyle build index.html
 vivliostyle build book.html -o book.pdf
 ```
 
+### PDF を出力しないで結果を見るには
+
+PDF を出力しないで組版結果を確認する方法については [組版結果のプレビュー](#組版結果のプレビュー) を参照してください。
+
 ### ページサイズの指定
 
 `-s` (`--size`) オプションでページサイズを指定できます。指定できるサイズは、A5, A4, A3, B5, B4, JIS-B5, JIS-B4, letter, legal, ledger のいずれか、またはコンマで区切って幅と高さを指定します。
@@ -48,12 +52,75 @@ vivliostyle build slide.html -s 10in,7.5in -o slide.pdf
 vivliostyle build https://vivliostyle.github.io/vivliostyle_doc/samples/gutenberg/Alice.html -s A4 -o Alice.pdf
 ```
 
+### 単一 HTML 文書の指定
+
+Vivliostyle CLI のデフォルトの動作では、コマンドラインで指定された HTML 文書内に、別の HTML 文書へのリンクからなる目次がある場合、または、出版物マニフェストへのリンクがある場合、複数文書で構成される出版物（webbook あるいは webpub）の組版処理を行います。 `-d` (`--single-doc`) オプションを指定するとこの動作が変わり、単一の HTML 文書のみ組版することができます。
+
+```
+vivliostyle build index.html --single-doc
+```
+
+## スタイルシートの追加の指定
+
+HTMLファイルに指定されているスタイルシートに加えて、追加のスタイルシート（CSSファイル）を使うには、`--style` オプションでスタイルシートを指定します。
+
+```
+vivliostyle build example.html --style additional-style.css
+```
+
+この方法で指定したスタイルシートは、HTMLファイルで指定されているスタイルシートと同様（[制作者スタイルシート](https://developer.mozilla.org/ja/docs/Web/CSS/Cascade#author_stylesheets)）の扱いで、よりあとに指定されたことになるので、CSSのカスケーディング規則により、HTMLファイルからのスタイルの指定を上書きすることになります。
+
+### ユーザースタイルシートの指定
+
+[ユーザースタイルシート](https://developer.mozilla.org/ja/docs/Web/CSS/Cascade#user_stylesheets)を使うには、`--user-style` オプションでスタイルシートを指定します。（ユーザースタイルシートは、スタイル指定に `!important` を付けないかぎり、制作者スタイルシートのスタイル指定を上書きしません。）
+
+```
+vivliostyle build example.html --user-style user-style.css
+```
+
 ## EPUB から PDF を生成
 
 `vivliostyle build` コマンドで EPUB ファイルを指定すると、EPUB から組版した結果の PDF ファイルが出力されます。
 
 ```
-vivliostyle build ebpaj-sample.epub -s A5 -o ebpaj-sample.pdf
+vivliostyle build epub-sample.epub -s A5 --user-style epub-style.css -o epub-sample.pdf
+```
+
+### EPUB 用のユーザースタイルシートの例
+
+EPUB を好みのページスタイルにして組版するには、[ユーザースタイルシートの指定](#ユーザースタイルシートの指定)が必要です。
+
+EPUB 用のユーザースタイルシートの例: epub-style.css
+```css
+@page {
+  margin: 10%;
+  @top-center {     /* ページヘッダー */
+    writing-mode: horizontal-tb;
+    font-size: 75%;
+    content: string(title);
+  }
+  @bottom-center {  /* ページフッター */
+    writing-mode: horizontal-tb;
+    font-size: 67%;
+    content: counter(page);
+  }
+}
+@page :first {      /* 表紙ページ */
+  margin: 0;
+  @top-center {
+    content: none;
+  }
+  @bottom-center {
+    content: none;
+  }
+}
+title {
+  string-set: title content();
+}
+img { /* 画像がページに収まるように */
+  max-width: 100vw !important;
+  max-height: 100vh !important;
+}
 ```
 
 ### 解凍された EPUB から PDF を生成
@@ -61,8 +128,8 @@ vivliostyle build ebpaj-sample.epub -s A5 -o ebpaj-sample.pdf
 解凍(unzip)された EPUB から PDF を生成するには、EPUB の OPF ファイルを指定します。
 
 ```
-unzip ebpaj-sample.epub
-vivliostyle build item/standard.opf -s A5 -o ebpaj-sample.pdf
+unzip epub-sample.epub
+vivliostyle build item/standard.opf -s A5 --user-style epub-style.css -o epub-sample.pdf
 ```
 
 ## Markdown から PDF を生成
@@ -77,20 +144,52 @@ vivliostyle build manuscript.md -s A4 -o paper.pdf
 
 Vivliostyle CLI で利用可能な Markdown 記法については、[VFM: Vivliostyle Flavored Markdown](https://vivliostyle.github.io/vfm/#/) を参照してください。
 
-### CSS スタイルシートの指定
+### テーマ CSS スタイルシートの指定
 
 `-T` (`--theme`) オプションで CSS ファイルを指定することができます。
 
 ```
-vivliostyle build manuscript.md -T style.css -o paper.pdf
+vivliostyle build manuscript.md --theme my-theme/style.css -o paper.pdf
 ```
 
 ## 組版結果のプレビュー
 
-`vivliostyle preview` コマンドで組版結果をブラウザでプレビューすることができます。
+`vivliostyle preview` コマンドで組版結果をブラウザでプレビューすることができます（プレビューには [Vivliostyle Viewer](./vivliostyle-viewer.md) が使われます）
 
 ```
-vivliostyle preview manuscript.md -T style.css
+vivliostyle preview index.html
+```
+
+```
+vivliostyle preview https://example.com --user-style my-style.css
+```
+
+```
+vivliostyle preview publication.json
+```
+
+```
+vivliostyle preview epub-sample.epub --user-style my-style.css
+```
+
+```
+vivliostyle preview manuscript.md --theme my-theme/style.css
+```
+
+### 多数の文書から構成される出版物をすばやくプレビュー
+
+多数の文書から構成される出版物をすばやくプレビューするためには、`-q` (`--quick`) オプションを指定してください。このオプションでは大まかなページ数カウントを使って迅速に文書をロードします（ページ番号の出力は不正確になります）。
+
+```
+vivliostyle preview index.html --quick
+```
+
+```
+vivliostyle preview publication.json --quick
+```
+
+```
+vivliostyle preview epub-sample.epub --quick
 ```
 
 ## Vivliostyle Themes について

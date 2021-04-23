@@ -30,9 +30,23 @@ Vivliostyle Viewer は、HTML+CSS文書を組版・表示するWebアプリケ�
 
 ## 使い方
 
-Vivliostyle Viewer をローカル環境で利用する場合は、配布パッケージに同梱の [README](https://github.com/vivliostyle/vivliostyle.js/blob/master/packages/viewer/README.ja.md) に記載の「使い方」の手順にしたがってWebサーバーを起動してください。
+### Vivliostyle Viewer をローカル環境で利用するには
 
-オンラインで公開されている [vivliostyle.org/viewer/](https://vivliostyle.org/viewer/) も利用でき、これは常に最新のリリース版に更新されています。いち早く最新のバージョンを試したい場合は、[vivliostyle.now.sh](https://vivliostyle.now.sh)を利用してください。
+Vivliostyle Viewer をローカル環境で利用するには、Vivliostyle CLI の preview コマンドを使うのが便利です。Vivliostyle CLI のインストール方法と使い方については、[Vivliostyle CLI ユーザーガイド](./vivliostyle-cli.md)、preview コマンドについては [組版結果のプレビュー](./vivliostyle-cli#組版結果のプレビュー) をご覧ください。
+
+それ以外の方法で Vivliostyle Viewer をローカル環境で利用する場合は、配布パッケージに同梱の [README](https://github.com/vivliostyle/vivliostyle.js/blob/master/packages/viewer/README.ja.md) に記載の「使い方」の手順にしたがってWebサーバーを起動してください。
+
+### オンライン公開 Vivliostyle Viewer 
+
+オンラインで公開されている [vivliostyle.org/viewer/](https://vivliostyle.org/viewer/) も利用でき、これは常に最新のリリース版に更新されています。いち早く最新のバージョンを試したい場合は、[vivliostyle.vercel.app](https://vivliostyle.vercel.app)を利用してください。
+
+### Vivliostyle Viewer を自分のサイトに配置
+
+Vivliostyle Viewer の配布パッケージ（https://vivliostyle.org/ja/download/ からダウンロード）を解凍したものを自分のサイトに配置すれば、自分のサイトで Vivliostyle Viewer で閲覧する出版物を公開することができます。
+
+Node.js のアプリケーションで利用するには、npmパッケージ版の [@vivliostyle/viewer](https://www.npmjs.com/package/@vivliostyle/viewer) を使用してください。
+
+### Vivliostyle Viewer のスタートページ
 
 パラメータを指定しないで <Link path="/viewer/">Vivliostyle Viewer</Link> を開くと、文書URLの入力欄 (“Input a document URL”)、 **Book Mode** と **Render All Pages** のチェックボックス、および使い方のヘルプが表示されます。
 
