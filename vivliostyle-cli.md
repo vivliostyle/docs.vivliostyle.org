@@ -30,6 +30,10 @@ The `-o` (`--output`) option can be used to specify a PDF file name.
 vivliostyle build book.html -o book.pdf
 ```
 
+### To view the results without outputting PDF
+
+To view the typesetting results without outputting a PDF, see [Preview the typesetting results](#preview-the-typesetting-results).
+
 ### Specify the page size
 
 The `-s` (`--size`) option can be used to specify the page size. The possible sizes are A5, A4, A3, B5, B4, JIS-B5, JIS-B4, letter, legal, ledger, or comma-separated width and height.
@@ -48,12 +52,76 @@ In addition to a local HTML file, you can also specify a Web URL.
 vivliostyle build https://vivliostyle.github.io/vivliostyle_doc/samples/gutenberg/Alice.html -s A4 -o Alice.pdf
 ```
 
+### Specifying single HTML document
+
+The default behavior of Vivliostyle CLI is to typeset multi-document publication (webbook or webpub) if the HTML document specified on the command line contains a table of contents with links to other HTML documents, or if it contains links to a publication manifest. The `-d` (`--single-doc`) option changes this behavior so that only a single HTML document can be typeset.
+
+```
+vivliostyle build index.html --single-doc
+```
+
+## Specifying additional style sheets
+
+To use a style sheet (CSS file) in addition to the style sheets specified in the HTML file, specify the additional style sheet with `--style` option.
+
+```
+vivliostyle build example.html --style additional-style.css
+```
+
+The style sheet specified in this way is treated as [author style sheet](https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade#author_stylesheets), as if it is specified in the HTML file at very last, and can override styles of other style sheets according to the CSS cascading rules.
+
+### Specifying user style sheets
+
+To use a [user style sheet](https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade#user_stylesheets), specify the style sheet with `--user-style` option. (User style sheet cannot
+override styles of author style sheets unless specifying `!important`).
+
+```
+vivliostyle build example.html --user-style user-style.css
+```
+
 ## Generate PDF from EPUB
 
 When an EPUB file is specified with the `vivliostyle build` command, a PDF file will be output as a result of typesetting from the EPUB.
 
 ```
-vivliostyle build ebpaj-sample.epub -s A5 -o ebpaj-sample.pdf
+vivliostyle build epub-sample.epub -s A5 --user-style epub-style.css -o epub-sample.pdf
+```
+
+### Example of user style sheet for EPUB
+
+To typeset EPUB with your preferred page style, you need to [specify a user style sheet](#specifying-user-style-sheets).
+
+Example of user style sheet for EPUB: epub-style.css
+```css
+@page {
+  margin: 10%;
+  @top-center {     /* page header */
+    writing-mode: horizontal-tb;
+    font-size: 75%;
+    content: string(title);
+  }
+  @bottom-center {  /* page footer */
+    writing-mode: horizontal-tb;
+    font-size: 67%;
+    content: counter(page);
+  }
+}
+@page :first {      /* cover page */
+  margin: 0;
+  @top-center {
+    content: none;
+  }
+  @bottom-center {
+    content: none;
+  }
+}
+title {
+  string-set: title content();
+}
+img { /* to fit images in the page */
+  max-width: 100vw !important;
+  max-height: 100vh !important;
+}
 ```
 
 ### Generate PDF from unzipped EPUB
@@ -61,8 +129,8 @@ vivliostyle build ebpaj-sample.epub -s A5 -o ebpaj-sample.pdf
 To generate a PDF from an unzipped EPUB, specify the EPUB's OPF file.
 
 ```
-unzip ebpaj-sample.epub
-vivliostyle build item/standard.opf -s A5 -o ebpaj-sample.pdf
+unzip epub-sample.epub
+vivliostyle build item/standard.opf -s A5 --user-style epub-style.css -o epub-sample.pdf
 ```
 
 ## Generate PDF from Markdown
@@ -77,20 +145,52 @@ vivliostyle build manuscript.md -s A4 -o paper.pdf
 
 For more information on the Markdown notation available in Vivliostyle CLI, refer to [VFM: Vivliostyle Flavored Markdown](https://vivliostyle.github.io/vfm/#/).
 
-### Specify a CSS style sheet
+### Specify a theme CSS style sheet
 
 The `-T` (`--theme`) option can be used to specify a CSS file.
 
 ```
-vivliostyle build manuscript.md -T style.css -o paper.pdf
+vivliostyle build manuscript.md --theme my-theme/style.css -o paper.pdf
 ```
 
 ## Preview the typesetting results
 
-The `vivliostyle preview` command can be used to preview the result of typesetting in the browser.
+The `vivliostyle preview` command can be used to preview the typesetting results in the browser with [Vivliostyle Viewer](./vivliostyle-viewer.md).
 
 ```
-vivliostyle preview manuscript.md -T style.css
+vivliostyle preview index.html
+```
+
+```
+vivliostyle preview https://example.com --user-style my-style.css
+```
+
+```
+vivliostyle preview publication.json
+```
+
+```
+vivliostyle preview epub-sample.epub --user-style my-style.css
+```
+
+```
+vivliostyle preview manuscript.md --theme my-theme/style.css
+```
+
+### Quick preview for large multi-document publications
+
+To preview quickly a large publication consisting of multiple HTML documents, specify `-q` (`--quick`) option for quick loading using rough page count (page numbers will not be output correctly).
+
+```
+vivliostyle preview index.html --quick
+```
+
+```
+vivliostyle preview publication.json --quick
+```
+
+```
+vivliostyle preview epub-sample.epub --quick
 ```
 
 ## About Vivliostyle Themes

@@ -30,12 +30,26 @@ Vivliostyle Viewer is a web application displaying and typesetting HTML+CSS docu
 
 ## How to use
 
-To use the Vivliostyle Viewer in a local environment, start a web
+### To use Vivliostyle Viewer in a local environment
+
+To use Vivliostyle Viewer in a local environment, it is convenient to use the preview command of the Vivliostyle CLI. For information on how to install and use the Vivliostyle CLI, see [Vivliostyle CLI User Guide](./vivliostyle-cli.md), and [Preview the typesetting results](./vivliostyle-cli#preview-the-typesetting-results).
+
+If you want to use Vivliostyle Viewer in a local environment by other means, start a web
 server by following the instructions described in the
 [README](https://github.com/vivliostyle/vivliostyle.js/blob/master/packages/viewer/README.md)
 attached to the distribution package.
 
-You can also use the public online Vivliostyle Viewer ([vivliostyle.org/viewer/](https://vivliostyle.org/viewer/)) that has always been updated to the latest release version. For early bird users, there is also canary version available [vivliostyle.now.sh](https://vivliostyle.now.sh).
+### Public online Vivliostyle Viewer
+
+You can also use the public online Vivliostyle Viewer ([vivliostyle.org/viewer/](https://vivliostyle.org/viewer/)) that has always been updated to the latest release version. For early bird users, there is also canary version available [vivliostyle.vercel.app](https://vivliostyle.vercel.app).
+
+### Placing Vivliostyle Viewer on your site
+
+You can place the unzipped copy of the Vivliostyle Viewer distribution package (download from https://vivliostyle.org/download/) in your site, and then you can publish your publications to be viewed with Vivliostyle Viewer on your site.
+
+To use it in a Node.js application, use the npm package [@vivliostyle/viewer](https://www.npmjs.com/package/@vivliostyle/viewer).
+
+### The start page of Vivliostyle Viewer
 
 When you open <Link path="/viewer/">Vivliostyle Viewer</Link> without specifying parameters, an “Input a document URL” box, **Book Mode** and **Render All Pages** check boxes, and usage help is displayed.
 
