@@ -109,6 +109,7 @@ Vivliostyle currently supports the following CSS [values](#values), [selectors](
 ### [CSS Conditional Rules 3](https://www.w3.org/TR/css3-conditional/)
 
 - [@media](https://www.w3.org/TR/css3-conditional/#atmedia-rule)
+- [@supports](https://www.w3.org/TR/css-conditional-3/#at-supports)
 
 ### [CSS Paged Media 3](https://drafts.csswg.org/css-page-3/)
 
