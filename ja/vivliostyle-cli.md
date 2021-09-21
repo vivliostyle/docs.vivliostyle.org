@@ -275,21 +275,7 @@ vivliostyle init
 
 `vivliostyle build` コマンドの `--press-ready` オプションにより印刷入稿に適した PDF/X-1a 形式で出力することができます。
 
-この機能を使うためには [Ghostscript](https://www.ghostscript.com) と [Xpdf](https://www.xpdfreader.com/)（または [Poppler](https://poppler.freedesktop.org/)）をインストールする必要があります。主なOSでそれらをインストールする方法は以下です：
-
-macOS ([Homebrew](https://brew.sh/index_ja) を利用):
-```
-brew install poppler ghostscript
-```
-
-Ubuntu:
-```
-apt-get install poppler-utils ghostscript
-```
-
-Windows:
-- Ghostscript for Windows を <https://www.ghostscript.com/download/gsdnld.html> からダウンロードしてインストール。それからインストールしたGhostscriptの実行ファイルのあるディレクトリ（例："C:\Program Files\gs\gs9.52\bin"）を `PATH` 環境変数に追加。
-- Xpdf command line tools for Windows を <http://www.xpdfreader.com/download.html> からダウンロードしてインストール。それからインストールしたXpdfの実行ファイルのあるディレクトリ（例："C:\xpdf-tools-win-4.02\bin64"）を `PATH` 環境変数に追加。
+この機能を使うためには、事前に [Docker](https://docs.docker.jp/get-docker.html) のインストールが必要です。
 
 ## PDF の「しおり」(Bookmarks) の生成
 
