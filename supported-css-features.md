@@ -118,7 +118,7 @@ Vivliostyle currently supports the following CSS [values](#values), [selectors](
 - [Page-margin boxes (@top-left-corner, @top-left, @top-center, @top-right, @top-right-corner, @left-top, @left-middle, @left-bottom, @right-top, @right-middle, @right-bottom, @bottom-left-corner, @bottom-left, @bottom-center, @bottom-right, @bottom-right-coner)](https://www.w3.org/TR/css-page-3/#margin-at-rules)
 - [Page selectors](https://www.w3.org/TR/css-page-3/#page-selectors)
   - [:left, :right](https://www.w3.org/TR/css-page-3/#spread-pseudos)
-  - [:recto, :verso](https://drafts.csswg.org/css-logical-props/#logical-page)
+  - [:recto, :verso](https://www.w3.org/TR/css-logical-1/#page)
   - [:first](https://www.w3.org/TR/css-page-3/#first-pseudo)
     - Note: In multi-document publications, the `:first` matches only the first page of the first document, and the `:nth(1)` matches the first page of each document. [[Issue]](https://github.com/vivliostyle/vivliostyle.js/issues/667#issuecomment-738020563)
   - [:blank](https://www.w3.org/TR/css-page-3/#blank-pseudo)
@@ -197,19 +197,20 @@ See also: [Properties in CSS Fonts 3](#css-fonts-3-2)
 - [bottom](https://www.w3.org/TR/CSS2/visuren.html#propdef-bottom)
 - [caption-side](https://www.w3.org/TR/CSS2/tables.html#propdef-caption-side)
 - [clear](https://www.w3.org/TR/CSS2/visuren.html#propdef-clear)
+  - See also [CSS Page Floats](#css-page-floats)
 - [clip](https://www.w3.org/TR/CSS2/visufx.html#propdef-clip)
 - [color](https://www.w3.org/TR/CSS2/colors.html#propdef-color)
 - [content](https://www.w3.org/TR/CSS2/generate.html#propdef-content)
 - [counter-increment](https://www.w3.org/TR/CSS2/generate.html#propdef-counter-increment)
 - [counter-reset](https://www.w3.org/TR/CSS2/generate.html#propdef-counter-reset)
-- [counter-set](https://drafts.csswg.org/css-lists-3/#propdef-counter-set)
+- [counter-set](https://www.w3.org/TR/css-lists-3/#propdef-counter-set)
 - [cursor](https://www.w3.org/TR/CSS2/ui.html#propdef-cursor)
 - [direction](https://www.w3.org/TR/CSS2/visuren.html#propdef-direction)
 - [display](https://www.w3.org/TR/CSS2/visuren.html#propdef-display)
   - Supports [`flex`, `inline-flex`](https://www.w3.org/TR/css-flexbox-1/#flex-containers), [`ruby`, `ruby-base`, `ruby-text`, `ruby-base-container` and `ruby-text-container`](https://www.w3.org/TR/css-ruby-1/#propdef-display) values.
 - [empty-cells](https://www.w3.org/TR/CSS2/tables.html#propdef-empty-cells)
 - [float](https://www.w3.org/TR/CSS2/visuren.html#propdef-float)
-  - Supports [CSS Page Floats `block-start`, `block-end`, `inline-start`, `inline-end`, `left`, `right`, `top`, `bottom` and `none`](https://www.w3.org/TR/css-page-floats-3/#propdef-float) values.
+  - See also [CSS Page Floats](#css-page-floats)
 - [font](https://www.w3.org/TR/CSS2/fonts.html#propdef-font)
 - [font-family](https://www.w3.org/TR/CSS2/fonts.html#propdef-font-family)
 - [font-size](https://www.w3.org/TR/CSS2/fonts.html#propdef-font-size)
@@ -302,17 +303,17 @@ See also:
 - [box-decoration-break](https://www.w3.org/TR/css3-break/#propdef-box-decoration-break)
   - Note: Background, box-shadow and border images on inline-start/end borders are always rendered as if `box-decoration-break: clone` is specified.
 
-## [CSS Page Floats 3](https://www.w3.org/TR/css-page-floats-3/)
+## [CSS Page Floats](https://drafts.csswg.org/css-page-floats/)
 
-- [clear](https://www.w3.org/TR/css-page-floats-3/#propdef-clear)
-  - Supports [`none`, `left`, `right`, `top`, `bottom`, `both`, `all`, `same`](https://www.w3.org/TR/css-page-floats-3/#propdef-clear) values.
+- [clear](https://drafts.csswg.org/css-page-floats/#propdef-clear)
+  - Supports [`none`, `left`, `right`, `top`, `bottom`, `both`, `all`, `same`](https://drafts.csswg.org/css-page-floats/#propdef-clear) values.
   - When `all` is specified on a block-level box (not a page float), the block-start edge of the box gets pushed down so that the edge comes after any block-start/block-end page float of which anchors are before the box in the document order.
   - When a `clear` value is specified on a page float, it is placed so that it comes after any of preceding page floats.
   - `same` value means the same direction as one which the page float is floated to.
   - If a page float with `float: snap-block` would be placed at the block-start end but a `clear` value on it forbidden such placement, the float is instead placed at the block-end side (unless the `clear` value also forbidden such placement).
-- [float](https://www.w3.org/TR/css-page-floats-3/#propdef-float)
-  - Supports [`block-start`, `block-end`, `inline-start`, `inline-end`, `snap-block`, `left`, `right`, `top`, `bottom` and `none`](https://www.w3.org/TR/css-page-floats-3/#propdef-float) values.
-- [float-reference](https://www.w3.org/TR/css-page-floats-3/#propdef-float-reference)
+- [float](https://drafts.csswg.org/css-page-floats/#propdef-float)
+  - Supports [`block-start`, `block-end`, `inline-start`, `inline-end`, `snap-block`, `left`, `right`, `top`, `bottom` and `none`](https://drafts.csswg.org/css-page-floats/#propdef-float) values.
+- [float-reference](https://drafts.csswg.org/css-page-floats/#propdef-float-reference)
 
 ## [CSS Color 3](https://www.w3.org/TR/css3-color/)
 
@@ -453,7 +454,6 @@ See also: [At-rules in CSS Fonts 3](#css-fonts-3)
 - [align-items](https://www.w3.org/TR/css-flexbox-1/#propdef-align-items)
 - [align-self](https://www.w3.org/TR/css-flexbox-1/#propdef-align-self)
 - [display](https://www.w3.org/TR/css-flexbox-1/#flex-containers)
-  - Values: `flex | inline-flex`
 - [flex](https://www.w3.org/TR/css-flexbox-1/#propdef-flex)
 - [flex-basis](https://www.w3.org/TR/css-flexbox-1/#propdef-flex-basis)
 - [flex-direction](https://www.w3.org/TR/css-flexbox-1/#propdef-flex-direction)
