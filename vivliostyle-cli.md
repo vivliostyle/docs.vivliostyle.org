@@ -276,21 +276,7 @@ The configuration settings are explained in the comments (beginning with `//`) i
 
 You can use `vivliostyle build` command with the `--press-ready` option to output in PDF/X-1a format suitable for printing.
 
-To use this feature, you need [Ghostscript](https://www.ghostscript.com) and [Xpdf](https://www.xpdfreader.com/) (or [Poppler](https://poppler.freedesktop.org)) installed. Here's how to install them on major operating systems:
-
-macOS (with [Homebrew](https://brew.sh)):
-```
-brew install poppler ghostscript
-```
-
-Ubuntu:
-```
-apt-get install poppler-utils ghostscript
-```
-
-Windows:
-- Download and install the Ghostscript for Windows at <https://www.ghostscript.com/download/gsdnld.html>. Then, add the installed Ghostscript's bin directory (e.g., "C:\Program Files\gs\gs9.52\bin") to the `PATH` environment variable.
-- Download and install the Xpdf command line tools for Windows at <http://www.xpdfreader.com/download.html>. Then, add the installed Xpdf's bin directory (e.g., "C:\xpdf-tools-win-4.02\bin64") to the `PATH` environment variable.
+To use this feature, you need [Docker](https://docs.docker.com/get-docker/) installed.
 
 ## Generate PDF Bookmarks
 
