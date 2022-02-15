@@ -395,7 +395,7 @@ See also: [At-rules in CSS Fonts 3](#css-fonts-3)
 ## [CSS Text 3](https://www.w3.org/TR/css-text-3/)
 
 - [hanging-punctuation](hanging-punctuation)
-  - Supports all required values, `none | [ first || [ force-end | allow-end ] || last ]`, but `allow-end` is treated as `force-end`. See [[Pull Request]](https://github.com/vivliostyle/vivliostyle.js/pull/814)
+  - Supports all required values, `none | [ first || [ force-end | allow-end ] || last ]`. See [[Pull Request]](https://github.com/vivliostyle/vivliostyle.js/pull/814)
 - [hyphens](https://www.w3.org/TR/css-text-3/#hyphenation)
 - [letter-spacing](https://www.w3.org/TR/css-text-3/#letter-spacing-property)
 - [line-break](https://www.w3.org/TR/css-text-3/#line-break-property)
@@ -409,12 +409,11 @@ See also: [At-rules in CSS Fonts 3](#css-fonts-3)
 ## [CSS Text 4](https://www.w3.org/TR/css-text-4/)
 
 - [text-spacing](https://www.w3.org/TR/css-text-4/#text-spacing-property)
+  - Supported values: `normal | auto | none | [ trim-start | space-start | space-first ] || [ trim-end | space-end | allow-end ] || [ trim-adjacent | space-adjacent ] || ideograph-alpha || ideograph-numeric`
   - Note: There are a few differences from the current CSS draft spec
     - `normal` is equivalent to `space-first trim-end trim-adjacent`
-    - `auto` is equivalent to `trim-first trim-end trim-adjacent ideograph-alpha ideograph-numeric`
+    - `auto` is equivalent to `trim-start trim-end trim-adjacent ideograph-alpha ideograph-numeric`
     - `ideograph-alpha` and `ideograph-numeric` create 1/6em space
-    - `allow-end` is treated as `trim-end`
-    - `no-compress` and `punctuation` are ignored
     
     See [[Pull Request]](https://github.com/vivliostyle/vivliostyle.js/pull/814)
 
