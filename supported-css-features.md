@@ -4,17 +4,17 @@ Vivliostyle currently supports the following CSS [values](#values), [selectors](
 
 ## Values
 
-- [Supported CSS-wide keywords](https://www.w3.org/TR/css-values/#common-keywords): `inherit`
-  - `initial` and `unset` are _not_ supported.
-- [Supported length units](https://www.w3.org/TR/css-values/#lengths): `em`, `ex`, `ch`, `rem`, `vw`, `vh`, `vmin, vmax`, `vi`, `vb`, `cm`, `mm`, `q`, `in`, `pc`, `pt`, `px`.
+- [CSS-wide keywords](https://www.w3.org/TR/css-values/#common-keywords): `initial`, `inherit`, `unset`, `revert`
+- [Length units](https://www.w3.org/TR/css-values/#lengths): `em`, `ex`, `ch`, `rem`, `vw`, `vh`, `vmin, vmax`, `vi`, `vb`, `cm`, `mm`, `q`, `in`, `pc`, `pt`, `px`.
 - Sizing keywords: [min-content](https://www.w3.org/TR/css-sizing-3/#valdef-width-min-content), [max-content](https://www.w3.org/TR/css-sizing-3/#valdef-width-max-content), [fit-content](https://www.w3.org/TR/css-sizing-4/#valdef-width-fit-content)
-- Supported color values
-  - [Basic color keywords](https://www.w3.org/TR/css3-color/#html4)
-  - [RGB color values](https://www.w3.org/TR/css3-color/#rgb-color), [RGBA color values](https://www.w3.org/TR/css3-color/#rgba-color)
-  - [‘transparent’ color keyword](https://www.w3.org/TR/css3-color/#transparent)
-  - [HSL color values](https://www.w3.org/TR/css3-color/#hsl-color), [HSLA color values](https://www.w3.org/TR/css3-color/#hsla-color)
-  - [Extended color keywords](https://www.w3.org/TR/css3-color/#svg-color)
-  - [‘currentColor’ color keyword](https://www.w3.org/TR/css3-color/#currentcolor)
+- Color values
+  - [Named Colors](https://www.w3.org/TR/css-color/#named-colors)
+  - [`transparent` color keyword](https://www.w3.org/TR/css-color/#transparent-color)
+  - [`currentColor` color keyword](https://www.w3.org/TR/css-color/#currentcolor-color)
+  - [RGB functions: `rgb()`, `rgba()`](https://www.w3.org/TR/css-color/#rgb-functions)
+  - [RGB Hexadecimal Notations: #RRGGBB, #RRGGBBAA](https://www.w3.org/TR/css-color/#hex-notation)
+  - [HSL Colors: `hsl()`, `hsla()`](https://www.w3.org/TR/css-color/#the-hsl-notation)
+  - [HWB Colors: `hwb()`](https://www.w3.org/TR/css-color/#the-hwb-notation)
 - [Attribute references: `attr()`](https://www.w3.org/TR/css-values/#attr-notation)
   - Only supported in values of `content` property.
   - Only 'string' and 'url' types are supported.
@@ -29,6 +29,8 @@ Vivliostyle currently supports the following CSS [values](#values), [selectors](
   - Implemented only `env(pub-title)` and `env(doc-title)` that are not yet defined in the css-env draft spec but useful for making page header.
     - `env(pub-title)`: publication title = EPUB, Web publication, or primary entry page HTML title.
     - `env(doc-title)`: document title = HTML title, which may be chapter or section title in a publication composed of multiple HTML documents
+- [`var()` function](https://www.w3.org/TR/css-variables/#using-variables)
+  - Supports [CSS Custom Properties for Cascading Variables](https://www.w3.org/TR/css-variables/)
 
 ## Selectors
 
