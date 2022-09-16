@@ -1,0 +1,13 @@
+{
+  "name": "docs.vivliostyle.org",
+  "scripts": {
+    "typedoc": "node_modules/.bin/typedoc --options typedoc/core/typedoc.json --tsconfig typedoc/core/tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vivliostyle/docs.vivliostyle.org.git"
+  },
+  "devDependencies": {
+    "typedoc": "^0.23.14"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "entryPoints": ["vivliostyle.d.ts"],
+  "out": "../../api/core",
+  "name": "Vivliostyle Core API",
+  "hideGenerator": true
+}

@@ -4,6 +4,7 @@
 
 - [API](#api)
 
+  - [API document](#api-document)
   - [constants](#constants)
     - [`PageProgression`](#constantspageprogression)
     - [`PageSide`](#constantspageside)
@@ -43,6 +44,8 @@
   - [`SingleDocumentOptions`](#singledocumentoptions)
   - [`CoreViewerSettings`](#coreviewersettings)
   - [`CoreViewerOptions`](#corevieweroptions)
+
+## <a href="./api/core">API Document</a>
 
 ## constants
 
@@ -285,7 +288,7 @@ Viewer options that can be set after the Viewer object is constructed.
 Allows page-layouting using the vivliostyle for printing within a website without destroying the original layout
 
 ```js
-import { printHTML } from '@vivliostyle/core';
+import { printHTML } from "@vivliostyle/core";
 
 const htmlDoc = `<!doctype html>
 <html>
@@ -300,7 +303,7 @@ const htmlDoc = `<!doctype html>
 </html>`;
 
 const config = {
-  title: 'My printed page',
+  title: "My printed page",
   printCallback: (iframeWin) => iframeWin.print(), // optional: only needed if calling something other than window.print() for printing.
 };
 
