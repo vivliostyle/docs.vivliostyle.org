@@ -73,9 +73,9 @@ Access to <Link path="/viewer/" />.
 
 - #**src**=&lt;document URL>
 - &amp;**bookMode**=[**true** | **false**] (**Book Mode**)
-  - **true**: for Book-like publications, with Table of Contents.
+  - **true** (default): for Book-like publications, with Table of Contents.
     - When an HTML document URL is specified, a series of HTML documents linked from the publication manifest or Table of Contents (e.g., marked up with `<nav role="doc-toc">`) are automatically loaded.
-  - **false** (default): for single HTML documents
+  - **false**: for single HTML documents
 - &amp;**renderAllPages**=[**true** | **false**] (**Render All Pages**)
   - **true** (default): for Print (all pages printable, page count works as expected)
   - **false**: for Read (quick loading with rough page count)
@@ -83,10 +83,12 @@ Access to <Link path="/viewer/" />.
   - **true**: Spread view
   - **false**: Single page view
   - **auto** (default): Auto spread view
-- &amp;**style**=&lt;additional external style sheet URL>
-- &amp;**userStyle**=&lt;user style sheet URL>
+- &amp;**style**=&lt;additional (custom) stylesheet URL>
+- &amp;**userStyle**=&lt;user stylesheet URL>
 
 Options can also be set in the <img src="images/vivliostyle-icon.png" width="16" height="16" alt="[Vivliostyle]" />**Settings** panel.
+
+**NOTE:** The default for Book Mode was previously off, but has been changed to on in v2.18.0. The parameter `&bookMode=true` can be omitted since it is enabled by default. To view only the first HTML file without concatenating the HTML documents linked to the table of contents in the first HTML file, specify `&bookMode=false`.
 
 ## How to specify HTML document to display
 
@@ -186,56 +188,55 @@ following to the URL:
 You can also change the page view mode in the Vivliostyle Viewer's
 setting panel (open by clicking the <img src="images/vivliostyle-icon.png" width="16" height="16" alt="[Settings]" /> icon in the upper right corner of the viewer).
 
-## Additional style sheets
+## Additional stylesheets (custom stylesheets)
 
-To use additional style sheets (CSS files) in addition to the
-style sheets specified in the HTML file, append the following to
-the URL:
+Additional stylesheets (CSS files) can be specified in addition to the stylesheets specified in the HTML file.
+This allows you to specify a custom stylesheet to customize the style of the document.
+To use an additional stylesheet (custom stylesheet), add the following to the URL:
 
 ```
-&style=⟨style sheet URL (relative to the Vivliostyle Viewer)⟩
+&style=⟨stylesheet URL (relative to the Vivliostyle Viewer)⟩
 ```
 
-The style sheets specified in this way are treated as author style
-sheets, as if they are specified in the HTML file at very last,
-and can override styles of other style sheets according to the CSS
-cascading rules.
+The stylesheets specified in this way are treated as author stylesheets,
+as if they are specified in the HTML file at very last,
+and can override styles of other stylesheets according to the CSS cascading rules.
 
-### User style sheets
+### User stylesheets
 
-On the other hand, you can also specify user style sheets (cannot
-override styles of author style sheets unless specifying
+On the other hand, you can also specify user stylesheets (cannot 
+override styles of author stylesheets unless specifying
 `!important`) as follows:
 
 ```
-&userStyle=⟨user style sheet URL (relative to the Vivliostyle Viewer)⟩
+&userStyle=⟨user stylesheet URL (relative to the Vivliostyle Viewer)⟩
 ```
 
 Using multiple `&amp;style=` and/or
-`&amp;userStyle=` you can specify as many style sheets as needed.
+`&amp;userStyle=` you can specify as many stylesheets as needed.
 
 You can also use data URL. For example:
 
 ```
-&userStyle=data:,html{writing-mode:vertical-rl}
+&style=data:,html{writing-mode:vertical-rl}
 ```
 
-### User Style Preferences in Settings panel
+### Custom Style Settings in Settings panel
 
-User style can also be set in the **User Style Preferences** in the settings panel.
-You can check the CSS in the **CSS Details** box.
+Custom style can also be set in the **Custom Style Settings** in the settings panel.
+You can check the CSS in the **Edit CSS** box (you can also add CSS code).
 
-An example in which user style settings are added from the settings panel to
+An example in which custom style settings are added from the settings panel to
 the document on the Web:
 
 - [Cascading Style Sheets Level 2 Revision 1 (CSS 2.1) Specification](https://www.w3.org/TR/CSS2/)
 
-  <Link path="/viewer/#src=https://www.w3.org/TR/CSS2/&bookMode=true&userStyle=data:,/*%3Cviewer%3E*/%0A@page%20%7B%20size:%20A4;%20%7D%0A/*%3C/viewer%3E*/%0A%0A@page%20:first%20%7B%0A%20%20@top-left%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%20%20@top-right%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%7D%0A%0A@page%20:left%20%7B%0A%20%20font-size:%200.8rem;%0A%20%20@top-left%20%7B%0A%20%20%20%20content:%20env(pub-title);%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20counter(page);%0A%20%20%7D%0A%7D%0A%0A@page%20:right%20%7B%0A%20%20font-size:%200.8rem;%0A%20%20@top-right%20%7B%0A%20%20%20%20content:%20env(doc-title);%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20counter(page);%0A%20%20%7D%0A%7D">
-    #src=https://www.w3.org/TR/CSS2/&bookMode=true&userStyle=data:,CSS
+  <Link path="/viewer/#src=https://www.w3.org/TR/CSS2/&bookMode=true&style=data:,/*%3Cviewer%3E*/%0A@page%20%7B%20size:%20A4;%20%7D%0A/*%3C/viewer%3E*/%0A%0A@page%20:first%20%7B%0A%20%20@top-left%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%20%20@top-right%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%7D%0A%0A@page%20:left%20%7B%0A%20%20font-size:%200.8rem;%0A%20%20@top-left%20%7B%0A%20%20%20%20content:%20env(pub-title);%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20counter(page);%0A%20%20%7D%0A%7D%0A%0A@page%20:right%20%7B%0A%20%20font-size:%200.8rem;%0A%20%20@top-right%20%7B%0A%20%20%20%20content:%20env(doc-title);%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20counter(page);%0A%20%20%7D%0A%7D">
+    …#src=https://www.w3.org/TR/CSS2/&bookMode=true&style=data:,…
   </Link>
 
-```
-#src=(URL)&bookMode=true&userStyle=data:,/*<viewer>*/
+```css
+/*<viewer>*/
 @page { size: A4; }
 /*</viewer>*/
 
@@ -276,8 +277,8 @@ When setting styles from the settings panel like this example, the CSS code of
 the styles set from option items in the settings panel is generated between
 the comments
 `/*<viewer>*/` and
-`/*</viewer>*/` in the user style CSS that are displayed in
-the **CSS Details** box. You can add your own CSS code to it. In
+`/*</viewer>*/` in the custom style CSS that are displayed in
+the **Edit CSS** box. You can add your own CSS code to it. In
 this example, page header and footer are added.
 
 ## Print / Save as PDF

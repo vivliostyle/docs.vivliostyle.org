@@ -69,9 +69,9 @@ Node.js のアプリケーションで利用するには、npmパッケージ版
 
 - #**src**=&lt;document URL>
 - &amp;**bookMode**=[**true** | **false**] (**Book Mode**)
-  - **true**: 本のような出版物（目次付き）用
+  - **true** (デフォルト): 本のような出版物（目次付き）用
     - HTML文書のURLが指定された場合、その出版物マニフェストまたは目次（<nav role="doc-toc"> などでマークアップ）からリンクされた一連のHTML文書が自動的に読み込まれます。
-  - **false** (デフォルト): 単体のHTML文書用
+  - **false**: 単体のHTML文書用
 - &amp;**renderAllPages**=[**true** | **false**] (**Render All Pages**)
   - **true** (デフォルト): 印刷用（すべてのページが印刷可能で、ページ番号は期待されるとおりに機能します）
   - **false**: 閲覧用（おおまかなページ番号を使って、クイックロード）
@@ -79,10 +79,12 @@ Node.js のアプリケーションで利用するには、npmパッケージ版
   - **true**: 見開き表示
   - **false**: 単一ページ表示
   - **auto** (デフォルト): 自動見開き表示
-- &amp;**style**=&lt;追加の外部スタイルシートのURL>
-- &amp;**userStyle**=&lt;ユーザースタイルシートのURL>
+- &amp;**style**=&lt;追加の（カスタム）スタイルシートのURL>
+- &amp;**userStyle**=&lt;ユーザー・スタイルシートのURL>
 
 オプションは設定パネル（<img src="images/vivliostyle-icon.png" width="16" height="16" alt="[Vivliostyle]" />**Settings**）でも設定できます。
+
+**NOTE:** Book Modeのデフォルトは以前はオフでしたが、Vivliostyle Viewer v2.18.0 からオンに変更されました。デフォルトで有効なのでパラメータ `&bookMode=true` の指定は省略することができます。HTMLファイル内の目次のリンク先のHTML文書を連結しないで最初のHTMLファイルだけを表示するには、`&bookMode=false` を指定してください。
 
 ## 表示するHTML文書の指定
 
@@ -157,9 +159,9 @@ Vivliostyle Viewer は、表示領域の横幅が大きいとき（高さの1.45
 
 Vivliostyle Viewer の設定パネル（画面右上のアイコン <img src="images/vivliostyle-icon.png" width="16" height="16" alt="[Settings]" /> をクリックして開く）でも、ページ表示モードの変更ができます。
 
-## スタイルシートの追加
+## スタイルシートの追加（カスタム・スタイルシート）
 
-HTMLファイルに指定されているスタイルシートに加えて、追加のスタイルシート（CSSファイル）を使うには、次の指定をURLに追加します:
+HTMLファイルに指定されているスタイルシートに加えて、追加のスタイルシート（CSSファイル）を指定することができます。これにより文書のスタイルをカスタマイズするためのカスタム・スタイルシートを指定することができます。追加のスタイルシート（カスタム・スタイルシート）を使うには、次の指定をURLに追加します:
 
 ```
 &style=⟨スタイルシートのURL (Vivliostyle Viewer からの相対)⟩
@@ -167,12 +169,12 @@ HTMLファイルに指定されているスタイルシートに加えて、追�
 
 この方法で指定したスタイルシートは、HTMLファイルで指定されているスタイルシートと同様（制作者スタイルシート）の扱いで、よりあとに指定されたことになるので、CSSのカスケーディング規則により、HTMLファイルからのスタイルの指定を上書きすることになります。
 
-### ユーザースタイルシート
+### ユーザー・スタイルシート
 
-これに対して、次のようにしてユーザースタイルシート（スタイル指定に `!important` を付けないかぎり、制作者スタイルシートのスタイル指定を上書きしない）の指定もできます:
+これに対して、次のようにしてユーザー・スタイルシート（スタイル指定に `!important` を付けないかぎり、制作者スタイルシートのスタイル指定を上書きしない）の指定もできます:
 
 ```
-&userStyle=⟨ユーザースタイルシートのURL (Vivliostyle Viewer からの相対)⟩
+&userStyle=⟨ユーザー・スタイルシートのURL (Vivliostyle Viewer からの相対)⟩
 ```
 
 複数個の `&style=` あるいは `&userStyle=` を使うことで、複数個のスタイルシートを指定できます。
@@ -180,23 +182,23 @@ HTMLファイルに指定されているスタイルシートに加えて、追�
 データURLも利用できます。例えば:
 
 ```
-&userStyle=data:,html{writing-mode:vertical-rl}
+&style=data:,html{writing-mode:vertical-rl}
 ```
 
-### 設定パネルでのユーザースタイル設定
+### 設定パネルでのカスタム・スタイル設定
 
-ユーザースタイルの設定は、設定パネルの **User Style Preferences** からも行うことができます。設定内容のCSSは設定パネルの **CSS Details** で確認することができます。
+カスタム・スタイルの設定は、設定パネルの **Custom Style Settings** からも行うことができます。設定内容のCSSは設定パネルの **Edit CSS** で確認することができます（CSSコードをそこで追加することもできます）。
 
-Web上に公開されている文書に、設定パネルからユーザースタイルの設定を加えた例:
+Web上に公開されている文書に、設定パネルからカスタム・スタイルの設定を加えた例:
 
 - [Cascading Style Sheets Level 2 Revision 1 (CSS 2.1) Specification](https://www.w3.org/TR/CSS2/)
 
-  <Link path="/viewer/#src=https://www.w3.org/TR/CSS2/&bookMode=true&userStyle=data:,/*%3Cviewer%3E*/%0A@page%20%7B%20size:%20A4;%20%7D%0A/*%3C/viewer%3E*/%0A%0A@page%20:first%20%7B%0A%20%20@top-left%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%20%20@top-right%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%7D%0A%0A@page%20:left%20%7B%0A%20%20font-size:%200.8rem;%0A%20%20@top-left%20%7B%0A%20%20%20%20content:%20env(pub-title);%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20counter(page);%0A%20%20%7D%0A%7D%0A%0A@page%20:right%20%7B%0A%20%20font-size:%200.8rem;%0A%20%20@top-right%20%7B%0A%20%20%20%20content:%20env(doc-title);%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20counter(page);%0A%20%20%7D%0A%7D">
-    #src=https://www.w3.org/TR/CSS2/&bookMode=true&userStyle=data:,CSS
+  <Link path="/viewer/#src=https://www.w3.org/TR/CSS2/&bookMode=true&style=data:,/*%3Cviewer%3E*/%0A@page%20%7B%20size:%20A4;%20%7D%0A/*%3C/viewer%3E*/%0A%0A@page%20:first%20%7B%0A%20%20@top-left%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%20%20@top-right%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20none;%0A%20%20%7D%0A%7D%0A%0A@page%20:left%20%7B%0A%20%20font-size:%200.8rem;%0A%20%20@top-left%20%7B%0A%20%20%20%20content:%20env(pub-title);%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20counter(page);%0A%20%20%7D%0A%7D%0A%0A@page%20:right%20%7B%0A%20%20font-size:%200.8rem;%0A%20%20@top-right%20%7B%0A%20%20%20%20content:%20env(doc-title);%0A%20%20%7D%0A%20%20@bottom-center%20%7B%0A%20%20%20%20content:%20counter(page);%0A%20%20%7D%0A%7D">
+    …#src=https://www.w3.org/TR/CSS2/&bookMode=true&style=data:,…
   </Link>
 
-```
-#src=(URL)&bookMode=true&userStyle=data:,/*<viewer>*/
+```css
+/*<viewer>*/
 @page { size: A4; }
 /*</viewer>*/
 
@@ -233,7 +235,7 @@ Web上に公開されている文書に、設定パネルからユーザース�
 }
 ```
 
-この例のように、設定パネルからスタイルの設定を行うと、ユーザースタイルのCSS内のコメント `/*<viewer>*/` と `/*</viewer>*/` で囲んだ部分に、設定パネルの項目から設定したスタイルのCSSコードが生成され、設定パネルの **CSS Details** に表示されます。ユーザー独自のCSSコードをそれに追加することができます。この例ではページヘッダーとページフッターを追加しています。
+この例のように、設定パネルからスタイルの設定を行うと、カスタム・スタイルのCSS内のコメント `/*<viewer>*/` と `/*</viewer>*/` で囲んだ部分に、設定パネルの項目から設定したスタイルのCSSコードが生成され、設定パネルの **Edit CSS** に表示されます。ユーザー独自のCSSコードをそれに追加することができます。この例ではページヘッダーとページフッターを追加しています。
 
 ## 印刷／PDFとして出力
 
