@@ -86,6 +86,13 @@ Vivliostyle は現在、以下の各 CSS 機能（[Values](#values)、[Selectors
 - [`::before` and `::after` pseudo-elements](https://www.w3.org/TR/selectors-3/#gen-content)
 - [General sibling combinator `E ~ F`](https://www.w3.org/TR/selectors-3/#general-sibling-combinators)
 
+### [Selectors 4](https://www.w3.org/TR/selectors-4/)
+
+- [`:is()` pseudo-class](https://www.w3.org/TR/selectors-4/#matches)
+- [`:not()` pseudo-class](https://www.w3.org/TR/selectors-4/#negation)
+- [`:where()` pseudo-class](https://www.w3.org/TR/selectors-4/#zero-matches)
+- [`:has()` pseudo-class](https://www.w3.org/TR/selectors-4/#relational)
+
 ### [CSS Overflow 4](https://www.w3.org/TR/css-overflow-4/)
 
 - [`:nth-fragment()` pseudo-element](https://www.w3.org/TR/css-overflow-4/#fragment-pseudo-element)
