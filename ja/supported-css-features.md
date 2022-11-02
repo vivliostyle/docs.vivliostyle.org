@@ -2,6 +2,8 @@
 
 Vivliostyle は現在、以下の各 CSS 機能（[Values](#values)、[Selectors](#selectors)、[At-rules](#at-rules)、[Media queries](#media-queries)、[Properties](#properties)）をサポートしています。
 
+このほかにも、ブラウザでサポートされる CSS プロパティと値は基本的にすべて利用可能です。Vivliostyle.js は独自の処理をしない CSS プロパティについてはブラウザに処理を任せるためです。
+
 ## Values
 
 - [CSS-wide keywords](https://www.w3.org/TR/css-values/#common-keywords): `initial`, `inherit`, `unset`, `revert`

@@ -2,6 +2,8 @@
 
 Vivliostyle currently supports the following CSS [values](#values), [selectors](#selectors), [at-rules](#at-rules), [media queries](#media-queries), and [properties](#properties):
 
+In addition, essentially all CSS properties and values supported by the browser are available, since Vivliostyle.js lets the browser handle CSS properties that Vivliostyle.js does not handle on its own.
+
 ## Values
 
 - [CSS-wide keywords](https://www.w3.org/TR/css-values/#common-keywords): `initial`, `inherit`, `unset`, `revert`
