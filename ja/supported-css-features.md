@@ -23,8 +23,6 @@ Vivliostyle は現在、以下の各 CSS 機能（[Values](#values)、[Selectors
 - [Cross references: `target-counter()` and `target-counters()`](https://www.w3.org/TR/css-gcpm-3/#cross-references)
   - Only supported in values of `content` property.
 - [`calc()` function](https://www.w3.org/TR/css-values/#funcdef-calc)
-  - `min()` and `max()` functions can be used inside `calc()` function.
-  - Limitation: Percentage value in `calc()` is not calculated correctly.
 - [`content()` function](https://www.w3.org/TR/css-gcpm-3/#content-function-header)
 - [`string()` function (Named Strings)](https://www.w3.org/TR/css-gcpm-3/#using-named-strings)
 - [`env()` function](https://drafts.csswg.org/css-env/)
