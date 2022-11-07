@@ -116,10 +116,14 @@ Vivliostyle は現在、以下の各 CSS 機能（[Values](#values)、[Selectors
 
 - [@namespace](https://www.w3.org/TR/css3-namespace/#declaration)
 
-### [CSS Conditional Rules 3](https://www.w3.org/TR/css3-conditional/)
+### [CSS Conditional Rules 3](https://www.w3.org/TR/css-conditional-3/)
 
-- [@media](https://www.w3.org/TR/css3-conditional/#atmedia-rule)
+- [@media](https://www.w3.org/TR/css-conditional-3/#at-media)
 - [@supports](https://www.w3.org/TR/css-conditional-3/#at-supports)
+
+### [CSS Conditional Rules 4](https://www.w3.org/TR/css4-conditional/)
+
+- [@supports selector()](https://www.w3.org/TR/css-conditional-4/#at-supports-ext)
 
 ### [CSS Paged Media 3](https://www.w3.org/TR/css-page-3/)
 
