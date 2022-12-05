@@ -70,7 +70,7 @@ Node.js のアプリケーションで利用するには、npmパッケージ版
 - #**src**=&lt;document URL>
 - &amp;**bookMode**=[**true** | **false**] (**Book Mode**)
   - **true** (デフォルト): 本のような出版物（目次付き）用
-    - HTML文書のURLが指定された場合、その出版物マニフェストまたは目次（<nav role="doc-toc"> などでマークアップ）からリンクされた一連のHTML文書が自動的に読み込まれます。
+    - HTML文書のURLが指定された場合、その出版物マニフェストまたは目次（`<nav role="doc-toc">` などでマークアップ）からリンクされた一連のHTML文書が自動的に読み込まれます。
   - **false**: 単体のHTML文書用
 - &amp;**renderAllPages**=[**true** | **false**] (**Render All Pages**)
   - **true** (デフォルト): 印刷用（すべてのページが印刷可能で、ページ番号は期待されるとおりに機能します）

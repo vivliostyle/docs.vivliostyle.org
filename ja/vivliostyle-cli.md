@@ -4,7 +4,7 @@ Vivliostyle CLI は、HTMLやマークダウン文書を組版するためのコ
 
 ## インストール
 
-事前に [Node.js](https://nodejs.org/ja/) (v10 以上、ただし v14.0.0 以外) のインストールが必要です。
+事前に [Node.js](https://nodejs.org/ja/) (v14 以上) のインストールが必要です。
 
 次のコマンドで Vivliostyle CLI をインストールできます:
 
