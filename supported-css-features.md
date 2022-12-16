@@ -7,7 +7,7 @@ In addition, essentially all CSS properties and values supported by the browser 
 ## Values
 
 - [CSS-wide keywords](https://www.w3.org/TR/css-values/#common-keywords): `initial`, `inherit`, `unset`, `revert`
-- [Length units](https://www.w3.org/TR/css-values/#lengths): `em`, `ex`, `ch`, `rem`, `vw`, `vh`, `vmin, vmax`, `vi`, `vb`, `cm`, `mm`, `q`, `in`, `pc`, `pt`, `px`.
+- [Length units](https://www.w3.org/TR/css-values/#lengths): `em`, `ex`, `ch`, `rem`, `lh`, `rlh`, `vw`, `vh`, `vmin, vmax`, `vi`, `vb`, `cm`, `mm`, `q`, `in`, `pc`, `pt`, `px`.
 - Sizing keywords: [min-content](https://www.w3.org/TR/css-sizing-3/#valdef-width-min-content), [max-content](https://www.w3.org/TR/css-sizing-3/#valdef-width-max-content), [fit-content](https://www.w3.org/TR/css-sizing-4/#valdef-width-fit-content)
 - Color values
   - [Named Colors](https://www.w3.org/TR/css-color/#named-colors)
@@ -309,16 +309,20 @@ See also:
 - [At-rules in CSS Generated Content for Paged Media (GCPM) 3](#css-generated-content-for-paged-media-gcpm-3)
 - [Values - Cross references, content(), and string() functions](#values)
 
-## [CSS Fragmentation 3](https://www.w3.org/TR/css3-break/)
+## [CSS Fragmentation 3](https://www.w3.org/TR/css-break-3/)
 
-- [break-after](https://www.w3.org/TR/css3-break/#propdef-break-after)
-- [break-before](https://www.w3.org/TR/css3-break/#propdef-break-before)
-- [break-inside](https://www.w3.org/TR/css3-break/#propdef-break-inside)
+- [break-after](https://www.w3.org/TR/css-break-3/#propdef-break-after)
+- [break-before](https://www.w3.org/TR/css-break-3/#propdef-break-before)
+- [break-inside](https://www.w3.org/TR/css-break-3/#propdef-break-inside)
   - Note: All of `avoid-page`, `avoid-column` and `avoid-region` values are treated as if they were `avoid`. [[Issue]](https://github.com/vivliostyle/vivliostyle.js/issues/128)
-- [orphans](https://www.w3.org/TR/css3-break/#propdef-orphans)
-- [widows](https://www.w3.org/TR/css3-break/#propdef-widows)
-- [box-decoration-break](https://www.w3.org/TR/css3-break/#propdef-box-decoration-break)
+- [orphans](https://www.w3.org/TR/css-break-3/#propdef-orphans)
+- [widows](https://www.w3.org/TR/css-break-3/#propdef-widows)
+- [box-decoration-break](https://www.w3.org/TR/css-break-3/#propdef-box-decoration-break)
   - Note: Background, box-shadow and border images on inline-start/end borders are always rendered as if `box-decoration-break: clone` is specified.
+
+## [CSS Fragmentation 4](https://www.w3.org/TR/css-break-4/)
+
+- [margin-break](https://www.w3.org/TR/css-break-4/#break-margins)
 
 ## [CSS Page Floats](https://drafts.csswg.org/css-page-floats/)
 
