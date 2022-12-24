@@ -335,6 +335,11 @@ See also:
 - [float](https://drafts.csswg.org/css-page-floats/#propdef-float)
   - Supports [`block-start`, `block-end`, `inline-start`, `inline-end`, `snap-block`, `left`, `right`, `top`, `bottom` and `none`](https://drafts.csswg.org/css-page-floats/#propdef-float) values.
 - [float-reference](https://drafts.csswg.org/css-page-floats/#propdef-float-reference)
+- float-min-wrap-block
+  - Applies to a page float
+  - A percentage value is respect to the block dimension of the float reference of the page float
+  - When set to a positive length, in-flow contents are not allowed to be flown into a space next to the page float if the block extent of the space is less than the specified length. In that case, the space is kept empty and the in-flow contents are deferred to the next column.
+  - This property is not standardized yet. See [[Pull Request]](https://github.com/vivliostyle/vivliostyle.js/pull/382)
 
 ## [CSS Color 3](https://www.w3.org/TR/css3-color/)
 
