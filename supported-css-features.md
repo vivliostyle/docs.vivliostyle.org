@@ -436,12 +436,12 @@ See also: [At-rules in CSS Fonts 3](#css-fonts-3)
 
 - [text-spacing](https://www.w3.org/TR/css-text-4/#text-spacing-property)
   - Supported values: `normal | auto | none | [ trim-start | space-start | space-first ] || [ trim-end | space-end | allow-end ] || [ trim-adjacent | space-adjacent ] || ideograph-alpha || ideograph-numeric`
-  - Note: There are a few differences from the current CSS draft spec
-    - `normal` is equivalent to `space-first trim-end trim-adjacent`
+  - Note:
+    - `normal` is equivalent to `space-first trim-end trim-adjacent ideograph-alpha ideograph-numeric`
     - `auto` is equivalent to `trim-start trim-end trim-adjacent ideograph-alpha ideograph-numeric`
-    - `ideograph-alpha` and `ideograph-numeric` create 1/6em space
+    - `ideograph-alpha` and `ideograph-numeric` create 1/8em space
     
-    See [[Pull Request]](https://github.com/vivliostyle/vivliostyle.js/pull/814)
+    See [[Pull Request ]](https://github.com/vivliostyle/vivliostyle.js/pull/1084)
 
 ## [CSS Text Decoration 3](https://www.w3.org/TR/css-text-decor-3/)
 
