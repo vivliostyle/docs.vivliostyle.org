@@ -20,11 +20,12 @@ In addition, essentially all CSS properties and values supported by the browser 
 - [Attribute references: `attr()`](https://www.w3.org/TR/css-values/#attr-notation)
   - Only supported in values of `content` property.
   - Only 'string' and 'url' types are supported.
-- [Cross references: `target-counter()` and `target-counters()`](https://www.w3.org/TR/css-gcpm-3/#cross-references)
+- [Cross references: `target-counter()` and `target-counters()`](https://www.w3.org/TR/css-content-3/#cross-references)
   - Only supported in values of `content` property.
+- [`string()` function (Named Strings)](https://www.w3.org/TR/css-content-3/#string-function)
+- [`content()` function](https://www.w3.org/TR/css-content-3/#content-function)
+- [`leader()` function](https://www.w3.org/TR/css-content-3/#leaders)
 - [`calc()` function](https://www.w3.org/TR/css-values/#funcdef-calc)
-- [`content()` function](https://www.w3.org/TR/css-gcpm-3/#content-function-header)
-- [`string()` function (Named Strings)](https://www.w3.org/TR/css-gcpm-3/#using-named-strings)
 - [`env()` function](https://drafts.csswg.org/css-env/)
   - Implemented only `env(pub-title)` and `env(doc-title)` that are not yet defined in the css-env draft spec but useful for making page header.
     - `env(pub-title)`: publication title = EPUB, Web publication, or primary entry page HTML title.
@@ -307,7 +308,7 @@ See also: [At-rules in CSS Paged Media 3](#css-paged-media-3)
 
 See also:
 - [At-rules in CSS Generated Content for Paged Media (GCPM) 3](#css-generated-content-for-paged-media-gcpm-3)
-- [Values - Cross references, content(), and string() functions](#values)
+- [Values - Cross references, string(), content(), and leader() functions](#values)
 
 ## [CSS Fragmentation 3](https://www.w3.org/TR/css-break-3/)
 
