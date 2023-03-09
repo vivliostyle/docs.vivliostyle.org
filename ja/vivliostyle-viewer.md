@@ -52,6 +52,29 @@ Node.js のアプリケーションで利用するには、npmパッケージ版
 
 試してみる: <Link path="/viewer/" />
 
+
+## 設定パネル
+
+
+
+Vivliostyle Viewer の画面右上の設定ボタン<img alt="Settings (S)" src="../images/vivliostyle-icon.png" style="width: 1.5em;"> をクリック（または、キーボードの S キー）すると、設定パネルが表示されます。
+
+この設定パネルから各種パラメーターを設定し、Applyボタンを押すことで、プレビューを変更することができます（Applyで通常はパネルが閉じますが、設定ボタン2度押しでパネルを開くと、適用してもパネルが開いたままにできます）。設定できるパラメーターは下記の通りです。
+
+<span style="float: left;"><img src="../images/viewer-settings-panel.png" alt="設定パネル"><span style="margin-left: 3rem"></span></span>
+
+- **Page View Mode**
+    - **❶Page Spread View**
+    - **❷Page Size**（ページサイズ） 
+        - Default：特に指定がないかぎり “Auto” が適用されます
+        - Auto：プレビューで開かれているウィンドウ・サイズが適用されます
+        - Preset：letter、legal、Ledger、A10〜A0、B10 (ISO)〜B0 (ISO)、JIS-B10〜JIS-B0、C10〜C0（なお、日本で使われるB判は「JIS-B」であることにご注意ください）
+        - Custom size：任意の幅と高さを指定できます。単位は CSSの単位（mm, cm, in, pt, px など）が使えます。
+
+
+
+
+
 ## サポートされている文書の種類
 
 - HTML文書＋ページメディア用のCSS
