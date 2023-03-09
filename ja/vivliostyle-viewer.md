@@ -61,7 +61,7 @@ Vivliostyle Viewer の画面右上の設定ボタン<img alt="Settings (S)" src=
 
 この設定パネルから各種パラメーターを設定し、Applyボタンを押すことで、プレビューを変更することができます（Applyで通常はパネルが閉じますが、設定ボタンを2度押しで開くと、適用してもパネルが開いたままにできます）。設定できるパラメーターは下記の通りです。
 
-<span style="float: right;"><img src="../images/viewer-settings-panel.png" alt="設定パネル"><span style="margin-right: 3rem"></span></span>
+<img src="../images/viewer-settings-panel.png" alt="設定パネル" style="float: right; margin-left: 3rem">
 
 - **Page View Mode**
     - **❶Page Spread View**
