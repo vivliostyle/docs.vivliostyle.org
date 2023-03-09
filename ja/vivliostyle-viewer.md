@@ -59,7 +59,7 @@ Node.js のアプリケーションで利用するには、npmパッケージ版
 
 Vivliostyle Viewer の画面右上の設定ボタン<img alt="Settings (S)" src="../images/vivliostyle-icon.png" style="width: 1.5em;"> をクリック（または、キーボードの S キー）すると、設定パネルが表示されます。
 
-この設定パネルから各種パラメーターを設定し、Applyボタンを押すことで、プレビューを変更することができます（Applyで通常はパネルが閉じますが、設定ボタン2度押しでパネルを開くと、適用してもパネルが開いたままにできます）。設定できるパラメーターは下記の通りです。
+この設定パネルから各種パラメーターを設定し、Applyボタンを押すことで、プレビューを変更することができます（Applyで通常はパネルが閉じますが、設定ボタンを2度押しで開くと、適用してもパネルが開いたままにできます）。設定できるパラメーターは下記の通りです。
 
 <span style="float: left;"><img src="../images/viewer-settings-panel.png" alt="設定パネル"><span style="margin-left: 3rem"></span></span>
 
@@ -70,6 +70,31 @@ Vivliostyle Viewer の画面右上の設定ボタン<img alt="Settings (S)" src=
         - Auto：プレビューで開かれているウィンドウ・サイズが適用されます
         - Preset：letter、legal、Ledger、A10〜A0、B10 (ISO)〜B0 (ISO)、JIS-B10〜JIS-B0、C10〜C0（なお、日本で使われるB判は「JIS-B」であることにご注意ください）
         - Custom size：任意の幅と高さを指定できます。単位は CSSの単位（mm, cm, in, pt, px など）が使えます。
+    - **Page Margins**
+        - Default (=10% unless specified elsewhere)
+        - Set page margin to 0
+        - Custom margin:
+            - ‣ Top/Right/Bottom/Left: （10%）
+            - Set first page margin to 0
+            - Force html/body margin to 0
+    - **Page Breaks**
+        - Default widows/orphans control
+        - Allow widows and orphans
+        - Avoid page break inside paragraph
+    - **Images**
+        - Set image max-size to fit page
+        - Keep aspect ratio
+    - **Text**
+      - Font size:100%
+        - Base font-size:12pt
+        - Base line-height:1.2
+    - **Custom Style Priority**
+        - Set as user stylesheet (lower priority unless !important)
+        - Force override document style (!important)
+    - **Edit CSS**
+    - **Reset Custom Style**
+
+
 
 
 
