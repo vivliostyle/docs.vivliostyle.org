@@ -435,14 +435,13 @@ See also: [At-rules in CSS Fonts 3](#css-fonts-3)
 
 ## [CSS Text 4](https://www.w3.org/TR/css-text-4/)
 
+- [text-autospace](https://www.w3.org/TR/css-text-4/#text-autospace-property)
+  - Supported values: `normal | no-autospace | [ ideograph-alpha || ideograph-numeric ] | auto`
+- [text-spacing-trim](https://www.w3.org/TR/css-text-4/#text-spacing-trim-property)
+  - Values: `space-all |  trim-auto | [ allow-end || space-first ] | auto`
 - [text-spacing](https://www.w3.org/TR/css-text-4/#text-spacing-property)
-  - Supported values: `normal | auto | none | [ trim-start | space-start | space-first ] || [ trim-end | space-end | allow-end ] || [ trim-adjacent | space-adjacent ] || ideograph-alpha || ideograph-numeric`
-  - Note:
-    - `normal` is equivalent to `space-first trim-end trim-adjacent ideograph-alpha ideograph-numeric`
-    - `auto` is equivalent to `trim-start trim-end trim-adjacent ideograph-alpha ideograph-numeric`
-    - `ideograph-alpha` and `ideograph-numeric` create 1/8em space
-    
-    See [[Pull Request ]](https://github.com/vivliostyle/vivliostyle.js/pull/1084)
+  - Values: `normal | none | auto | [<autospace> || <spacing-trim>]`
+  - Note: This is a shorthand property that sets the `text-autospace` and `text-spacing-trim` properties. See [[Pull Request ]](https://github.com/vivliostyle/vivliostyle.js/pull/1142)
 
 ## [CSS Text Decoration 3](https://www.w3.org/TR/css-text-decor-3/)
 
