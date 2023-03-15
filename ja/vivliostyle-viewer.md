@@ -82,9 +82,9 @@ Vivliostyle Viewer の画面右上の設定ボタン<img alt="Settings (S)" src=
 - **▶More...**
     - **❸■Crop Marks**：トンボを入れる場合はここにチェックを入れます。Bleedにも自動的にチェックが入ります。コーナートンボだけを入れたい場合は`crop`、センタートンボだけを入れたい場合は`cross`と記述します。デフォルトは`crop cross`、つまり両方入ります
         - ■Bleed:コーナートンボにおける裁ち切り線（外側の線）と仕上がり線（内側の線）の間隔を単位付きの数値で指定します（通常は`3mm`）
-        - ■Crop offset:トンボから用紙端までの余白サイズを指定したい場合は単位付きの数値で指定します。単位はCSSの単位（mm, cm, in, pt, px など）が使えます
+        - ■Crop offset:仕上がり線（内側の線）から用紙端までの余白サイズを指定したい場合は単位付きの数値で指定します。単位はCSSの単位（mm, cm, in, pt, px など）が使えます
     - **❹Page Margins**：ページ余白
-        - ◉Default (=10% unless specified elsewhere)：デフォルトとして上下左右の余白をページサイズ（高さ／幅）の10%ずつにします
+        - ◉Default (=10% unless specified elsewhere)：文書でページ余白が指定されていればそれに従い、指定されていない場合は上下左右の余白をページサイズ（高さ／幅）の10%ずつにします
         - ◉Set page margin to 0：ページ余白を0にします。固定レイアウトのEPUBなど、画面いっぱいに表示するのに適したコンテンツを閲覧するのに向いています
         - ◉Custom margin：任意のページ余白を指定できます。上右左下の順でそれぞれを半角スペースで区切って記述します。また、`20mm 15mm 10mm`などと3つの値を記述すると、上の余白が`20mm`、右と左の余白が**ともに**`15mm`、下の余白が`10mm`になります。
         - ■Set first page margin to 0：最初のページ余白を0にします。最初のページがカバー画像で余白は不要の場合は、ここにチェックを入れます
@@ -103,8 +103,8 @@ Vivliostyle Viewer の画面右上の設定ボタン<img alt="Settings (S)" src=
       - ■Base line-height：ルート要素での`line-height`プロパティの値を設定します。単位をつけない数値で文字サイズを基準にした行の高さを指定します。ここで指定しない場合、ブラウザと同じ`line-height: normal`が設定され、使われるフォントに依存します（おおむね1.2）
       - ■Base font-family：ルート要素における`font-family`プロパティの値を設定します
     - **❽Custom Style Priority**
-        - ■Set as user stylesheet (lower priority unless !important)：設定パネルでの設定内容を、ユーザースタイルシートとして設定します。デフォルトは作成者スタイルシートです。これらの違いは[CSS カスケード入門](https://developer.mozilla.org/ja/docs/Web/CSS/Cascade#%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%B3%E3%81%AE%E7%A8%AE%E9%A1%9E)をご参照ください
-        - ■Force override document style (!important)：設定パネルでの設定内容により、スタイルシートを強制的に上書きします（ユーザースタイルのCSSに!importantが付く）
+        - ■Set as user stylesheet (lower priority unless `!important`)：設定パネルでの設定内容を、ユーザースタイルシートとして設定します。デフォルトは作成者スタイルシートです。これらの違いは[CSS カスケード入門](https://developer.mozilla.org/ja/docs/Web/CSS/Cascade#%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%B3%E3%81%AE%E7%A8%AE%E9%A1%9E)をご参照ください
+        - ■Force override document style (`!important`)：設定パネルでの設定内容により、スタイルシートを強制的に上書きします（スタイルシートに`!important`tが付く）
 - **❾▶Edit CSS**：クリックすると入力フィールドがあらわれ、それまでの設定した内容がCSSコードで確認できます。また、ここからユーザーがCSSコードを直接書くことができます。その場合、自動生成されたコメント`/*<viewer>*/`と`/*</viewer>*/`で囲まれた部分はそのままにして、その前か後にコードを追加するようにしてください
 - **❿▶Reset Custom Style**
   - ■Reset all to default：それまでの設定内容を初期化し、デフォルトに戻します
