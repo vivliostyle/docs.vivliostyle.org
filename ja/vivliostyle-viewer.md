@@ -98,8 +98,7 @@ Vivliostyle Viewer の画面右上の設定ボタン<img alt="Settings (S)" src=
         - ■Keep aspect ratio：画像サイズを変更する場合、画像の縦横比が変わらないよう調整して変更します
     - **❼Text**：テキスト
       - Font size：（文字サイズ）パーセント値で設定し、100%はブラウザのデフォルトと同様、16px=12ptです。この設定はツールバーにあるA- (Text: Smaller)、A+ (Text: Larger) ボタンで変更できる文字サイズと連動します 　
-        - ■Base font-size：ルート要素での`font-size`プロパティの値を設定します。実際に表示される文字サイズは **Font size** のパーセント値と掛け合わされたものになります
-          - ■Base font-size: 
+        - ■Base font-size：ルート要素での`font-size`プロパティの値を設定します。実際に表示される文字サイズは **Font size** のパーセント値と掛け合わされたものになりま
       - ■Base line-height：ルート要素での`line-height`プロパティの値を設定します。単位をつけない数値で文字サイズを基準にした行の高さを指定します。ここで指定しない場合、ブラウザと同じ`line-height: normal`が設定され、使われるフォントに依存します（おおむね1.2）
       - ■Base font-family：ルート要素における`font-family`プロパティの値を設定します
     - **❽Custom Style Priority**
