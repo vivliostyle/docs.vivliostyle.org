@@ -71,7 +71,7 @@ Vivliostyle Viewer の画面右上の設定ボタン<img alt="Settings (S)" src=
         - ◉Single page：常に単一ページで表示します
         - ◉Spread：常に見開きページで表示します
     - ■Book Mode：チェックを入れると<a href="#urlパラメータのオプション">ブックモードになります
-    - ■Render All Pages：チェックを入れると、常に全ページをレンダリングします。正確なページ番号が表示される反面、表示まで時間がかかります。通常はチェックを入れずに使うことをお勧めします。詳細は[「全ページをレンダリング（Render All Pages）On/Off設定」](https://vivliostyle.github.io/vivliostyle_doc/ja/vivliostyle-user-group-vol1/shinyu/index.html#全ページをレンダリング（render-all-pages）onoff設定)を参照
+    - ■Render All Pages：チェックを入れると、常に全ページをレンダリングします。正確なページ番号が表示される反面、表示まで時間がかかります。詳細は[「全ページをレンダリング（Render All Pages）On/Off設定」](https://vivliostyle.github.io/vivliostyle_doc/ja/vivliostyle-user-group-vol1/shinyu/index.html#全ページをレンダリング（render-all-pages）onoff設定)を参照
 - **▶Custom Style Settings**
     - **❷Page Size**（ページサイズ） 
         - ◉Default：文書でページサイズ指定されていればそのサイズが、指定されていない場合はその時開かれているウィンドウのサイズが適用されます
@@ -102,8 +102,8 @@ Vivliostyle Viewer の画面右上の設定ボタン<img alt="Settings (S)" src=
       - ■Base line-height：ルート要素での`line-height`プロパティの値を設定します。単位をつけない数値で文字サイズを基準にした行の高さを指定します。ここで指定しない場合、ブラウザと同じ`line-height: normal`が設定され、使われるフォントに依存します（おおむね1.2）
       - ■Base font-family：ルート要素における`font-family`プロパティの値を設定します
     - **❽Custom Style Priority**
-        - ■Set as user stylesheet (lower priority unless `!important`)：設定パネルでの設定内容を、ユーザースタイルシートとして設定します。デフォルトは作成者スタイルシートです。これらの違いは[CSS カスケード入門](https://developer.mozilla.org/ja/docs/Web/CSS/Cascade#%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%B3%E3%81%AE%E7%A8%AE%E9%A1%9E)をご参照ください
-        - ■Force override document style (`!important`)：設定パネルでの設定内容により、スタイルシートを強制的に上書きします（スタイルシートに`!important`tが付く）
+        - ■Set as user stylesheet (lower priority unless !important)：設定パネルでの設定内容を、ユーザースタイルシートとして設定します。デフォルトは作成者スタイルシートです。これらの違いは[CSS カスケード入門](https://developer.mozilla.org/ja/docs/Web/CSS/Cascade#%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%B3%E3%81%AE%E7%A8%AE%E9%A1%9E)をご参照ください
+        - ■Force override document style (!important)：設定パネルでの設定内容により、スタイルシートを強制的に上書きします（スタイルシートに`!important`tが付く）
 - **❾▶Edit CSS**：クリックすると入力フィールドがあらわれ、それまでの設定した内容がCSSコードで確認できます。また、ここからユーザーがCSSコードを直接書くことができます。その場合、自動生成されたコメント`/*<viewer>*/`と`/*</viewer>*/`で囲まれた部分はそのままにして、その前か後にコードを追加するようにしてください
 - **❿▶Reset Custom Style**
   - ■Reset all to default：それまでの設定内容を初期化し、デフォルトに戻します
