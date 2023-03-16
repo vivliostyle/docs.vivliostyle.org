@@ -34,16 +34,6 @@ vivliostyle build book.html -o book.pdf
 
 PDF を出力しないで組版結果を確認する方法については [組版結果のプレビュー](#組版結果のプレビュー) を参照してください。
 
-### ページサイズの指定
-
-`-s` (`--size`) オプションでページサイズを指定できます。指定できるサイズは、A5, A4, A3, B5, B4, JIS-B5, JIS-B4, letter, legal, ledger のいずれか、またはコンマで区切って幅と高さを指定します。
-
-```
-vivliostyle build paper.html -s A4 -o paper.pdf
-vivliostyle build letter.html -s letter -o letter.pdf
-vivliostyle build slide.html -s 10in,7.5in -o slide.pdf
-```
-
 ### Web の URL の指定
 
 ローカルの HTML ファイルのほか、Web の URL を指定することもできます。
@@ -77,6 +67,43 @@ vivliostyle build example.html --style additional-style.css
 ```
 vivliostyle build example.html --user-style user-style.css
 ```
+
+### CSS の内容を直接指定
+
+`--css` オプションを指定すると、追加したいスタイルシートを直接 CSS のテキストで渡すことができます。このオプションは、簡単なスタイルシートや CSS 変数を設定するのに便利です。
+
+```
+vivliostyle build example.html --css "body { background-color: lime; }"
+```
+
+### ページサイズの指定
+
+`-s` (`--size`) オプションでページサイズを指定できます。指定できるサイズは、A5, A4, A3, B5, B4, JIS-B5, JIS-B4, letter, legal, ledger のいずれか、またはコンマで区切って幅と高さを指定します。
+
+```
+vivliostyle build paper.html -s A4 -o paper.pdf
+vivliostyle build letter.html -s letter -o letter.pdf
+vivliostyle build slide.html -s 10in,7.5in -o slide.pdf
+```
+
+このオプションは、`--css "@page { size: <size>; }"` と同等です。
+
+### トンボ（トリムマーク）の指定
+
+`-m` (`--crop-marks`) オプションを指定すると、出力されるPDFにトンボ（印刷物の裁断位置を示す目印）が追加されます。
+
+```
+vivliostyle build example.html -m
+```
+
+`--bleed` オプションでトンボを追加したときの塗り足し幅を指定することができます。また、`--crop-offset` オプションで裁ち落とし線から外側の幅を指定することができます。
+
+```
+vivliostyle build example.html -m --bleed 5mm
+vivliostyle build example.html -m --crop-offset 20mm
+```
+
+このオプションは、`--css "@page { marks: crop cross; bleed: <bleed>; crop-offset: <crop-offset>; }"` と同等です。
 
 ## EPUB から PDF を生成
 
@@ -146,10 +173,16 @@ Vivliostyle CLI で利用可能な Markdown 記法については、[VFM: Vivlio
 
 ### テーマ CSS スタイルシートの指定
 
-`-T` (`--theme`) オプションで CSS ファイルを指定することができます。
+`-T` (`--theme`) オプションで Markdown に適用する CSS ファイルを指定することができます。
 
 ```
 vivliostyle build manuscript.md --theme my-theme/style.css -o paper.pdf
+```
+
+自分で CSS ファイルが用意できない場合でも、Vivliostyle Themes を使うと簡単にスタイルを適用することができます。テーマファイルの詳しい情報は [Vivliostyle Themes について](#vivliostyle-themes-について) を参照してください。
+
+```
+vivliostyle build manuscript.md --theme @vivliostyle/theme-techbook -o paper.pdf
 ```
 
 ## 組版結果のプレビュー
@@ -202,17 +235,13 @@ npm パッケージとして公開されている Theme を見つけるには [n
 
 - [List of Themes (npm)](https://www.npmjs.com/search?q=keywords%3Avivliostyle-theme)
 
-### Theme のインストール
+### Theme の利用
 
-Vivliostyle CLI で npm パッケージとして公開されている Theme を利用するには、そのインストールが必要です。
-
-```
-npm install @vivliostyle/theme-techbook
-```
+`--theme` オプションを指定する、または構成ファイルで `theme` を指定すると Theme を利用できます。ローカルに Theme ファイルが存在しない場合、初回実行時に自動的にインストールされます。
 
 ### Create Book の利用
 
-Vivliostyle Themes を利用するより簡単な方法は Create Book を使用することです。[Create Book](create-book) を参照してください。
+Create Book を使用すると、あらかじめ Theme が設定された状態のプロジェクトを簡単に作成できます。[Create Book](create-book) を参照してください。
 
 ## 構成ファイル vivliostyle.config.js
 
@@ -240,24 +269,24 @@ vivliostyle init
 - **entry**: 入力の Markdown または HTML ファイルの配列を指定します。
     ```js
     entry: [
-      'introduction.md',
+      {
+        path: 'about.md',
+        title: 'About This Book',
+        theme: 'about.css'
+      },
       'chapter1.md',
       'chapter2.md',
       'glossary.html'
     ],
     ```
-    - `entry` の個別の要素に `title` や `theme` の指定が可能です。
-        ```js
-        entry: [
-          {
-            path: 'about.md',
-            title: 'About This Book',
-            theme: 'about.css'
-          },
-          ...
-        ],
-        ```
-- **output**: 出力先を指定。例: `output: 'output.pdf'`。デフォルトは `{title}.pdf`。次のように複数の出力を指定することも可能:
+    entry には文字列またはオブジェクト形式で入力の指定ができます。オブジェクト形式の場合、以下のメンバーを追加できます。
+    - `path`: エントリーのパスを指定します。このメンバーは必須ですが、`rel: 'contents'` を指定するときのみ不要です。　この指定については、[目次を出版物の先頭以外の場所に出力するには](#目次を出版物の先頭以外の場所に出力するには) を参照してください。
+    - `title`: エントリーのタイトルを指定します。
+    - `theme`: エントリーに適用する CSS ファイル、または [Vivliostyle Themes](https://vivliostyle.github.io/themes/) のパッケージ名を指定します。
+    - `encodingFormat`: エントリーの形式を MIME media type 形式で指定します。指定しない場合、ファイルの内容から自動で推測されます。
+    - `rel`: エントリーの関係を表すプロパティを指定します。設定する内容については https://www.w3.org/TR/wpub/#manifest-rel を参照してください。
+
+- **output**: 出力先を指定。例: `output: 'output.pdf'`。デフォルトは `{title}.pdf`。次のように複数の出力を配列形式で指定することも可能です:
     ```js
     output: [
       './output.pdf',
@@ -267,15 +296,67 @@ vivliostyle init
       },
     ],
     ```
-    `webpub` 出力については [Web 出版物 (webpub)](#web-出版物-webpub) を参照してください。
+    output には文字列またはオブジェクト形式で出力の指定ができます。オブジェクト形式の場合、以下のメンバーを追加できます。
+    - `path`: 出力先のパスを指定します。このメンバーは必須です。
+    - `format`: 出力するフォーマットを指定します（指定可能なオプション: `'pdf'`, `'webpub'`）webpub 出力については [Web 出版物 (webpub)](#web-出版物-webpub) を参照してください。
+    - `renderMode`: （`format: 'pdf'` のみ）出力時の生成環境を指定します（指定可能なオプション: `'local'`, `'docker'`）Docker 上での生成については [Docker を利用した生成](#docker-を利用した生成) を参照してください。
+    - `preflight`: （`format: 'pdf'` のみ）出力された PDF に対する後処理を指定します（指定可能なオプション: `'press-ready'`, `'press-ready-local'`）press-ready を用いた印刷用 PDF の生成については [印刷用 PDF（PDF/X-1a 形式）の生成](#印刷用-pdfpdfx-1a-形式の生成) を参照してください。
+    - `preflightOption`: （`format: 'pdf'` のみ）PDF の後処理時に有効化する機能を文字列の配列形式で指定します。
+
 - **workspaceDir**: 中間ファイルを保存するディレクトリを指定。この指定がない場合のデフォルトはカレントディレクトリであり、Markdown から変換された HTML ファイルは Markdown ファイルと同じ場所に保存されます。例: `workspaceDir: '.vivliostyle'`
 - **toc**: `toc: true` を指定すると、目次を含む HTML ファイル `index.html` が出力されます。詳しくは [目次の作成](#目次の作成) を参照してください。
+- **tocTitle**: 自動で生成される目次ファイルのタイトルを指定します。
+- **readingProgression**: ドキュメントの読み方向を指定します（指定可能なオプション: `'ltr'`, `'rtl'`）通常は CSS の横書き/縦書き指定 (writing-mode) によって自動で推測されるため、明示的に指定したい場合にのみ使用します。
+- **timeout**: ビルドが完了するまでの制限時間（タイムアウト）を変更します（単位: ミリ秒）
+- **vfm**: VFM の変換オプションを指定します。
+- **image**: 使用する Docker のイメージを変更します。
+- **http**: Vivliostyle Viewer を HTTPサーバーモードで起動します。これは、外部のリソースが CORS を要求するときなどに便利です。
+- **viewer**: 使用する Viviliostyle Viewer の URL を変更します。これは、独自の Viewer を使用したい場合に便利です。
+
+以上の構成ファイルのオプションは、配列で複数指定することができます。配列として設定すると、複数の入力・出力を一度に扱うことができて便利です。
+以下の例は、`src` ディレクトリにある Markdown ファイルから同名の PDF ファイルに変換する構成ファイルです。
+
+```js
+const fs = require('fs');
+const path = require('path');
+
+const inputDir = path.join(__dirname, 'src');
+const outputDir = path.join(__dirname, 'output');
+const files = fs.readdirSync(inputDir);
+
+const vivliostyleConfig = files
+  .filter((name) => name.endsWith('.md'))
+  .map((name) => ({
+    title: `Article ${path.basename(name, '.md')}`,
+    entry: name,
+    entryContext: inputDir,
+    output: path.join(outputDir, `${path.basename(name, '.md')}.pdf`),
+  }));
+module.exports = vivliostyleConfig;
+```
 
 ## 印刷用 PDF（PDF/X-1a 形式）の生成
 
-`vivliostyle build` コマンドの `--press-ready` オプションにより印刷入稿に適した PDF/X-1a 形式で出力することができます。
+`vivliostyle build` コマンドの `--preflight press-ready` オプションにより印刷入稿に適した PDF/X-1a 形式で出力することができます。この機能を使うためには、事前に [Docker](https://docs.docker.jp/get-docker.html) のインストールが必要です。
 
-この機能を使うためには、事前に [Docker](https://docs.docker.jp/get-docker.html) のインストールが必要です。
+`--preflight-option` オプションを指定すると、この処理を実行する [press-ready](https://github.com/vibranthq/press-ready) に対してオプションを追加できます。
+
+```
+# グレースケール化して出力
+vivliostyle build manuscript.md --preflight press-ready --preflight-option gray-scale
+# フォントを強制的にアウトライン化して出力
+vivliostyle build manuscript.md --preflight press-ready --preflight-option enforce-outline
+```
+
+また、`--preflight press-ready-local` オプションを指定すると、PDF/X-1a 形式への出力をローカル環境で実行します。ただし、通常は Docker 環境上で実行することをおすすめします。
+
+## Docker を利用した生成
+
+`vivliostyle build` コマンドで `--render-mode docker` オプションを指定すると、PDF 出力時の環境として Docker を指定できます（上記のオプションでは後処理のみ Docker 上で実行しますが、このオプションは全ての処理を Docker 上で実行します）Docker を用いることで出力時の環境を固定できるため、異なる環境・OSでも同じ出力結果となることを保証できます。
+
+Docker render mode を使用する際は、以下の点に注意してください。
+* Docker はホスト環境から隔離されているため、ホストにインストールされているフォントを利用することができません。Docker コンテナで標準で使用できるフォントは限られており、通常はローカルのフォントファイルを配置して CSS で指定するか、Google font などの Web フォントを使用する必要があります。
+* Docker にマウントされるファイルはプロジェクトの workspace directory （通常は vivliostyle.config.js を含むディレクトリ）のみで、その他のファイルは Docker コンテナ内部から参照することができない。イメージなどドキュメント内で参照されるファイルは全て workspace directory に含める必要があります。
 
 ## PDF の「しおり」(Bookmarks) の生成
 
