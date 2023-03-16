@@ -191,21 +191,9 @@ vivliostyle build manuscript.md --theme @vivliostyle/theme-techbook -o paper.pdf
 
 ```
 vivliostyle preview index.html
-```
-
-```
 vivliostyle preview https://example.com --user-style my-style.css
-```
-
-```
 vivliostyle preview publication.json
-```
-
-```
 vivliostyle preview epub-sample.epub --user-style my-style.css
-```
-
-```
 vivliostyle preview manuscript.md --theme my-theme/style.css
 ```
 
@@ -215,13 +203,7 @@ vivliostyle preview manuscript.md --theme my-theme/style.css
 
 ```
 vivliostyle preview index.html --quick
-```
-
-```
 vivliostyle preview publication.json --quick
-```
-
-```
 vivliostyle preview epub-sample.epub --quick
 ```
 
