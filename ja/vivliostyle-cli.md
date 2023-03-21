@@ -58,11 +58,11 @@ HTMLファイルに指定されているスタイルシートに加えて、追�
 vivliostyle build example.html --style additional-style.css
 ```
 
-この方法で指定したスタイルシートは、HTMLファイルで指定されているスタイルシートと同様（[制作者スタイルシート](https://developer.mozilla.org/ja/docs/Web/CSS/Cascade#author_stylesheets)）の扱いで、よりあとに指定されたことになるので、CSSのカスケーディング規則により、HTMLファイルからのスタイルの指定を上書きすることになります。
+この方法で指定したスタイルシートは、HTMLファイルで指定されているスタイルシートと同様（[制作者スタイルシート](https://developer.mozilla.org/ja/docs/Web/CSS/Cascade#%E4%BD%9C%E6%88%90%E8%80%85%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB%E3%82%B7%E3%83%BC%E3%83%88)）の扱いで、よりあとに指定されたことになるので、CSSのカスケーディング規則により、HTMLファイルからのスタイルの指定を上書きすることになります。
 
 ### ユーザースタイルシートの指定
 
-[ユーザースタイルシート](https://developer.mozilla.org/ja/docs/Web/CSS/Cascade#user_stylesheets)を使うには、`--user-style` オプションでスタイルシートを指定します。（ユーザースタイルシートは、スタイル指定に `!important` を付けないかぎり、制作者スタイルシートのスタイル指定を上書きしません。）
+[ユーザースタイルシート](https://developer.mozilla.org/ja/docs/Web/CSS/Cascade#%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB%E3%82%B7%E3%83%BC%E3%83%88)を使うには、`--user-style` オプションでスタイルシートを指定します。（ユーザースタイルシートは、スタイル指定に `!important` を付けないかぎり、制作者スタイルシートのスタイル指定を上書きしません。）
 
 ```
 vivliostyle build example.html --user-style user-style.css
@@ -96,7 +96,7 @@ vivliostyle build slide.html -s 10in,7.5in -o slide.pdf
 vivliostyle build example.html -m
 ```
 
-`--bleed` オプションでトンボを追加したときの塗り足し幅を指定することができます。また、`--crop-offset` オプションで裁ち落とし線から外側の幅を指定することができます。
+`--bleed` オプションでトリムマークを追加したときの塗り足し幅を指定することができます。また、`--crop-offset` オプションで裁ち落とし線から外側の幅を指定することができます。
 
 ```
 vivliostyle build example.html -m --bleed 5mm
