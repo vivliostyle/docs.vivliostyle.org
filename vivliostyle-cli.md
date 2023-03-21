@@ -34,16 +34,6 @@ vivliostyle build book.html -o book.pdf
 
 To view the typesetting results without outputting a PDF, see [Preview the typesetting results](#preview-the-typesetting-results).
 
-### Specify the page size
-
-The `-s` (`--size`) option can be used to specify the page size. The possible sizes are A5, A4, A3, B5, B4, JIS-B5, JIS-B4, letter, legal, ledger, or comma-separated width and height.
-
-```
-vivliostyle build paper.html -s A4 -o paper.pdf
-vivliostyle build letter.html -s letter -o letter.pdf
-vivliostyle build slide.html -s 10in,7.5in -o slide.pdf
-```
-
 ### Specify a Web URL
 
 In addition to a local HTML file, you can also specify a Web URL.
@@ -78,6 +68,43 @@ override styles of author style sheets unless specifying `!important`).
 ```
 vivliostyle build example.html --user-style user-style.css
 ```
+
+### Specify CSS content directly
+
+The `--css` option allows you to pass the style sheets you wish to add as CSS text directly. This option is useful for setting simple style sheets or CSS variables.
+
+```
+vivliostyle build example.html --css "body { background-color: lime; }"
+```
+
+### Specify the page size
+
+The `-s` (`--size`) option can be used to specify the page size. The possible sizes are A5, A4, A3, B5, B4, JIS-B5, JIS-B4, letter, legal, ledger, or comma-separated width and height.
+
+```
+vivliostyle build paper.html -s A4 -o paper.pdf
+vivliostyle build letter.html -s letter -o letter.pdf
+vivliostyle build slide.html -s 10in,7.5in -o slide.pdf
+```
+
+This option is equivalent to `--css "@page { size: <size>; }"`.
+
+### Setting crop marks
+
+The `-m` (`--crop-marks`) option will add crop marks (markers that indicate where to cut the printed material) to the output PDF.
+
+```
+vivliostyle build example.html -m
+```
+
+The `--bleed` option can be used to specify the width of the fill when trim marks are added. You can also use the `--crop-offset` option to specify the width outside the bleed line.
+
+```
+vivliostyle build example.html -m --bleed 5mm
+vivliostyle build example.html -m --crop-offset 20mm
+```
+
+This option is equivalent to `--css "@page { marks: crop cross; bleed: <bleed>; crop-offset: <crop-offset>; }"`.
 
 ## Generate PDF from EPUB
 
@@ -153,27 +180,21 @@ The `-T` (`--theme`) option can be used to specify a CSS file.
 vivliostyle build manuscript.md --theme my-theme/style.css -o paper.pdf
 ```
 
+If you cannot prepare your own CSS files, Vivliostyle Themes makes it easy to apply styles. See [About Vivliostyle Themes](#about-vivliostyle-themes) for more information about theme files.
+
+```
+vivliostyle build manuscript.md --theme @vivliostyle/theme-techbook -o paper.pdf
+```
+
 ## Preview the typesetting results
 
 The `vivliostyle preview` command can be used to preview the typesetting results in the browser with [Vivliostyle Viewer](./vivliostyle-viewer.md).
 
 ```
 vivliostyle preview index.html
-```
-
-```
 vivliostyle preview https://example.com --user-style my-style.css
-```
-
-```
 vivliostyle preview publication.json
-```
-
-```
 vivliostyle preview epub-sample.epub --user-style my-style.css
-```
-
-```
 vivliostyle preview manuscript.md --theme my-theme/style.css
 ```
 
@@ -183,13 +204,7 @@ To preview quickly a large publication consisting of multiple HTML documents, sp
 
 ```
 vivliostyle preview index.html --quick
-```
-
-```
 vivliostyle preview publication.json --quick
-```
-
-```
 vivliostyle preview epub-sample.epub --quick
 ```
 
@@ -203,17 +218,13 @@ To find the themes published as npm packages, search for the keyword "vivliostyl
 
 - [List of Themes (npm)](https://www.npmjs.com/search?q=keywords%3Avivliostyle-theme)
 
-### Install a theme
+### Using a theme
 
-To use a theme published as a npm package in Vivliostyle CLI, you need to install it.
-
-```
-npm install @vivliostyle/theme-techbook
-```
+The theme is available with the `--theme` option or by specifying `theme` in the configuration file. If the Theme file does not exist locally, it will be installed automatically on the first run.
 
 ### Using the Create Book
 
-A easier way to use Vivliostyle Themes is to use Create Book. See [Create Book](create-book).
+Create Book makes it easy to create a project with a preset Theme. See [Create Book](create-book).
 
 ## Configuration file vivliostyle.config.js
 
@@ -238,26 +249,26 @@ The configuration settings are explained in the comments (beginning with `//`) i
 - **language**: Language. Example: `language: 'en'`. If this is specified, it will be reflected in the `lang` attribute of the HTML.
 - **size**: Page size. Example: `size: 'A4'`.
 - **theme**: Specify a CSS file. Example: `theme: 'style.css'`, or specify a [Vivliostyle Themes](https://vivliostyle.github.io/themes/) package name. Example: `theme: '@vivliostyle/theme-techbook'`.
-- **entry**: Specify input Markdown or HTML files.
+- **entry**: Specify an array of input Markdown or HTML files.
     ```js
     entry: [
-      'introduction.md',
+      {
+        path: 'about.md',
+        title: 'About This Book',
+        theme: 'about.css'
+      },
       'chapter1.md',
       'chapter2.md',
       'glossary.html'
     ],
     ```
-    - You can specify `title` and `theme` for individual items in the `entry`.
-        ```js
-        entry: [
-          {
-            path: 'about.md',
-            title: 'About This Book',
-            theme: 'about.css'
-          },
-          ...
-        ],
-        ```
+    The entry can be specified as a string or as an object. In the case of object format, the following members can be added:
+    - `path`: Specifies the path of the entry. This member is required, but it becomes optional only when `rel: 'contents'` is specified.　For more information on this specification, see [To output the table of contents to a location other than the top of the publication](#to-output-the-table-of-contents-to-a-location-other-than-the-top-of-the-publication).
+    - `title`: Specify the title of the entry.
+    - `theme`: Specify the CSS file or [Vivliostyle Themes](https://vivliostyle.github.io/themes/) package name to be applied to the entry.
+    - `encodingFormat`: Specifies the format of the entry in MIME media type format. If not specified, it is automatically inferred from the file content.
+    - `rel`: Specify the property that represents the relationship between the entries. See https://www.w3.org/TR/wpub/#manifest-rel for information on what to set.
+
 - **output**: Output path(s). Example: `output: 'output.pdf'`. The default is `{title}.pdf`. It is also possible to specify multiple outputs as follows:
     ```js
     output: [
@@ -268,15 +279,68 @@ The configuration settings are explained in the comments (beginning with `//`) i
       },
     ],
     ```
-    For `webpub` output, see [Web Publications (webpub)](#web-publications-webpub).
+    The output can be specified as a string or an object. In the case of object, the following members can be added:
+    - `path`: Specifies the path to the output destination. This member is required.
+    - `format`: Specifies the output format (available options: `'pdf'`, `'webpub'`) For the detail of `webpub` output, see [Web Publications (webpub)](#web-publications-webpub).
+    - `renderMode`: (Only for `format: 'pdf'`) Specifies the environment in which the output will be generated (available options: `'local'`, `'docker'`) For the detail of generation on Docker, see [Generate using Docker](#generate-using-docker).
+    - `preflight`: (Only for `format: 'pdf'`) Specify post-processing for the output PDF (possible options: `'press-ready'`, `'press-ready-local'`) For generating a print-ready PDF using press-ready see [Generate PDF for print (PDF/X-1a format)](#generate-pdf-for-print-pdfx-1a-format).
+    - `preflightOption`: (Only for `format: 'pdf'`) Specify the features during PDF post-processing in the form of an array of strings.
+
 - **workspaceDir**: Specify the directory where intermediate files are saved. If this is not specified, the default is the current directory, and the HTML files converted from Markdown will be stored in the same location as the Markdown files. Example: `workspaceDir: '.vivliostyle'`.
 - **toc**: If `toc: true` is specified, the HTML file `index.html` containing the table of contents will be output. See [Creating a Table of Contents](#creating-a-table-of-contents) for details.
+- **tocTitle**: Specify the title of the automatically generated table of contents file.
+- **readingProgression**: Specifies the reading direction of the document (available options: `'ltr'`, `'rtl'`), usually automatically guessed by the CSS horizontal/vertical writing specification (writing-mode), so use only if you want to specify it explicitly.
+- **timeout**: Change the time limit (timeout) before the build completes (in milliseconds)
+- **vfm**: Specifies transformation options for VFM.
+- **image**: Change the Docker image to be used.
+- **http**: Start Vivliostyle Viewer in HTTP server mode. This is useful when an external resource requests CORS.
+- **viewer**: Change the URL of the Viviliostyle Viewer you want to use. This is useful if you want to use your own Viewer.
+
+Multiple of the above configuration file options can be specified as an array. When set up as an array, it is convenient to handle multiple inputs and outputs at once.
+The following example is a configuration file that converts a Markdown file in the `src` directory to a PDF file of the same name.
+
+```js
+const fs = require('fs');
+const path = require('path');
+
+const inputDir = path.join(__dirname, 'src');
+const outputDir = path.join(__dirname, 'output');
+const files = fs.readdirSync(inputDir);
+
+const vivliostyleConfig = files
+  .filter((name) => name.endsWith('.md'))
+  .map((name) => ({
+    title: `Article ${path.basename(name, '.md')}`,
+    entry: name,
+    entryContext: inputDir,
+    output: path.join(outputDir, `${path.basename(name, '.md')}.pdf`),
+  }));
+module.exports = vivliostyleConfig;
+```
 
 ## Generate PDF for print (PDF/X-1a format)
 
-You can use `vivliostyle build` command with the `--press-ready` option to output in PDF/X-1a format suitable for printing.
+You can use `vivliostyle build` command with the `--preflight press-ready` option to output in PDF/X-1a format suitable for printing. To use this feature, you need [Docker](https://docs.docker.com/get-docker/) installed.
 
-To use this feature, you need [Docker](https://docs.docker.com/get-docker/) installed.
+`--preflight-option` allows additional options for [press-ready](https://github.com/vibranthq/press-ready) to perform this operation.
+
+```
+# Grayscale output
+vivliostyle build manuscript.md --preflight press-ready --preflight-option gray-scale
+# Forces outlined fonts
+vivliostyle build manuscript.md --preflight press-ready --preflight-option enforce-outline
+```
+
+The option `--preflight press-ready-local` will execute output to PDF/X-1a format in a local environment. However, we usually recommended to run it on a Docker environment.
+
+## Generate using Docker
+
+You can use `vivliostyle build` command with the `--render-mode docker` option to specify Docker as the environment for PDF output (only post-processing is performed on Docker with the above option, this option performs all processing on Docker). Docker can be used to fix the output environment, so you can be sure that the output will be the same on different environments and operating systems.
+
+When using Docker render mode, please note the following:
+
+* Since Docker is isolated from the host environment, it cannot use the fonts installed on the host. There are only a limited number of fonts that can be used as standard in Docker containers, and you usually need to place local font files and specify them with CSS, or use web fonts such as Google font.
+* The only file that will be mounted in Docker is _the project workspace directory_ (usually the directory containing vivliostyle.config.js), other files cannot be referenced from inside the Docker container. All files that are referenced in the document, such as images, should be included in the workspace directory.
 
 ## Generate PDF Bookmarks
 
