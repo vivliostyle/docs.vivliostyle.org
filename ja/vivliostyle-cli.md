@@ -88,7 +88,7 @@ vivliostyle build slide.html -s 10in,7.5in -o slide.pdf
 
 このオプションは、`--css "@page { size: <size>; }"` と同等です。
 
-### トンボ（トリムマーク）の指定
+### トンボ（crop marks）の指定
 
 `-m` (`--crop-marks`) オプションを指定すると、出力されるPDFにトンボ（印刷物の裁断位置を示す目印）が追加されます。
 
@@ -96,7 +96,7 @@ vivliostyle build slide.html -s 10in,7.5in -o slide.pdf
 vivliostyle build example.html -m
 ```
 
-`--bleed` オプションでトリムマークを追加したときの塗り足し幅を指定することができます。また、`--crop-offset` オプションで裁ち落とし線から外側の幅を指定することができます。
+`--bleed` オプションでトンボを追加したときの塗り足し幅を指定することができます。また、`--crop-offset` オプションで裁ち落とし線から外側の幅を指定することができます。
 
 ```
 vivliostyle build example.html -m --bleed 5mm
