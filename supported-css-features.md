@@ -24,6 +24,8 @@ In addition, essentially all CSS properties and values supported by the browser 
   - Only supported in values of `content` property.
 - [`string()` function (Named Strings)](https://www.w3.org/TR/css-content-3/#string-function)
 - [`content()` function](https://www.w3.org/TR/css-content-3/#content-function)
+- [`running()` function (Running Elements)](https://www.w3.org/TR/css-gcpm-3/#running-syntax)
+- [`element()` function (Running Elements)](https://www.w3.org/TR/css-gcpm-3/#element-syntax)
 - [`leader()` function](https://www.w3.org/TR/css-content-3/#leaders)
 - [`calc()` function](https://www.w3.org/TR/css-values/#funcdef-calc)
 - [`env()` function](https://drafts.csswg.org/css-env/)
@@ -303,12 +305,13 @@ See also: [At-rules in CSS Paged Media 3](#css-paged-media-3)
 ## [CSS Generated Content for Paged Media (GCPM) 3](https://www.w3.org/TR/css-gcpm-3/)
 
 - [string-set (Named Strings)](https://www.w3.org/TR/css-gcpm-3/#setting-named-strings-the-string-set-pro)
+- [position: running() (Running Elements)](https://www.w3.org/TR/css-gcpm-3/#running-elements)
 - [footnote-policy](https://www.w3.org/TR/css-gcpm-3/#propdef-footnote-policy)
   - Supports [`auto`, `line`](https://www.w3.org/TR/css-gcpm-3/#propdef-footnote-policy) values.
 
 See also:
 - [At-rules in CSS Generated Content for Paged Media (GCPM) 3](#css-generated-content-for-paged-media-gcpm-3)
-- [Values - Cross references, string(), content(), and leader() functions](#values)
+- [Values - Cross references, string(), content(), running(), element(), and leader() functions](#values)
 
 ## [CSS Fragmentation 3](https://www.w3.org/TR/css-break-3/)
 
