@@ -441,7 +441,7 @@ See also: [At-rules in CSS Fonts 3](#css-fonts-3)
 - [text-autospace](https://www.w3.org/TR/css-text-4/#text-autospace-property)
   - Supported values: `normal | no-autospace | [ ideograph-alpha || ideograph-numeric ] | auto`
 - [text-spacing-trim](https://www.w3.org/TR/css-text-4/#text-spacing-trim-property)
-  - Values: `space-all |  trim-auto | [ allow-end || space-first ] | auto`
+  - Values: `space-all | normal | space-first | trim-start | trim-both | auto`
 - [text-spacing](https://www.w3.org/TR/css-text-4/#text-spacing-property)
   - Values: `normal | none | auto | [<autospace> || <spacing-trim>]`
   - Note: This is a shorthand property that sets the `text-autospace` and `text-spacing-trim` properties. See [[Pull Request ]](https://github.com/vivliostyle/vivliostyle.js/pull/1142)
