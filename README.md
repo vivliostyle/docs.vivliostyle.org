@@ -3,7 +3,7 @@
 ## User Guides
 
 - [Vivliostyle Viewer](/vivliostyle-viewer)
-- [Vivliostyle CLI](/vivliostyle-cli)
+- [Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli/blob/main/docs/index.md)
 - [Create Book](/create-book)
 
 ## Contribution Guides

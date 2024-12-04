@@ -3,7 +3,7 @@
 ## ユーザーガイド
 
 - [Vivliostyle Viewer](/ja/vivliostyle-viewer)
-- [Vivliostyle CLI](/ja/vivliostyle-cli)
+- [Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli/blob/main/docs/ja/index.md)
 - [Create Book](/ja/create-book)
 
 ## コントリビューションガイド
@@ -19,7 +19,7 @@
 - [Core API リファレンス](/ja/api)
 - [Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli/blob/main/README.md#readme)
 - [Create Book](https://github.com/vivliostyle/create-book#readme)
-- [VFM](https://vivliostyle.github.io/vfm/#/vfm)
+- [VFM](https://vivliostyle.github.io/vfm/#/ja/vfm)
 - [Vivliostyle Themes](https://vivliostyle.github.io/themes/#/ja/)
 
 ## リリース
