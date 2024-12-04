@@ -23,12 +23,13 @@ git clone https://github.com/vivliostyle/vivliostyle.js.git
 cd vivliostyle.js
 ```
 
-`@vivliostyle/core` は `@vivliostyle/viewer` 内の `package.json` でdependencyに含まれています。開発時には、`@vivliostyle/core` はnpmからインストールされたパッケージではなくローカルのコピーを用います。このため、`yarn bootstrap` を使ってシンボリックリンクを作成します。
+依存関係をインストールし、パッケージをリンクします:
 
 ```shell
-yarn install    # install dependencies
-yarn bootstrap  # setup development environment
+yarn install    # install dependencies and link packages
 ```
+
+`@vivliostyle/core` は `@vivliostyle/viewer` 内の `package.json` でdependencyに含まれています。開発時には、`@vivliostyle/core` はnpmからインストールされたパッケージではなくローカルのコピーが用いられます。
 
 ## ビルド・開発サーバーの立ち上げ
 

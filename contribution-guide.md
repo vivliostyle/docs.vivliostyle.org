@@ -23,12 +23,13 @@ git clone https://github.com/vivliostyle/vivliostyle.js.git
 cd vivliostyle.js
 ```
 
-`@vivliostyle/core` is listed as a dependency for @vivliostyle/viewer in `package.json`. During development, you want to use the local copy of `@vivliostyle/core`, rather than a package installed from npm. For this purpose, use `yarn bootstrap` to make a symbolic link:
+Install dependencies and link packages:
 
 ```shell
-yarn install    # install dependencies
-yarn bootstrap  # setup development environment
+yarn install    # install dependencies and link packages
 ```
+
+`@vivliostyle/core` is listed as a dependency for `@vivliostyle/viewer` in `package.json`. During development, the local copy of `@vivliostyle/core` is used rather than the package installed from npm.
 
 ## Build and serve
 
