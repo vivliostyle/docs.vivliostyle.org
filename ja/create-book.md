@@ -222,7 +222,7 @@ theme: 'sample.css',
 
 テーマパッケージは本のスタイルを定義したCSSファイルを含みます。仕様は下記を参照してください。
 
-- [Theme の仕様](https://vivliostyle.github.io/themes/#/ja/spec)
+- [Theme の仕様](https://github.com/vivliostyle/themes/blob/main/docs/ja/spec.md)
 
 なお、テーマパッケージは下記から取得できます。
 

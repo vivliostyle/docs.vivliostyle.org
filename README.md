@@ -20,7 +20,7 @@
 - [Vivliostyle CLI](https://github.com/vivliostyle/vivliostyle-cli/blob/main/README.md#readme)
 - [Create Book](https://github.com/vivliostyle/create-book#readme)
 - [VFM](https://vivliostyle.github.io/vfm/#/vfm)
-- [Vivliostyle Themes](https://vivliostyle.github.io/themes/#/)
+- [Vivliostyle Themes](https://github.com/vivliostyle/themes/blob/main/docs/index.md)
 
 ## Releases
 

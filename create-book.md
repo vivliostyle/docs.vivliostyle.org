@@ -218,7 +218,7 @@ theme: 'sample.css',
 ```
 A theme package contains a CSS file that defines the style of the book. Please refer to A specification below.
 
-- [Spec of Theme](https://vivliostyle.github.io/themes/#/spec)
+- [Spec of Theme](https://github.com/vivliostyle/themes/blob/main/docs/spec.md)
 
 The theme package can be obtained from the following.
 
