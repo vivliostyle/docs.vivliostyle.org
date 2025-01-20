@@ -331,14 +331,24 @@ See also:
 ## [CSS Page Floats](https://drafts.csswg.org/css-page-floats/)
 
 - [clear](https://drafts.csswg.org/css-page-floats/#propdef-clear)
-  - Supports [`none`, `left`, `right`, `top`, `bottom`, `both`, `all`, `same`](https://drafts.csswg.org/css-page-floats/#propdef-clear) values.
+  - Supports [`none`, `inline-start`, `inline-end`, `block-start`, `block-end`, `left`, `right`, `top`, `bottom`, `both`, `all`, `same`](https://drafts.csswg.org/css-page-floats/#propdef-clear) values.
   - When `all` is specified on a block-level box (not a page float), the block-start edge of the box gets pushed down so that the edge comes after any block-start/block-end page float of which anchors are before the box in the document order.
   - When a `clear` value is specified on a page float, it is placed so that it comes after any of preceding page floats.
   - `same` value means the same direction as one which the page float is floated to.
   - If a page float with `float: snap-block` would be placed at the block-start end but a `clear` value on it forbidden such placement, the float is instead placed at the block-end side (unless the `clear` value also forbidden such placement).
 - [float](https://drafts.csswg.org/css-page-floats/#propdef-float)
   - Supports [`block-start`, `block-end`, `inline-start`, `inline-end`, `snap-block`, `left`, `right`, `top`, `bottom` and `none`](https://drafts.csswg.org/css-page-floats/#propdef-float) values.
+  - Supports values combining keywords. For example,
+    - `float: top right;` float to top right corner
+    - `float: bottom left;` float to bottom left corner
+    - `float: top bottom;` float to top or bottom edge
+    - `float: top bottom left;` float to top left or bottom left corner
+    - `float: top bottom left right;` float to top left, top right, bottom left, or bottom right corner
+    - `float: block-start inline-start;` float to block-start and inline-start corner
+    - `float: block-start block-end;` float to block-start or block-end edge (same as 'snap-block')
+    - See [[Pull Request]](https://github.com/vivliostyle/vivliostyle.js/pull/1444)
 - [float-reference](https://drafts.csswg.org/css-page-floats/#propdef-float-reference)
+  - Specify `float-reference: page` (or `column`/`region`) to enable page (or column/region) float.
 - float-min-wrap-block
   - Applies to a page float
   - A percentage value is respect to the block dimension of the float reference of the page float
