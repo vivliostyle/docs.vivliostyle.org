@@ -296,8 +296,10 @@ See also: [Properties in CSS Fonts 3](#css-fonts-3-2)
   - Supports all required values and proposed values `A0`-`A10`, `B0`-`B10`, `C0`-`C10` and `JIS-B0`-`JIS-B10`. See [[Pull Request]](https://github.com/vivliostyle/vivliostyle.js/pull/713)
 - crop-offset
   - Specifies distance between the edge of the trim size and the edge of the output page media size
-  - Only effective when specified within an `@page` rule without page selectors
   - This property is not standardized yet. See [[Issue]](https://github.com/vivliostyle/vivliostyle.js/issues/913)
+- crop-marks-line-color
+  - Specifies color of the crop marks
+  - This property is not standardized yet. See [[Pull Request]](https://github.com/vivliostyle/vivliostyle.js/pull/1505)
 - [page (Named Pages)](https://www.w3.org/TR/css-page-3/#using-named-pages)
 
 See also: [At-rules in CSS Paged Media 3](#css-paged-media-3)
