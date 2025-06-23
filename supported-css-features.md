@@ -607,6 +607,27 @@ See also: [At-rules in CSS Fonts 3](#css-fonts-3)
 - [padding-block-start, padding-block-end, padding-inline-start, padding-inline-end, padding-block, padding-inline](https://www.w3.org/TR/css-logical-1/#padding-properties)
 - [border-block-start-width, border-block-end-width, border-inline-start-width, border-inline-end-width, border-block-width, border-inline-width, border-block-start-style, border-block-end-style, border-inline-start-style, border-inline-end-style, border-block-style, border-inline-style, border-block-start-color, border-block-end-color, border-inline-start-color, border-inline-end-color, border-block-color, border-inline-color, border-block-start, border-block-end, border-inline-start, border-inline-end, border-block, border-inline](https://www.w3.org/TR/css-logical-1/#border-properties)
 
+## Page spread inside/outside properties and values
+
+In these properties and values, the `inside` and `outside` keywords resolve to `left` and `right` depending on whether the page is left or right page.
+
+Note: These CSS properties and values are not standardized yet.  See [[Pull Request]](https://github.com/vivliostyle/vivliostyle.js/pull/1519)
+
+Added \*-inside/outside properties:
+
+- margin-inside, margin-outside
+- padding-inside, padding-outside
+- border-inside, border-outside
+- border-inside-color, border-outside-color
+- border-inside-style, border-outside-style
+- border-inside-width, border-outside-width
+- inset-inside, inset-outside
+
+Extended properties with `inside` and `outside` values:
+
+- float, clear
+- text-align, text-align-last
+
 ## [EPUB Adaptive Layout](http://www.idpf.org/epub/pgt/)
 
 Note: This spec is not on a W3C standards track. Future version of Vivliostyle may drop support for this spec.
