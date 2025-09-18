@@ -338,6 +338,7 @@ See also:
   - When a `clear` value is specified on a page float, it is placed so that it comes after any of preceding page floats.
   - `same` value means the same direction as one which the page float is floated to.
   - If a page float with `float: snap-block` would be placed at the block-start end but a `clear` value on it forbidden such placement, the float is instead placed at the block-end side (unless the `clear` value also forbidden such placement).
+  - The `page`, `column`, and `region` values ensure that preceding page floats are placed before the page/column/region containing the element that has the `clear` property, which can be a page float, a normal float, or a block-level box.
 - [float](https://drafts.csswg.org/css-page-floats/#propdef-float)
   - Supports [`block-start`, `block-end`, `inline-start`, `inline-end`, `snap-block`, `left`, `right`, `top`, `bottom` and `none`](https://drafts.csswg.org/css-page-floats/#propdef-float) values.
   - Supports values combining keywords. For example,
