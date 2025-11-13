@@ -20,7 +20,7 @@ In addition, essentially all CSS properties and values supported by the browser 
 - [Attribute references: `attr()`](https://www.w3.org/TR/css-values/#attr-notation)
   - Only supported in values of `content` property.
   - Only 'string' and 'url' types are supported.
-- [Cross references: `target-counter()` and `target-counters()`](https://www.w3.org/TR/css-content-3/#cross-references)
+- [Cross references: `target-counter()`, `target-counters()` and `target-text()`](https://www.w3.org/TR/css-content-3/#cross-references)
   - Only supported in values of `content` property.
 - [`string()` function (Named Strings)](https://www.w3.org/TR/css-content-3/#string-function)
 - [`content()` function](https://www.w3.org/TR/css-content-3/#content-function)
