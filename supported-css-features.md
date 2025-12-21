@@ -100,6 +100,10 @@ In addition, essentially all CSS properties and values supported by the browser 
 
 - [`:nth-fragment()` pseudo-element](https://www.w3.org/TR/css-overflow-4/#fragment-pseudo-element)
 
+### [CSS Pseudo-Elements 4](https://www.w3.org/TR/css-pseudo-4/)
+
+- [`::marker` pseudo-element](https://www.w3.org/TR/css-pseudo-4/#marker-pseudo)
+
 #### Not supported selectors
 
 - [Type selectors without namespaces `|E`](https://www.w3.org/TR/selectors-3/#typenmsp)
@@ -160,6 +164,12 @@ See also:
   - [unicode-range descriptor](https://www.w3.org/TR/css-fonts-3/#unicode-range-desc)
 
 See also: [Properties in CSS Fonts 3](#css-fonts-3-2)
+
+### [CSS Counter Styles 3](https://www.w3.org/TR/css-counter-styles-3/)
+
+- [@counter-style](https://www.w3.org/TR/css-counter-styles-3/#the-counter-style-rule)
+- [Extending `list-style-type`, `counter()`, and `counters()`](https://www.w3.org/TR/css-counter-styles-3/#extending-css2)
+- [Predefined Counter Styles](https://www.w3.org/TR/css-counter-styles-3/#predefined-counters)
 
 ## Media queries
 
@@ -470,6 +480,10 @@ See also: [At-rules in CSS Fonts 3](#css-fonts-3)
 - [text-emphasis-style](https://www.w3.org/TR/css-text-decor-3/#text-emphasis-style-property)
 - [text-shadow](https://www.w3.org/TR/css-text-decor-3/#text-shadow-property)
 - [text-underline-position](https://www.w3.org/TR/css-text-decor-3/#text-underline-position-property)
+
+## [CSS Inline Layout 3](https://www.w3.org/TR/css-inline-3/)
+
+- [initial-letter](https://www.w3.org/TR/css-inline-3/#sizing-drop-initials)
 
 ## [CSS Multi-column 1](https://www.w3.org/TR/css3-multicol/)
 
