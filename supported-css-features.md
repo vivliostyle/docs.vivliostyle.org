@@ -95,6 +95,8 @@ In addition, essentially all CSS properties and values supported by the browser 
 - [`:not()` pseudo-class](https://www.w3.org/TR/selectors-4/#negation)
 - [`:where()` pseudo-class](https://www.w3.org/TR/selectors-4/#zero-matches)
 - [`:has()` pseudo-class](https://www.w3.org/TR/selectors-4/#relational)
+- [`:nth-child(An+B of S)` pseudo-class](https://www.w3.org/TR/selectors-4/#nth-child-pseudo)
+- [`:nth-last-child(An+B of S)` pseudo-class](https://www.w3.org/TR/selectors-4/#nth-last-child-pseudo)
 
 ### [CSS Overflow 4](https://www.w3.org/TR/css-overflow-4/)
 
@@ -149,8 +151,7 @@ See also: [Properties in CSS Paged Media 3](#css-paged-media-3-2)
 
 ### [CSS Generated Content for Paged Media (GCPM) 3](https://www.w3.org/TR/css-gcpm-3/)
 
-- [Nth page selector :nth(An+B)](https://www.w3.org/TR/css-gcpm-3/#document-page-selectors)
-  - The `:nth(An+B)` syntax is supported but the `:nth(An+B of <custom-ident>)` is not yet supported.
+- [Nth page selector `:nth(An+B [of <custom-ident>])`](https://www.w3.org/TR/css-gcpm-3/#document-page-selectors)
   - Note: In multi-document publications, the `:nth(1)` matches the first page of each document, but the `:first` matches only the first page of the first document. [[Issue]](https://github.com/vivliostyle/vivliostyle.js/issues/667#issuecomment-738020563)
 
 See also:
